@@ -1,4 +1,6 @@
-﻿namespace DroneManager.Interface.GenericTypes;
+﻿using DroneManager.Interface.GenericTypes.BaseTypes;
+
+namespace DroneManager.Interface.GenericTypes;
 
 public interface ICommunication
 {

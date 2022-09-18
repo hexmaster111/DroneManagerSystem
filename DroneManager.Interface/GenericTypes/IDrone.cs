@@ -1,9 +1,8 @@
-﻿
-using DroneManager.Interface.GenericTypes;
+﻿using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
 using DroneManager.Interface.RemoteConnection;
 
-namespace DroneManager.Interface;
+namespace DroneManager.Interface.GenericTypes;
 
 public interface IDrone
 {

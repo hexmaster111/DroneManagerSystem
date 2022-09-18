@@ -1,4 +1,5 @@
 ﻿using DroneManager.Interface.GenericTypes;
+using DroneManager.Interface.GenericTypes.BaseTypes;
 
 namespace DroneManager.Interface.Remote;
 

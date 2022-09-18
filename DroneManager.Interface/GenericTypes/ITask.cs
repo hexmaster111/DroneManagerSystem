@@ -1,4 +1,7 @@
-﻿namespace DroneManager.Interface.GenericTypes;
+﻿using DroneManager.Interface.GenericTypes.BaseTypes;
+using TaskStatus = DroneManager.Interface.GenericTypes.BaseTypes.TaskStatus;
+
+namespace DroneManager.Interface.GenericTypes;
 
 public interface ITask
 {

@@ -1,4 +1,4 @@
-﻿namespace DroneManager.Interface.GenericTypes;
+﻿namespace DroneManager.Interface.GenericTypes.BaseTypes;
 
 public enum ConnectionStatus
 {
