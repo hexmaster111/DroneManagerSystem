@@ -7,4 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DroneManager.Interface
-build_property.ProjectDir = C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\DroneManager.Interface\
+build_property.ProjectDir = /home/hailey/RiderProjects/DroneManager/DroneManager.Interface/
