@@ -1,4 +1,6 @@
-﻿namespace DroneManager.Interface.GenericTypes;
+﻿using System.Diagnostics;
+
+namespace DroneManager.Interface.GenericTypes;
 
 public class DroneId
 {
@@ -23,8 +25,15 @@ public class DroneId
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }
-    
-    
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is not DroneId id)
+            return false;
+        
+        return id._Id == _Id && id._Type == _Type;
+    }
+
     public DroneId(DroneType type, int id)
     {
         _Type = type;

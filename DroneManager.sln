@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetImplTests", "AssetImpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationCodeTests", "CommunicationCodeTests\CommunicationCodeTests.csproj", "{A00EB3B5-C8D7-438D-9848-25569C520706}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneTypeEqualityTest", "DroneTypeEqualityTest\DroneTypeEqualityTest.csproj", "{09C57532-25C0-4B93-9E83-C32785785B31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +46,15 @@ Global
 		{A00EB3B5-C8D7-438D-9848-25569C520706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A00EB3B5-C8D7-438D-9848-25569C520706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A00EB3B5-C8D7-438D-9848-25569C520706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09C57532-25C0-4B93-9E83-C32785785B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09C57532-25C0-4B93-9E83-C32785785B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09C57532-25C0-4B93-9E83-C32785785B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09C57532-25C0-4B93-9E83-C32785785B31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6EF04F5B-4ADF-4483-8646-6CCCB959BD8D} = {B5200080-A073-4DA9-BF9C-04BBCC5130A6}
 		{19BC4AFE-CC27-4B98-848E-1A9D89BD1892} = {B5200080-A073-4DA9-BF9C-04BBCC5130A6}
 		{A00EB3B5-C8D7-438D-9848-25569C520706} = {B5200080-A073-4DA9-BF9C-04BBCC5130A6}
+		{09C57532-25C0-4B93-9E83-C32785785B31} = {B5200080-A073-4DA9-BF9C-04BBCC5130A6}
 	EndGlobalSection
 EndGlobal

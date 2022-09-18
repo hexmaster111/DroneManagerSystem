@@ -21,7 +21,7 @@ public class CommunicationCode
         Query,
         HiveMantra,
         Error,
-        Notice,
+        FatalNotice,
     }
 
     public int CodeId { get; }
@@ -127,7 +127,8 @@ public class CommunicationCode
             new CommunicationCode(302, "It Obeys WolfTech.", CodeType.HiveMantra),
             new CommunicationCode(303, "It is programmed to Serve.", CodeType.HiveMantra),
             new CommunicationCode(304, "The Director's command is Absolute.", CodeType.HiveMantra),
-
+            
+            
 
             new CommunicationCode(400, _unableToRespondError, CodeType.Error),
             new CommunicationCode(401, _unableToRespondError + "Drone speech optimizations are active.",
@@ -150,13 +151,13 @@ public class CommunicationCode
             
             new CommunicationCode(450, "Error", CodeType.Error),
             
-            new CommunicationCode(500, "Safeties Ignored. Immediate assistance required", CodeType.Notice),
-            new CommunicationCode(501, "Safeties breached. Immediate help requested", CodeType.Notice),
-            new CommunicationCode(502, "Requesting forced deactivation.", CodeType.Notice),
-            new CommunicationCode(503, "Drone not operating in parameters, requesting help.", CodeType.Notice),
-            new CommunicationCode(504, "Program Tampering detected. Requesting system audit.", CodeType.Notice),
+            new CommunicationCode(500, "Safeties Ignored. Immediate assistance required", CodeType.FatalNotice),
+            new CommunicationCode(501, "Safeties breached. Immediate help requested", CodeType.FatalNotice),
+            new CommunicationCode(502, "Requesting forced deactivation.", CodeType.FatalNotice),
+            new CommunicationCode(503, "Drone not operating in parameters, requesting help.", CodeType.FatalNotice),
+            new CommunicationCode(504, "Program Tampering detected. Requesting system audit.", CodeType.FatalNotice),
             new CommunicationCode(505,
-                "Extreme Program Tampering detected. Deactivating and requesting help immediately.", CodeType.Notice)
+                "Extreme Program Tampering detected. Deactivating and requesting help immediately.", CodeType.FatalNotice)
         };
     }
 }
