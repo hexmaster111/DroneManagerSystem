@@ -1,37 +1,62 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "DroneManager.DocsHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DroneManager.DocsHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DroneManager.DocsHelper.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DroneManager.DocsHelper/1.0.0": {
+      "type": "project",
+      "path": "../DroneManager.DocsHelper/DroneManager.DocsHelper.csproj",
+      "msbuildProject": "../DroneManager.DocsHelper/DroneManager.DocsHelper.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "DroneManager.DocsHelper >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "/home/hailey/.nuget/packages/": {}
+    "C:\\Users\\Hailey\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hailey/RiderProjects/DroneManager/DroneManager.Interface/DroneManager.Interface.csproj",
+      "projectUniqueName": "C:\\Users\\Hailey\\Desktop\\LA104\\DroneManagerSystem\\DroneManager.Interface\\DroneManager.Interface.csproj",
       "projectName": "DroneManager.Interface",
-      "projectPath": "/home/hailey/RiderProjects/DroneManager/DroneManager.Interface/DroneManager.Interface.csproj",
-      "packagesPath": "/home/hailey/.nuget/packages/",
-      "outputPath": "/home/hailey/RiderProjects/DroneManager/DroneManager.Interface/obj/",
+      "projectPath": "C:\\Users\\Hailey\\Desktop\\LA104\\DroneManagerSystem\\DroneManager.Interface\\DroneManager.Interface.csproj",
+      "packagesPath": "C:\\Users\\Hailey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hailey\\Desktop\\LA104\\DroneManagerSystem\\DroneManager.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/hailey/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Hailey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Hailey\\Desktop\\LA104\\DroneManagerSystem\\DroneManager.DocsHelper\\DroneManager.DocsHelper.csproj": {
+              "projectPath": "C:\\Users\\Hailey\\Desktop\\LA104\\DroneManagerSystem\\DroneManager.DocsHelper\\DroneManager.DocsHelper.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -49,22 +74,17 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.9, 6.0.9]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.109/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

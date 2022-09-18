@@ -2,5 +2,6 @@
 
 public enum TaskType
 {
+    Debug,
     Generic,
 }

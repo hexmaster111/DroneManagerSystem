@@ -10,4 +10,5 @@ public interface IDrone
     public Location CurrentLocation { get; }
     public IVital Vitals { get; }
     public IControl Control { get; }
+    public DroneId Id { get; }
 }

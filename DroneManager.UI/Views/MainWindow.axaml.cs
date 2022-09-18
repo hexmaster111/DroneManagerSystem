@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using DroneManager.Interface;
 
 namespace DroneManager.UI.Views
 {
@@ -7,6 +8,8 @@ namespace DroneManager.UI.Views
         public MainWindow()
         {
             InitializeComponent();
+            // IAsset asset;
+            // asset.Drone.Connection.Connect("test");
         }
     }
 }

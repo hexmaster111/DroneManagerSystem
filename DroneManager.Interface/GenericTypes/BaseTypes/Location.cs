@@ -2,11 +2,11 @@
 
 public class Location
 {
-    public double Latitude { get; }
-    public double Longitude { get; }
-    public double Speed { get; }
-    public double Timestamp { get; }
-    public string LocationProvider { get; }
-    public string? LocationName { get; }
-    public string? LocationAddress { get; }
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
+    public double Speed { get; init; }
+    public DateTime TimeStamp { get; init; }
+    public string LocationProvider { get; init; }
+    public string? LocationName { get; init; }
+    public string? LocationAddress { get; init; }
 }

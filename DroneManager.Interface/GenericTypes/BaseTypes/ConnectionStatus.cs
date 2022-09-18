@@ -2,7 +2,7 @@
 
 public enum ConnectionStatus
 {
-    NotTried,
+    NotTried, // Default value
     Connected,
     Connecting,
     Disconnected,

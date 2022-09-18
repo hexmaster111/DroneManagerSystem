@@ -1,6 +1,6 @@
 ﻿namespace DroneManager.Interface.GenericTypes.BaseTypes;
 
-public enum TaskStatus
+public enum DroneTaskStatus
 {
     InProgress,
     Completed,

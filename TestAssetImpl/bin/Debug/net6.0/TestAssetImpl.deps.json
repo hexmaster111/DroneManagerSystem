@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TestAssetImpl/1.0.0": {
+        "dependencies": {
+          "DroneManager.Interface": "1.0.0"
+        },
+        "runtime": {
+          "TestAssetImpl.dll": {}
+        }
+      },
+      "DroneManager.DocsHelper/1.0.0": {
+        "runtime": {
+          "DroneManager.DocsHelper.dll": {}
+        }
+      },
+      "DroneManager.Interface/1.0.0": {
+        "dependencies": {
+          "DroneManager.DocsHelper": "1.0.0"
+        },
+        "runtime": {
+          "DroneManager.Interface.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestAssetImpl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DroneManager.DocsHelper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DroneManager.Interface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
