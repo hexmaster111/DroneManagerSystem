@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneManager.UI", "DroneManager.UI\DroneManager.UI.csproj", "{03A85784-C111-4289-902F-1755C0493CE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneManager.DocsHelper", "DroneManager.DocsHelper\DroneManager.DocsHelper.csproj", "{2BB9F2D0-4CE2-4449-AF6A-828806A34931}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03A85784-C111-4289-902F-1755C0493CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03A85784-C111-4289-902F-1755C0493CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03A85784-C111-4289-902F-1755C0493CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03A85784-C111-4289-902F-1755C0493CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB9F2D0-4CE2-4449-AF6A-828806A34931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB9F2D0-4CE2-4449-AF6A-828806A34931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB9F2D0-4CE2-4449-AF6A-828806A34931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB9F2D0-4CE2-4449-AF6A-828806A34931}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
