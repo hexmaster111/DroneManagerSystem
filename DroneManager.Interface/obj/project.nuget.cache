@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RoPVBJ1iE51NxleybgvZkxFCb1ieLMyjsfsviXC/MvLDB3yiVbg2hYBulphm5H0t//U6mSTHnFzkHjZrnUtk0Q==",
+  "success": true,
+  "projectFilePath": "/home/hailey/RiderProjects/DroneManager/DroneManager.Interface/DroneManager.Interface.csproj",
+  "expectedPackageFiles": [
+    "/home/hailey/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.9/microsoft.aspnetcore.app.ref.6.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

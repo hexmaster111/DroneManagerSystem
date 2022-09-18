@@ -1,0 +1,15 @@
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/DroneManager.DocsHelper
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/DroneManager.DocsHelper.deps.json
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/DroneManager.DocsHelper.runtimeconfig.json
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/DroneManager.DocsHelper.dll
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/ref/DroneManager.DocsHelper.dll
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/bin/Debug/net6.0/DroneManager.DocsHelper.pdb
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.csproj.AssemblyReference.cache
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.GeneratedMSBuildEditorConfig.editorconfig
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.AssemblyInfoInputs.cache
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.AssemblyInfo.cs
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.csproj.CoreCompileInputs.cache
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.dll
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/ref/DroneManager.DocsHelper.dll
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.pdb
+/home/hailey/RiderProjects/DroneManager/DroneManager.DocsHelper/obj/Debug/net6.0/DroneManager.DocsHelper.genruntimeconfig.cache
