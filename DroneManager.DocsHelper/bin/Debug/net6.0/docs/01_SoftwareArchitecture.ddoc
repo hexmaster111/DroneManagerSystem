@@ -1,0 +1,18 @@
+# System Architecuture
+	The DroneManager.Interface Project contains all of the type deffinitions DTO Object deffinitions that will are needed to interact with and retreve data about the asset in question.
+	
+# Design Philosophy
+	This system is designed so that you can aquire an istance of IAsset from the asset manager service,and from that object, you can minupluate, edit and change everything about that object from methods on that object. For example, The IDrone Interface contains an instance of IControl, from that instance, the opperator can add a task to the Tasks Queue, and from there the implimentation of IControl will manage serlisation, sending, and Checking to ensure that the new task as been added to the queue.
+	
+# High Level Deffinitions
+	- IAsset : The root deffinition of an asset, this contains ALL control and data about `asset` 
+	- - IDrone : Real Time Data, Task Management, Location and Vitals
+	- - - IRemoteConnection : Methods for remote communication to the asset.
+	- - - Location : Updated when the gettter is called, Current Location.
+	- - - IVital : Methods for getting Human life Vitals
+	- - - IControl : High Level Controll for Task management
+	- - - - ITask : A single unit of work that needs to be done by the drone, Implimented as a Queue, so that task Queuing and Decuing are done at the data level.
+	- - - - ControlMode : A method for setting the current task opperation mode, providing an easy way to override current tasks and change what task is being opperated on in the queue
+	- - MetaData : Meta Information about the Asset, contains encripted medical data along with information about who the asset was in its past life.
+	- - TaskHistory : History of all tasks the asset has ever had scheduled, with notes and other info for task tracking
+	
