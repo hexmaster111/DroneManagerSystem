@@ -1,12 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Text.RegularExpressions;
-using DroneManager.Interface.DroneCommunicationCodes;
+﻿using DroneManager.Interface.DroneCommunicationCodes;
 
 bool running = true;
 var communicationCodes = CommunicationCode.GetCommunicationCodes();
-
-
 string command = "";
 List<CommunicationCode> DisplayedCodes = new();
 
@@ -19,19 +14,39 @@ while (running)
     var commandKey = Console.ReadKey();
     Console.Clear();
 
-    command += commandKey.KeyChar;
+    if (commandKey.Key == ConsoleKey.Backspace && command.Length > 0)
+        command = command.Remove(command.Length - 1);
+    else if (commandKey.Key == ConsoleKey.Backspace && command.Length == 0)
+        continue;
+    else
+        command += commandKey.KeyChar;
+
 
     Console.BackgroundColor = ConsoleColor.Black;
     Console.ForegroundColor = ConsoleColor.White;
 
+    List<string> output = new();
     //Look through the list of communication codes to see if the command matches any of them
-    foreach (var code in communicationCodes)
+    foreach (var code in communicationCodes.Reverse())
     {
         DisplayedCodes.Add(code);
-        if (code.CodeValue.ToLower().Contains(command.ToLower())) Console.WriteLine(code.ToString());
-        if (code.CodeId.ToString().ToLower().Contains(command)) Console.WriteLine(code.ToString());
-    }
+        if (code.CodeValue.ToLower().Contains(command.ToLower()))
+        {
+            Console.WriteLine(code.ToString());
+            continue;
+        }
 
+        if (code.CodeId.ToString().ToLower().Contains(command))
+        {
+            Console.WriteLine(code.ToString());
+            continue;
+        }
+        if (code.Type.ToString().ToLower().Contains(command))
+        {
+            Console.WriteLine(code.ToString());
+            continue;
+        }
+    }
 
     if (commandKey.Key == ConsoleKey.Enter)
     {
@@ -39,6 +54,5 @@ while (running)
         command = "";
     }
 
-    //Check if the user wants to quit
     if (command == "quit") running = false;
 }
