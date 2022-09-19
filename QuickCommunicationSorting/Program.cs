@@ -31,21 +31,11 @@ while (running)
     {
         DisplayedCodes.Add(code);
         if (code.CodeValue.ToLower().Contains(command.ToLower()))
-        {
             Console.WriteLine(code.ToString());
-            continue;
-        }
-
-        if (code.CodeId.ToString().ToLower().Contains(command))
-        {
+        else if (code.CodeId.ToString().ToLower().Contains(command))
             Console.WriteLine(code.ToString());
-            continue;
-        }
-        if (code.Type.ToString().ToLower().Contains(command))
-        {
+        else if (code.Type.ToString().ToLower().Contains(command))
             Console.WriteLine(code.ToString());
-            continue;
-        }
     }
 
     if (commandKey.Key == ConsoleKey.Enter)
