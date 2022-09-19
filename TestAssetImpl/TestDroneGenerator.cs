@@ -16,7 +16,7 @@ public static class TestDroneGenerator
     
     private class DroneImpl : IDrone
     {
-        public IRemoteConnection Connection => new RemoteConnectionImpl();
+        public IRemoteStreamConnection Connection => new RemoteConnectionImpl();
 
         public Location CurrentLocation => new Location()
         {
@@ -106,8 +106,10 @@ public static class TestDroneGenerator
         public double BreathingRate => 12;
     }
 
-    private class RemoteConnectionImpl : IRemoteConnection
+    private class RemoteConnectionImpl : IRemoteStreamConnection
     {
+        public event Action<object>? DataSent;
+        public event Action<object>? ConnectionStatusChanged;
         public ConnectionType ConnectionType => ConnectionType.Debugging;
         public ConnectionStatus Status => ConnectionStatus.NotTried;
 
@@ -115,6 +117,8 @@ public static class TestDroneGenerator
         {
             throw new NotImplementedException();
         }
+
+        public event Action<object>? DataReceived;
 
         public void Disconnect(object? disconnectionArgs)
         {
@@ -125,5 +129,12 @@ public static class TestDroneGenerator
         {
             throw new NotImplementedException();
         }
+
+        public bool RequestData(object requestArgs)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IRemoteStreamConnection Connection { get; }
     }
 }

@@ -6,7 +6,7 @@ namespace DroneManager.Interface.GenericTypes;
 
 public interface IDrone
 {
-    public IRemoteConnection Connection { get; }
+    public IRemoteStreamConnection Connection { get; }
     public Location CurrentLocation { get; }
     public IVital Vitals { get; }
     public IControl Control { get; }
