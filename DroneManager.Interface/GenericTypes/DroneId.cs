@@ -42,6 +42,6 @@ public class DroneId
 
     public override string ToString()
     {
-        return $"{_prefix}{_separator}{_TypeToString(_Type)}{_separator}{_Id}";
+        return $"{_prefix}{_separator}{_Id}{_separator}{_TypeToString(_Type)}";
     }
 }

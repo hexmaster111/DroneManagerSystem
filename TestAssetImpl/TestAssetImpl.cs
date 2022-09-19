@@ -41,6 +41,8 @@ public static class TestMetadataGenerator
         
         private class PrivateDataImpl : PrivateData
         {
+            
+            public byte[] Data { get; } = new byte[1000];
             public override bool ReadMedicalData(object code, out MedicalData medicalData)
             {
                 medicalData = new MedicalData()
