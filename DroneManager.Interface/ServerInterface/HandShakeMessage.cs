@@ -13,6 +13,14 @@ public class HandShakeMessage : ISendable
         TimeStamp = DateTime.Now;
     }
 
+
+    [JsonConstructor]
+    public SendableTarget(string targetInfo, byte[] containedClass)
+    {
+        TargetInfo = targetInfo;
+        this.containedClass = containedClass;
+    }
+
     public DroneId Id { get; set; }
     public DateTime TimeStamp { get; set; }
 
