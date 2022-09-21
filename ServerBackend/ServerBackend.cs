@@ -107,8 +107,14 @@ public class ServerBackend
                     var bytesRead = _stream.Read(buffer, 0, buffer.Length);
                     var data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     var message = JObject.Parse(data);
-                    var a = message.ToObject<HandShakeMessage>();
-                    ConsoleLog.WriteLog(message: $"Connection From: {a.Id}", logLevel: LogLevel.Notice);
+                    var a = message.ToObject<SendableTarget>();
+
+
+                    var classInside = Encoding.Unicode.GetString(a.containedClass);
+                    
+                    
+                    ConsoleLog.WriteLog(message: $"Received: {a.TargetInfo}", logLevel: LogLevel.Info);
+                    //ConsoleLog.WriteLog(message: $"Connection From: {a.Id}", logLevel: LogLevel.Notice);
                 }
 
                 

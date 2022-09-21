@@ -7,15 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DroneManager.DocsHelper\DroneManager.DocsHelper.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="ServerFraimWork" />
     </ItemGroup>
 
 </Project>

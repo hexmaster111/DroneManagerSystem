@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLog", "ConsoleLog\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleLog", "ConsoleLog", "{D492C483-07CA-45C3-BADE-92D91CB3FE5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMessaging", "GenericMessaging\GenericMessaging.csproj", "{F1C0109D-5445-49E0-AC30-89ECB35410D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{9872B1EB-4DA3-4119-9CFA-0E082C5001CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9872B1EB-4DA3-4119-9CFA-0E082C5001CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9872B1EB-4DA3-4119-9CFA-0E082C5001CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C0109D-5445-49E0-AC30-89ECB35410D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C0109D-5445-49E0-AC30-89ECB35410D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C0109D-5445-49E0-AC30-89ECB35410D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C0109D-5445-49E0-AC30-89ECB35410D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6EF04F5B-4ADF-4483-8646-6CCCB959BD8D} = {B5200080-A073-4DA9-BF9C-04BBCC5130A6}

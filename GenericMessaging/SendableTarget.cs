@@ -1,17 +1,8 @@
 using System.Text;
-using System.Text.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace DroneManager.Interface.ServerInterface;
-
-/// <summary>
-/// Blank interface to make all messages seasonable
-/// </summary>
-public interface ISendable
-{
-    public JObject ToJson();
-}
+namespace GenericMessaging;
 
 public class SendableTarget : ISendable
 {

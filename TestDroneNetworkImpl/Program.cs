@@ -4,7 +4,9 @@ using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.RemoteConnection;
 using DroneManager.Interface.ServerInterface;
+using IConsoleLog;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TestDroneNetworkImpl // Note: actual namespace depends on the project name.
 {
@@ -42,7 +44,6 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
                     case "test":
                     {
-                        connection.SendData(new DebugMessage(123, "Test Message"));
                     }
                         break;
                     case "help":
@@ -54,23 +55,6 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         Console.WriteLine("Unknown command. Type 'help' for list of available commands.");
                         break;
                 }
-            }
-        }
-
-        private class DebugMessage : Debug
-        {
-            public DebugMessage(int testNumber, string testString)
-            {
-                TestNumber = testNumber;
-                TestString = testString;
-            }
-
-            public override int TestNumber { get; }
-            public override string TestString { get; }
-
-            public override string ToJson()
-            {
-                return JsonConvert.SerializeObject(this);
             }
         }
 
@@ -105,9 +89,20 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
             public void SendData(ISendable data)
             {
-                StringBuilder sb = new StringBuilder();
-                var send = data.ToJson();
-                byte[] buffer = Encoding.ASCII.GetBytes(send);
+                var target = new SendableTarget("debug", data.ToJson());
+
+                var send = target.ToJson();
+
+                byte[] buffer = Encoding.ASCII.GetBytes(send.ToString());
+
+
+                // // Convert the buffer back
+                // var received = Encoding.ASCII.GetString(buffer);
+                // log.WriteLog(message: "String Back: " + received, logLevel: LogLevel.Debug);
+                // var a = JObject.Parse(received);
+                // var b = a.ToObject<SendableTarget>();
+
+
                 _stream.Write(buffer, 0, buffer.Length);
             }
 
@@ -118,8 +113,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                     var serializer = new JsonSerializer();
                     var reader = new StreamReader(_stream ?? throw new InvalidOperationException());
                     var jsonDeserializer = new JsonTextReader(reader);
-                    var data = (Debug)serializer.Deserialize<ISendable>(jsonDeserializer);
-                    log.WriteLog(message: $"Received data: {data.TestNumber} - {data.TestString}");
+                    var data = serializer.Deserialize<SendableTarget>(jsonDeserializer);
 
                     Thread.Sleep(1000);
                 }

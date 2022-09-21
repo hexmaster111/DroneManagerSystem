@@ -1,5 +1,7 @@
 using System.Text.Json;
 using DroneManager.Interface.GenericTypes;
+using Newtonsoft.Json.Linq;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace DroneManager.Interface.ServerInterface;
 
@@ -15,9 +17,9 @@ public class HandShakeMessage : ISendable
     public DateTime TimeStamp { get; set; }
 
 
-    public string ToJson()
+    public JObject ToJson()
     {
-        return JsonSerializer.Serialize(this);
+        return JObject.FromObject(this);
     }
 };
 
