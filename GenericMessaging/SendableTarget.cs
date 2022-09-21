@@ -7,6 +7,13 @@ namespace GenericMessaging;
 public class SendableTarget : ISendable
 {
     
+    public SendableTarget(ISendable sendable, string target)
+    {
+        TargetInfo = target;
+        containedClass = Encoding.Unicode.GetBytes(sendable.ToJson().ToString());
+    }
+    
+    
     public SendableTarget(string target, JObject jObj)
     {
         TargetInfo = target;
