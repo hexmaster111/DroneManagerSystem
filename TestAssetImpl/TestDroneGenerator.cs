@@ -3,6 +3,7 @@ using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
 using DroneManager.Interface.RemoteConnection;
 using DroneManager.Interface.RemoteHardware;
+using DroneManager.Interface.ServerInterface;
 
 namespace TestAssetImpl;
 
@@ -109,23 +110,33 @@ public static class TestDroneGenerator
     private class RemoteConnectionImpl : IRemoteStreamConnection
     {
         public event Action<object>? DataSent;
-        public event Action<object>? ConnectionStatusChanged;
+        public event Action<ISendable> ConnectionStatusChanged;
         public ConnectionType ConnectionType => ConnectionType.Debugging;
         public ConnectionStatus Status => ConnectionStatus.NotTried;
+
+        public void Disconnect(ISendable? disconnectionArgs)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Connect(object? connectionArgs)
         {
             throw new NotImplementedException();
         }
 
-        public event Action<object>? DataReceived;
+        public void SendData(ISendable data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public event Action<ISendable> DataReceived;
 
         public void Disconnect(object? disconnectionArgs)
         {
             throw new NotImplementedException();
         }
 
-        public bool SendData(object data)
+        public void SendData(object data)
         {
             throw new NotImplementedException();
         }

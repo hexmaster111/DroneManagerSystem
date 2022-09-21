@@ -7,8 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
-      <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
       <ProjectReference Include="..\IConsoleLog\IConsoleLog.csproj" />
     </ItemGroup>
 
