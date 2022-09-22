@@ -19,22 +19,19 @@ public class SendableTarget : ISendable
     public SendableTarget(string target, JObject jObj)
     {
         TargetInfo = target;
-        containedClass = Encoding.Unicode.GetBytes(jObj.ToString());
+        ContainedClass = Encoding.Unicode.GetBytes(jObj.ToString());
     }
     
     [JsonConstructor]
     public SendableTarget(string targetInfo, byte[] containedClass)
     {
         TargetInfo = targetInfo;
-        this.containedClass = containedClass;
+        this.ContainedClass = containedClass;
     }
 
     public string TargetInfo { get; }
-
-    public byte[] containedClass { get; }
-
-    private bool _serialized = false;
-
+    public byte[] ContainedClass { get; }
+    
 
     public JObject ToJson()
     {

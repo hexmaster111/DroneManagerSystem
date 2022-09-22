@@ -7,6 +7,9 @@ namespace GenericMessaging;
 public class GenericReader
 {
     private readonly NetworkStream  _stream;
+    private bool _reading;
+    private Thread? _reader;
+    public event Action<SendableTarget> OnMessageReceived; 
 
     public GenericReader(NetworkStream stream)
     {
@@ -15,10 +18,7 @@ public class GenericReader
 
     public SendableTarget? ReadData()
     {
-        if (!_stream.DataAvailable)
-            return null;
-        
-        var buffer = new byte[1024];
+        var buffer = new byte[2048];
         var read = _stream.Read(buffer, 0, buffer.Length);
         var data = Encoding.ASCII.GetString(buffer, 0, read);
         var message = JObject.Parse(data);
@@ -26,5 +26,35 @@ public class GenericReader
         if(target?.TargetInfo == null) throw new ("Target Null Exception");
         return target;
 
+    }
+
+    
+    public void StartReading()
+    {
+        _reader = new Thread(ReadingThread);
+        _reader.Start();
+    }
+    
+    public void StopReading()
+    {
+        _reading = false;
+    }
+    
+    
+    private void ReadingThread()
+    {
+        while (_reading)
+        {
+            Thread.Sleep(50);
+            if (!_stream.DataAvailable) continue;
+            var data = ReadData();
+            if (data == null) continue;
+            OnOnMessageReceived(data);
+        }
+    }
+
+    protected virtual void OnOnMessageReceived(SendableTarget obj)
+    {
+        OnMessageReceived?.Invoke(obj);
     }
 }

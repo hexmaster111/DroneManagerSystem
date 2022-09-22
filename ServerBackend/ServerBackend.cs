@@ -108,9 +108,8 @@ public class ServerBackend
                     var data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     var message = JObject.Parse(data);
                     var a = message.ToObject<SendableTarget>();
-
-
-                    var classInside = Encoding.Unicode.GetString(a.containedClass);
+                    
+                    var classInside = Encoding.Unicode.GetString(a.ContainedClass);
                     
                     
                     ConsoleLog.WriteLog(message: $"Received: {a.TargetInfo}", logLevel: LogLevel.Info);
