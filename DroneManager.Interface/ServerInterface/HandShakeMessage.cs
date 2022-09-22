@@ -1,7 +1,6 @@
-using System.Text.Json;
 using DroneManager.Interface.GenericTypes;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace DroneManager.Interface.ServerInterface;
 
@@ -15,11 +14,12 @@ public class HandShakeMessage : ISendable
 
 
     [JsonConstructor]
-    public SendableTarget(string targetInfo, byte[] containedClass)
+    HandShakeMessage(DroneId id, DateTime time)
     {
-        TargetInfo = targetInfo;
-        this.containedClass = containedClass;
+        Id = id;
+        TimeStamp = time;
     }
+
 
     public DroneId Id { get; set; }
     public DateTime TimeStamp { get; set; }
@@ -30,4 +30,3 @@ public class HandShakeMessage : ISendable
         return JObject.FromObject(this);
     }
 };
-
