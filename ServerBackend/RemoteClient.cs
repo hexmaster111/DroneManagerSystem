@@ -5,7 +5,7 @@ using GenericEventMapper;
 using GenericMessaging;
 using IConsoleLogInterface;
 
-namespace ServerBackend;
+namespace Server;
 
 public class RemoteClient
 {

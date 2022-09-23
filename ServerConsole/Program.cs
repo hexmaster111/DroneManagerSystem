@@ -1,4 +1,5 @@
 ﻿using IConsoleLogInterface;
+using Server;
 
 namespace ServerConsole // Note: actual namespace depends on the project name.
 {
@@ -15,8 +16,8 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             commandLineHandler = new CommandLineHandler(ConsoleLog);
             commandLineHandler.StartReadThread();
             ConsoleLog.WriteLog(message:"Starting server...");
-            ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
-            ServerBackend.ServerBackend.Instance.Start("127.0.0.1", 8000);
+            ServerBackend.ConsoleLog = ConsoleLog;
+            ServerBackend.Instance.Start("127.0.0.1", 8000);
         }
     }
 }
