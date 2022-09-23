@@ -1,11 +1,12 @@
 ﻿using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
+using GenericMessaging;
 
 public static class ActionMapperTests
 {
     public static Action<SendableTarget> testSource;
-    public static ConsoleLog.ConsoleLog Log = new ConsoleLog.ConsoleLog();
+    public static ConsoleLogging.ConsoleLog Log = new ConsoleLogging.ConsoleLog();
     private static bool _run = true;
 
     private static void Main(string[] args)
@@ -14,9 +15,10 @@ public static class ActionMapperTests
 
         EventMapper mapper = new EventMapper(ref testSource, Log);
 
-        mapper.MapAction(new Action<HandShakeMessage>(Action), "DEBUG");
+        mapper.MapAction("DEBUG", new Action<HandShakeMessage>(Action));
         
         int i = 0;
+        
         
         while (_run)
         {

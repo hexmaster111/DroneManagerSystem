@@ -2,11 +2,11 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using IConsoleLog;
+using IConsoleLogInterface;
 
-namespace ConsoleLog;
+namespace ConsoleLogging;
 
-public class ConsoleLog : IConsoleLog.IConsoleLog
+public class ConsoleLog : IConsoleLogInterface.IConsoleLog
 {
     public static string NameOfCallingClass()
     {
@@ -88,7 +88,9 @@ public class ConsoleLog : IConsoleLog.IConsoleLog
         //Set the console color to the log level color.
         Console.ForegroundColor = _logToColor(logLevel);
         Console.WriteLine(finalMessage);
+        Console.ForegroundColor = ConsoleColor.White;
     }
+    
 
     public void WriteCommandLog(string command, string message = "", LogLevel logLevel = LogLevel.Info)
     {

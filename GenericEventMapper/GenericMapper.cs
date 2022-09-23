@@ -1,6 +1,8 @@
 ﻿using System.Text;
+using ConsoleLogging;
 using DroneManager.Interface.ServerInterface;
-using IConsoleLog;
+using GenericMessaging;
+using IConsoleLogInterface;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -8,32 +10,36 @@ namespace GenericEventMapper;
 
 public class EventMapper
 {
-    private readonly ConsoleLog.ConsoleLog? _log = null;
-    
-    public EventMapper(ref Action<SendableTarget> eventSource, ConsoleLog.ConsoleLog? consoleLog = null)
+    private readonly IConsoleLog? _log = null;
+
+    public EventMapper(ref Action<SendableTarget> eventSource, ConsoleLogging.ConsoleLog? consoleLog = null)
     {
         _log = consoleLog;
-
         eventSource += HandleEvent;
     }
-    
-    private void HandleEvent(SendableTarget target)
+
+    public EventMapper(IConsoleLog? log)
+    {
+        _log = log;
+    }
+
+    public void HandleEvent(SendableTarget target)
     {
         _log?.WriteLog(message: "Got Event: " + target.TargetInfo);
         if (handlers.TryGetValue(target.TargetInfo, out var handler))
             handler.HandleEvent(target);
         else
-            _log.WriteLog(message:"No handler for event: " + target.TargetInfo, logLevel:LogLevel.Warning);
+            _log.WriteLog(message: "No handler for event: " + target.TargetInfo, logLevel: LogLevel.Warning);
     }
 
-    public void MapAction<T>(Action<T> action, string eventName)
+    public void MapAction<T>(string eventName, Action<T> action)
     {
         var handler = new EventHandler<T>(action);
         handlers.Add(eventName, handler);
     }
 
     private Dictionary<string, IEventHandler> handlers = new();
-    
+
     #region Event Handler
 
     interface IEventHandler

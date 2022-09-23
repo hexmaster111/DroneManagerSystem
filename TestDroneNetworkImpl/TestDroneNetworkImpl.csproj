@@ -5,11 +5,14 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
+      <ProjectReference Include="..\GenericEventMapper\GenericEventMapper.csproj" />
+      <ProjectReference Include="..\GenericMessaging\GenericMessaging.csproj" />
     </ItemGroup>
 
     <ItemGroup>

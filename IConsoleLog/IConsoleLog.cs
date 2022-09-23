@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace IConsoleLog;
+namespace IConsoleLogInterface;
 
 public enum LogLevel
 {

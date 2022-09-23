@@ -10,26 +10,26 @@ public class SendableTarget : ISendable
     public SendableTarget(ISendable sendable, string target)
     {
         TargetInfo = target;
-        containedClass = Encoding.Unicode.GetBytes(sendable.ToJson().ToString());
+        ContainedClass = Encoding.Unicode.GetBytes(sendable.ToJson().ToString());
     }
     
     
     public SendableTarget(string target, JObject jObj)
     {
         TargetInfo = target;
-        containedClass = Encoding.Unicode.GetBytes(jObj.ToString());
+        ContainedClass = Encoding.Unicode.GetBytes(jObj.ToString());
     }
     
     [JsonConstructor]
     public SendableTarget(string targetInfo, byte[] containedClass)
     {
         TargetInfo = targetInfo;
-        this.containedClass = containedClass;
+        this.ContainedClass = containedClass;
     }
 
     public string TargetInfo { get; }
 
-    public byte[] containedClass { get; }
+    public byte[] ContainedClass { get; }
 
     private bool _serialized = false;
 

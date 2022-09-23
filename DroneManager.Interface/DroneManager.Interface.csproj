@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DroneManager.DocsHelper\DroneManager.DocsHelper.csproj" />
+      <ProjectReference Include="..\GenericMessaging\GenericMessaging.csproj" />
     </ItemGroup>
 
     <ItemGroup>

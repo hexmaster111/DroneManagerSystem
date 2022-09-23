@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
+      <ProjectReference Include="..\GenericEventMapper\GenericEventMapper.csproj" />
       <ProjectReference Include="..\IConsoleLog\IConsoleLog.csproj" />
     </ItemGroup>
 

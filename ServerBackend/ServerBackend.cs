@@ -2,8 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using DroneManager.Interface.ServerInterface;
-using IConsoleLog;
+using IConsoleLogInterface;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -27,7 +26,7 @@ public class ServerBackend
     private TcpListener? _server = null;
 
 
-    public static IConsoleLog.IConsoleLog ConsoleLog { get; set; }
+    public static IConsoleLogInterface.IConsoleLog ConsoleLog { get; set; }
 
     public void Start(string localIp, int serverPort)
     {
@@ -79,53 +78,6 @@ public class ServerBackend
         // print client info
         ConsoleLog.WriteLog(message: $"Client connected!", logLevel: LogLevel.Info);
         ConsoleLog.WriteLog(message: $"Client IP: {client.Client.RemoteEndPoint}", logLevel: LogLevel.Info);
-        _clients.Add(new RemoteClient(client));
-    }
-
-
-    public class RemoteClient
-    {
-        private TcpClient _client;
-        private readonly NetworkStream _stream;
-        private readonly Thread _thread;
-
-        public RemoteClient(TcpClient client)
-        {
-            _client = client;
-            _stream = client.GetStream();
-            _thread = new Thread(_clientReadThread);
-            _thread.Start();
-        }
-
-        private void _clientReadThread()
-        {
-            while (true)
-            {
-                if (_stream.DataAvailable)
-                {
-                    var buffer = new byte[1024];
-                    var bytesRead = _stream.Read(buffer, 0, buffer.Length);
-                    var data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                    var message = JObject.Parse(data);
-                    var a = message.ToObject<SendableTarget>();
-                    
-                    var classInside = Encoding.Unicode.GetString(a.ContainedClass);
-                    
-                    
-                    ConsoleLog.WriteLog(message: $"Received: {a.TargetInfo}", logLevel: LogLevel.Info);
-                    //ConsoleLog.WriteLog(message: $"Connection From: {a.Id}", logLevel: LogLevel.Notice);
-                }
-
-                
-                
-                
-                Thread.Sleep(100);
-            }
-        }
-        
-
-        private void _handleHandshakeMessage(HandShakeMessage message)
-        {
-        }
+        _clients.Add(new RemoteClient(client, ConsoleLog));
     }
 }

@@ -1,5 +1,6 @@
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.ServerInterface;
+using GenericMessaging;
 
 namespace DroneManager.Interface.RemoteConnection;
 
