@@ -37,6 +37,11 @@ public class EventMapper
         var handler = new EventHandler<T>(action);
         handlers.Add(eventName, handler);
     }
+    
+    public void UnregisterAction(string eventName)
+    {
+        handlers.Remove(eventName);
+    }
 
     private Dictionary<string, IEventHandler> handlers = new();
 

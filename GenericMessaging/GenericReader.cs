@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using Newtonsoft.Json.Linq;
 
@@ -6,10 +7,10 @@ namespace GenericMessaging;
 
 public class GenericReader
 {
-    private readonly NetworkStream  _stream;
+    private readonly NetworkStream _stream;
     private bool _reading;
     private Thread? _reader;
-    public event Action<SendableTarget> OnMessageReceived; 
+    public event Action<SendableTarget> OnMessageReceived;
 
     public GenericReader(NetworkStream stream)
     {
@@ -23,24 +24,23 @@ public class GenericReader
         var data = Encoding.ASCII.GetString(buffer, 0, read);
         var message = JObject.Parse(data);
         var target = message.ToObject<SendableTarget>();
-        if(target?.TargetInfo == null) throw new ("Target Null Exception");
+        if (target?.TargetInfo == null) throw new("Target Null Exception");
         return target;
-
     }
 
-    
+
     public void StartReading()
     {
         _reader = new Thread(ReadingThread);
         _reader.Start();
     }
-    
+
     public void StopReading()
     {
         _reading = false;
     }
-    
-    
+
+
     private void ReadingThread()
     {
         while (_reading)

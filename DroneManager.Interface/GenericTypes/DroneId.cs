@@ -27,10 +27,17 @@ public class DroneId
     }
     public override bool Equals(object? obj)
     {
-        if (obj is not DroneId id)
-            return false;
-        
-        return id.Id == Id && id.Type == Type;
+        return obj is DroneId id && Equals(id);
+    }
+
+    private bool Equals(DroneId other)
+    {
+        return Type == other.Type && Id == other.Id;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine((int)Type, Id);
     }
 
     public DroneId(DroneType type, int id)
