@@ -1,5 +1,4 @@
 using System;
-using ConsoleLogging;
 using GenericEventMapper;
 using GenericMessaging;
 using Newtonsoft.Json.Linq;
@@ -9,7 +8,7 @@ namespace ProjectTests;
 
 public class GenericEventMapperTests
 {
-    private ConsoleLog logger;
+    private ConsoleLog.ConsoleLog logger;
     private EventMapper mapper;
     private Action<SendableTarget> action;
 
@@ -72,7 +71,7 @@ public class GenericEventMapperTests
     [SetUp]
     public void Setup()
     {
-        logger = new ConsoleLog();
+        logger = new ConsoleLog.ConsoleLog();
         mapper = new EventMapper(logger);
         action += mapper.HandleEvent;
     }

@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ConsoleCommandHandler\ConsoleCommandHandler.csproj" />
       <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
       <ProjectReference Include="..\ServerBackend\ServerBackend.csproj" />
     </ItemGroup>

@@ -1,4 +1,4 @@
-namespace ServerConsole.Commands.RootNamespace;
+namespace ConsoleCommandHandler.Commands.RootNamespace;
 
 public class CEcho : ICommand
 {
@@ -16,7 +16,7 @@ public class CEcho : ICommand
         errorString = null;
         changeToNamespace = null;
         
-        if (args.Length > 0)
+        if (args.Length < 2)
         {
             errorString = "No input string";
             return;

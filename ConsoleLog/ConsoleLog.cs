@@ -2,11 +2,11 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using IConsoleLogInterface;
+using IConsoleLog;
 
-namespace ConsoleLogging;
+namespace ConsoleLog;
 
-public class ConsoleLog : IConsoleLogInterface.IConsoleLog
+public class ConsoleLog : IConsoleLog.IConsoleLog
 {
     public static string NameOfCallingClass()
     {

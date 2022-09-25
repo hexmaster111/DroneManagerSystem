@@ -1,11 +1,10 @@
 using System.Net.Sockets;
-using ConsoleLogging;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 using GenericMessaging;
-using IConsoleLogInterface;
+using IConsoleLog;
 
-namespace Server;
+namespace ServerBackend;
 
 public class RemoteClient
 {
@@ -16,9 +15,9 @@ public class RemoteClient
     private GenericReader _reader;
     private GenericWriter _writer;
     private readonly EventMapper _eventMapper;
-    private IConsoleLog? _log;
+    private IConsoleLog.IConsoleLog? _log;
 
-    public RemoteClient(TcpClient client, IConsoleLog? log = null)
+    public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
         _client = client;
         

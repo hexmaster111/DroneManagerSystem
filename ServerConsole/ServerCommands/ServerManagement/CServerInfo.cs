@@ -1,7 +1,7 @@
 using System.Text;
-using Server;
+using ConsoleCommandHandler.Commands;
 
-namespace ServerConsole.Commands.RootNamespace.ServerManagement;
+namespace ServerConsole.ServerCommands.ServerManagement;
 
 public class CServerInfo : ICommand
 {
@@ -23,10 +23,10 @@ public class CServerInfo : ICommand
     {
         var sb = new StringBuilder();
         sb.AppendLine("Server Information:");
-        sb.AppendLine("Server Listener running: " + ServerBackend.Instance.IsRunning);
-        sb.AppendLine("Server Internal IP: " + ServerBackend.Instance.LocalIp);
-        sb.AppendLine("Client Listener running on port: " + ServerBackend.Instance.ServerPort);
-        sb.AppendLine("Clients Connected: " + ServerBackend.Instance.ConnectedClients);
+        sb.AppendLine("Server Listener running: " + ServerBackend.ServerBackend.Instance.IsRunning);
+        sb.AppendLine("Server Internal IP: " + ServerBackend.ServerBackend.Instance.LocalIp);
+        sb.AppendLine("Client Listener running on port: " + ServerBackend.ServerBackend.Instance.ServerPort);
+        sb.AppendLine("Clients Connected: " + ServerBackend.ServerBackend.Instance.ConnectedClients);
         
         
         output = sb.ToString();

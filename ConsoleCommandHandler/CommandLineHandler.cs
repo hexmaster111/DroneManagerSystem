@@ -1,23 +1,24 @@
 using System.Reflection;
-using IConsoleLogInterface;
-using ServerConsole.Commands;
+using ConsoleCommandHandler.Commands;
+using IConsoleLog;
+using ICommand = ConsoleCommandHandler.Commands.ICommand;
 
-namespace ServerConsole;
-
+namespace ConsoleCommandHandler;
 
 public class CommandLineHandler : ICommandManager
 {
     private bool _running = true;
-    private IConsoleLog _log;
+    private IConsoleLog.IConsoleLog _log;
 
     private Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
     {
         return assembly.GetTypes().Where(type => type.Namespace.Contains(nameSpace)).ToArray();
     }
-    private ICommand?[] GetCommands(string fromNamespace)
+
+    private ICommand?[] GetCommands(string fromNamespace, Assembly assembly)
     {
         var commands = new List<ICommand>();
-        var commandTypes = GetTypesInNamespace(Assembly.GetExecutingAssembly(), fromNamespace);
+        var commandTypes = GetTypesInNamespace(assembly, fromNamespace);
         foreach (var commandType in commandTypes)
         {
             ICommand? command = null;
@@ -47,6 +48,7 @@ public class CommandLineHandler : ICommandManager
     }
 
     public string CurrentNamespace { get; private set; } = "";
+    public string[]? CommandHistory => _commandHistory.ToArray();
     public string RootRealCsNamespace { get; }
     public string[]? CommandRealCsNamespace { get; }
 
@@ -66,25 +68,25 @@ public class CommandLineHandler : ICommandManager
         _running = false;
     }
 
-    public CommandLineHandler(IConsoleLog log, string rootNamespace, string[]? commandNamespace)
+    public CommandLineHandler(IConsoleLog.IConsoleLog log, string rootNamespace, string[]? commandNamespace, Assembly commandAssembly)
     {
         _log = log;
         RootRealCsNamespace = rootNamespace;
         CommandRealCsNamespace = commandNamespace;
-        
-        List<ICommand> allCommands = (GetCommands(RootRealCsNamespace).ToList() ?? throw new InvalidOperationException())!;
-        
+
+        List<ICommand> allCommands =
+            (GetCommands(RootRealCsNamespace, Assembly.GetExecutingAssembly()).ToList() ?? throw new InvalidOperationException())!;
+
         if (CommandRealCsNamespace != null)
         {
             foreach (var commandNamespace1 in CommandRealCsNamespace)
             {
-                allCommands.AddRange(GetCommands(commandNamespace1)!);
+                allCommands.AddRange(GetCommands(commandNamespace1, commandAssembly)!);
             }
         }
-        _commands = allCommands.ToArray();
-        
-    }
 
+        _commands = allCommands.ToArray();
+    }
 
 
     public void StartReadThread()
@@ -102,10 +104,11 @@ public class CommandLineHandler : ICommandManager
         Console.SetCursorPosition(0, currentLineCursor);
     }
 
+    private List<string> _commandHistory = new();
+
     private void ConsoleReadLoopNonReturning()
     {
         List<char> currentUserInput = new();
-        List<string> commandHistory = new();
         List<char> beforeHistoryBuffer = new();
 
         int commandHistoryIndex = 0;
@@ -132,15 +135,15 @@ public class CommandLineHandler : ICommandManager
 
                     //if the command is null, continue
                     if (autoCompleteCommand == null) continue;
-                    
+
                     _handleAutoComplete(autoCompleteCommand, autoCompleatWholeCommmand, out var autoCompleatResult);
-                    
+
                     //Remove the old last argument
                     for (var i = 0; i < autoCompleatWholeCommmand[^1].Length; i++)
                     {
                         currentUserInput.RemoveAt(currentUserInput.Count - 1);
                     }
-                    
+
                     //add the result to the current user input
                     currentUserInput.AddRange(autoCompleatResult);
 
@@ -148,7 +151,7 @@ public class CommandLineHandler : ICommandManager
                 //Do command and continue
                 case ConsoleKey.Enter: break; //Just brake, the command is already in current user input.
 
-                case ConsoleKey.DownArrow: 
+                case ConsoleKey.DownArrow:
                 case ConsoleKey.UpArrow:
                     // Console.Write("\b");
 
@@ -170,9 +173,9 @@ public class CommandLineHandler : ICommandManager
                         continue;
                     }
 
-                    if (commandHistoryIndex > commandHistory.Count) // The user is at the top of the history
+                    if (commandHistoryIndex > _commandHistory.Count) // The user is at the top of the history
                     {
-                        commandHistoryIndex = commandHistory.Count;
+                        commandHistoryIndex = _commandHistory.Count;
                         continue;
                     }
 
@@ -183,10 +186,10 @@ public class CommandLineHandler : ICommandManager
                     }
 
                     //The index is flipped because the newest command is at the end of the list
-                    var flippedIndex = commandHistory.Count - commandHistoryIndex;
+                    var flippedIndex = _commandHistory.Count - commandHistoryIndex;
 
                     //Set what the console is showing to the command in the history
-                    currentUserInput = commandHistory[flippedIndex].ToList();
+                    currentUserInput = _commandHistory[flippedIndex].ToList();
 
 
                     continue;
@@ -220,7 +223,7 @@ public class CommandLineHandler : ICommandManager
             if (commandArgs[0] == "") continue;
 
             //if the command was executed, save it to history and continue
-            commandHistory.Add(commandString);
+            _commandHistory.Add(commandString);
             if (_handleNewCommand(commandArgs))
             {
             }
@@ -247,21 +250,22 @@ public class CommandLineHandler : ICommandManager
             _log.WriteCommandLog(results.CommandRan, $"Command output:\r\n" + results.Output, LogLevel.Info);
     }
 
-    private void _handleAutoComplete(ICommand? commandEntered, string[]? currentEnteredArguments, out string autoComplete)
+    private void _handleAutoComplete(ICommand? commandEntered, string[]? currentEnteredArguments,
+        out string autoComplete)
     {
         autoComplete = "";
-     
+
         //if the command or its arguments are null, return
         if (commandEntered?.Arguments == null) return;
         //get the last argument, this will be what we are trying to compete
         var lastArgument = currentEnteredArguments?[^1];
-        
+
         //if the last argument is null, continue
         if (lastArgument == null) return;
-        
+
         //Get the index of the current last argument (-2 because the first argument is the command)
         var lastArgumentIndex = currentEnteredArguments?.Length - 2;
-        
+
         //if the last argument index is below 0, continue
         if (lastArgumentIndex < 0) return;
 
@@ -272,13 +276,13 @@ public class CommandLineHandler : ICommandManager
         {
             case Argument.CompleteHelperType.None: break; //Do nothing, this would be a name or something
             case Argument.CompleteHelperType.Namespace: //Get all the namespaces that start with the last argument
-                
+
                 //Get all the namespaces that start with the last argument
                 var autoCompleteNamespaces = _commands
                     .Where(c => c.RuntimeAssignedNamespace.StartsWith(lastArgument))
                     .Select(c => c.RuntimeAssignedNamespace)
                     .ToList();
-                
+
                 //Add all the namespaces that are within the currentNamespace
                 autoCompleteNamespaces.AddRange(_commands
                     .Where(c => c.RuntimeAssignedNamespace.StartsWith(CurrentNamespace))
@@ -287,9 +291,9 @@ public class CommandLineHandler : ICommandManager
 
                 //if there are no namespaces, continue
                 if (autoCompleteNamespaces.Count == 0) return;
-                
+
                 autoComplete = autoCompleteNamespaces[0];
-                
+
                 break;
             case Argument.CompleteHelperType.TrueFalse: //figure out what the user has started typing and fill that in
                 if (lastArgument.ToLower().Contains('t'))
@@ -300,7 +304,6 @@ public class CommandLineHandler : ICommandManager
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
     }
 
     private ICommand? _getCommand(string commandName)
@@ -309,7 +312,7 @@ public class CommandLineHandler : ICommandManager
         {
             if ((command.Aliases == null || !command.Aliases.Contains(commandName)) &&
                 command.Name != commandName) continue;
-            
+
             //Check if the command is in the current namespace or the global namespace
             if (command.RuntimeAssignedNamespace == CurrentNamespace || command.RuntimeAssignedNamespace == "")
                 return command;
@@ -368,6 +371,12 @@ public class CommandLineHandler : ICommandManager
         }
 
         return false;
+    }
+
+    public void ExecuteCommand(string command)
+    {
+        var commandArgs = command.Split(' ');
+        _handleNewCommand(commandArgs);
     }
 
     public ICommand[] Commands => _commands;

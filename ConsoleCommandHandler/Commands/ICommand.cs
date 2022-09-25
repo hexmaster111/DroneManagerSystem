@@ -1,4 +1,4 @@
-namespace ServerConsole.Commands;
+namespace ConsoleCommandHandler.Commands;
 
 public interface ICommand
 {

@@ -1,8 +1,7 @@
 ﻿using System.Text;
-using ConsoleLogging;
 using DroneManager.Interface.ServerInterface;
 using GenericMessaging;
-using IConsoleLogInterface;
+using IConsoleLog;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -10,15 +9,15 @@ namespace GenericEventMapper;
 
 public class EventMapper
 {
-    private readonly IConsoleLog? _log = null;
+    private readonly IConsoleLog.IConsoleLog? _log = null;
 
-    public EventMapper(ref Action<SendableTarget> eventSource, ConsoleLogging.ConsoleLog? consoleLog = null)
+    public EventMapper(ref Action<SendableTarget> eventSource, ConsoleLog.ConsoleLog? consoleLog = null)
     {
         _log = consoleLog;
         eventSource += HandleEvent;
     }
 
-    public EventMapper(IConsoleLog? log)
+    public EventMapper(IConsoleLog.IConsoleLog? log)
     {
         _log = log;
     }

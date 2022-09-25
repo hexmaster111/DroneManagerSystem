@@ -1,13 +1,8 @@
-﻿using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using IConsoleLogInterface;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using JsonSerializer = System.Text.Json.JsonSerializer;
+using IConsoleLog;
 
-namespace Server;
+namespace ServerBackend;
 
 /// <summary>
 ///     Singleton
@@ -33,7 +28,7 @@ public class ServerBackend
     
     public static int MaxClients = 10;
 
-    public static IConsoleLog ConsoleLog { get; set; }
+    public static IConsoleLog.IConsoleLog ConsoleLog { get; set; }
 
     private Thread listenerThread;
     

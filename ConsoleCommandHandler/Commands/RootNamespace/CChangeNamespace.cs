@@ -1,4 +1,4 @@
-namespace ServerConsole.Commands.RootNamespace;
+namespace ConsoleCommandHandler.Commands.RootNamespace;
 
 public class CChangeNamespace : ICommand
 {

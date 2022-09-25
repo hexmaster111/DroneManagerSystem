@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace ServerConsole.Commands.RootNamespace;
+namespace ConsoleCommandHandler.Commands.RootNamespace;
 
 public class CHelp : ICommand
 {

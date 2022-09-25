@@ -3,10 +3,12 @@ using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 using GenericMessaging;
 
+namespace ActionMapperTests;
+
 public static class ActionMapperTests
 {
     public static Action<SendableTarget> testSource;
-    public static ConsoleLogging.ConsoleLog Log = new ConsoleLogging.ConsoleLog();
+    public static ConsoleLog.ConsoleLog Log = new ConsoleLog.ConsoleLog();
     private static bool _run = true;
 
     private static void Main(string[] args)

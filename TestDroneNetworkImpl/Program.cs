@@ -1,6 +1,5 @@
 ﻿using System.Net.Sockets;
 using System.Text;
-using ConsoleLogging;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
@@ -10,7 +9,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 {
     internal static class Program
     {
-        private static ConsoleLog log = new ConsoleLogging.ConsoleLog();
+        private static ConsoleLog.ConsoleLog log = new ConsoleLog.ConsoleLog();
 
         private static void Main(string[] args)
         {
