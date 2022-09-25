@@ -48,8 +48,8 @@ public class CommandLineHandler : ICommandManager
     }
 
     public string CurrentNamespace { get; private set; } = "";
-    public string RootNamespace { get; }
-    public string[]? CommandNamespace { get; }
+    public string RootRealCsNamespace { get; }
+    public string[]? CommandRealCsNamespace { get; }
 
     private ICommand[] _commands;
 
@@ -59,14 +59,14 @@ public class CommandLineHandler : ICommandManager
     public CommandLineHandler(IConsoleLog log, string rootNamespace, string[]? commandNamespace)
     {
         _log = log;
-        RootNamespace = rootNamespace;
-        CommandNamespace = commandNamespace;
+        RootRealCsNamespace = rootNamespace;
+        CommandRealCsNamespace = commandNamespace;
         
-        List<ICommand> allCommands = (GetCommands(RootNamespace).ToList() ?? throw new InvalidOperationException())!;
+        List<ICommand> allCommands = (GetCommands(RootRealCsNamespace).ToList() ?? throw new InvalidOperationException())!;
         
-        if (CommandNamespace != null)
+        if (CommandRealCsNamespace != null)
         {
-            foreach (var commandNamespace1 in CommandNamespace)
+            foreach (var commandNamespace1 in CommandRealCsNamespace)
             {
                 allCommands.AddRange(GetCommands(commandNamespace1)!);
             }
