@@ -16,12 +16,25 @@ public class CListCurrentNamespace : ICommand
         output = null;
         errorString = null;
         changeToNamespace = null;
+        
+
         var sb = new StringBuilder();
-        sb.AppendLine($"Current namespace: {CommandManager.CurrentNamespace}");
-        sb.AppendLine("Items in namespace:");
+
+        sb.AppendLine("Available Namespaces:");
+
         foreach (var command in CommandManager.Commands)
         {
-            if (command.RuntimeAssignedNamespace.Contains(CommandManager.CurrentNamespace))
+            if (!sb.ToString().Contains(command.RuntimeAssignedNamespace))
+            {
+                sb.AppendLine("         " + command.RuntimeAssignedNamespace);
+            }
+        }
+
+        // sb.AppendLine($"Current namespace: {CommandManager.CurrentNamespace}");
+        sb.AppendLine($"Items in namespace: {CommandManager.CurrentNamespace}");
+        foreach (var command in CommandManager.Commands)
+        {
+            if (command.RuntimeAssignedNamespace.Equals(CommandManager.CurrentNamespace))
                 sb.AppendLine("     " + command.Name);
         }
 

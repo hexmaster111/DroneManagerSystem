@@ -12,4 +12,8 @@
       <ProjectReference Include="..\ServerBackend\ServerBackend.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ServerCommands" />
+    </ItemGroup>
+
 </Project>

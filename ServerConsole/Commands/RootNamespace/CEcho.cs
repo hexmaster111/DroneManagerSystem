@@ -6,7 +6,7 @@ public class CEcho : ICommand
     public string[]? Aliases => null;
     public string Description => "Echos what the user entered as arg1 back to the user";
     public string RuntimeAssignedNamespace { get; set; }
-    public Argument[]? Arguments => new[] { new Argument("input", "What will be echoed back to the console") };
+    public Argument[]? Arguments => new[] { new Argument("input", "What will be echoed back to the console", Argument.CompleteHelperType.None) };
     public ICommandManager CommandManager { get; set; }
 
     public void Execute(string?[] args, out string? output, out string? errorString, out string? changeToNamespace)
@@ -16,7 +16,7 @@ public class CEcho : ICommand
         errorString = null;
         changeToNamespace = null;
         
-        if (args.Length > 2)
+        if (args.Length > 0)
         {
             errorString = "No input string";
             return;
