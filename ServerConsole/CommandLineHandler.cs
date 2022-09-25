@@ -4,17 +4,16 @@ using ServerConsole.Commands;
 
 namespace ServerConsole;
 
+
 public class CommandLineHandler : ICommandManager
 {
-    private readonly bool _running = true;
+    private bool _running = true;
     private IConsoleLog _log;
 
     private Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
     {
         return assembly.GetTypes().Where(type => type.Namespace.Contains(nameSpace)).ToArray();
     }
-    
-
     private ICommand?[] GetCommands(string fromNamespace)
     {
         var commands = new List<ICommand>();
@@ -53,8 +52,19 @@ public class CommandLineHandler : ICommandManager
 
     private ICommand[] _commands;
 
-    public string[] AvailableNamespaces =>
+    public string[] AvailableCommandNamespaces =>
         _commands.Select(command => command.RuntimeAssignedNamespace).Distinct().ToArray();
+
+    public void Start()
+    {
+        _running = true;
+        StartReadThread();
+    }
+
+    public void Stop()
+    {
+        _running = false;
+    }
 
     public CommandLineHandler(IConsoleLog log, string rootNamespace, string[]? commandNamespace)
     {
@@ -74,6 +84,7 @@ public class CommandLineHandler : ICommandManager
         _commands = allCommands.ToArray();
         
     }
+
 
 
     public void StartReadThread()
@@ -372,7 +383,7 @@ public class CommandLineHandler : ICommandManager
                 namespaces.Add(command.RuntimeAssignedNamespace);
             }
 
-            return AvailableNamespaces;
+            return AvailableCommandNamespaces;
         }
     }
 }

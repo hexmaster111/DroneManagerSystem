@@ -24,10 +24,19 @@ public class ServerBackend
 
     private string _localIp;
     private TcpListener? _server = null;
+    
+    public string LocalIp => _localIp;
+    public int ServerPort => _serverPort;
+    public bool IsRunning => listenerThread.IsAlive;
 
+    public int ConnectedClients => _clients.Count;
+    
+    public static int MaxClients = 10;
 
-    public static IConsoleLogInterface.IConsoleLog ConsoleLog { get; set; }
+    public static IConsoleLog ConsoleLog { get; set; }
 
+    private Thread listenerThread;
+    
     public void Start(string localIp, int serverPort)
     {
         if (ConsoleLog == null)
@@ -35,7 +44,7 @@ public class ServerBackend
         _serverPort = serverPort;
         _localIp = localIp;
         ConsoleLog.WriteLog(message: "Starting Listener...", logLevel: LogLevel.Info);
-        var listenerThread = new Thread(_listenerThread);
+        listenerThread = new Thread(_listenerThread);
         listenerThread.Start();
     }
 

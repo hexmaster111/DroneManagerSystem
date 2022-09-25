@@ -1,3 +1,6 @@
+using System.Text;
+using Server;
+
 namespace ServerConsole.Commands.RootNamespace.ServerManagement;
 
 public class CServerInfo : ICommand
@@ -18,8 +21,17 @@ public class CServerInfo : ICommand
     public void Execute(string?[] args, out string? output, out string? errorString,
         out string? changeToNamespace)
     {
-        output = $"Info!";
+        var sb = new StringBuilder();
+        sb.AppendLine("Server Information:");
+        sb.AppendLine("Server Listener running: " + ServerBackend.Instance.IsRunning);
+        sb.AppendLine("Server Internal IP: " + ServerBackend.Instance.LocalIp);
+        sb.AppendLine("Client Listener running on port: " + ServerBackend.Instance.ServerPort);
+        sb.AppendLine("Clients Connected: " + ServerBackend.Instance.ConnectedClients);
+        
+        
+        output = sb.ToString();
         errorString = null;
         changeToNamespace = null;
+        
     }
 }

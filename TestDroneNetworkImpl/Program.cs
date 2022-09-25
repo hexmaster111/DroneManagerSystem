@@ -17,6 +17,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             log.StartLogWriter();
             log.WriteLog(message: "Starting Drone Network Test");
 
+            Connect();
             ConsoleLoop();
         }
 
