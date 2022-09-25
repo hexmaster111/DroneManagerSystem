@@ -5,7 +5,7 @@ namespace ServerConsole.Commands.RootNamespace;
 public class CListCurrentNamespace : ICommand
 {
     public string Name => "ListCurrentNamespace";
-    public string[]? Aliases => new[] { "lcns" };
+    public string[]? Aliases => new[] { "lcns", "ls" };
     public string Description => "Lists the current namespace and items in it.";
     public string RuntimeAssignedNamespace { get; set; }
     public Argument[]? Arguments => null;

@@ -71,13 +71,49 @@ public class CommandLineHandler : ICommandManager
 
     private void ConsoleReadLoopNonReturning()
     {
+        List<char> currentUserInput = new();
+
         while (_running)
         {
-            var readLine = Console.ReadLine();
-            if (readLine == null) continue;
-            var command = readLine.Split(' ');
-            if (command.Length == 0) continue;
-            _handleNewCommand(command);
+            //new way with keyboard shortcuts
+            var input = Console.ReadKey();
+            switch (input.Key)
+            {
+                case ConsoleKey.Tab:
+                    continue;
+                //Do command and continue
+                case ConsoleKey.Enter:
+                    
+                    break;
+
+                case ConsoleKey.DownArrow:
+                case ConsoleKey.UpArrow:
+                    Console.Write("\b");
+                    continue;
+
+                case ConsoleKey.RightArrow:
+                case ConsoleKey.LeftArrow:
+                    Console.Write("\b");
+                    continue;
+
+                case ConsoleKey.Backspace:
+                    currentUserInput.RemoveAt(currentUserInput.Count - 1);
+                    Console.Write(" \b");
+                    continue;
+
+                default:
+                    currentUserInput.Add(input.KeyChar);
+                    continue;
+            }
+
+            var command = currentUserInput.ToArray();
+            currentUserInput.Clear();
+
+            //Turn the command into a string
+            var commandString = new string(command);
+            //Split the command into arguments
+            var commandArgs = commandString.Split(' ');
+            _handleNewCommand(commandArgs);
         }
     }
 

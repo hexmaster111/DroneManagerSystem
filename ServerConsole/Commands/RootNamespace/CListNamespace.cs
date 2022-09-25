@@ -3,7 +3,7 @@ namespace ServerConsole.Commands.RootNamespace;
 public class CListNamespace : ICommand
 {
     public string Name => "ListAllNamespaces";
-    public string[]? Aliases => new[] { "ns" };
+    public string[]? Aliases => new[] { "ns", "lsa" };
 
     public string Description => "List all namespaces";
     public string RuntimeAssignedNamespace { get; set; }

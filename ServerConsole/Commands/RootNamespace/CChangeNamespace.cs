@@ -3,7 +3,7 @@ namespace ServerConsole.Commands.RootNamespace;
 public class CChangeNamespace : ICommand
 {
     public string Name => "ChangeNamespace";
-    public string[]? Aliases => new[] { "cn" };
+    public string[]? Aliases => new[] { "cn", "cd" };
     public string Description => "Changes the current namespace";
     public string RuntimeAssignedNamespace { get; set; }
     public Argument[]? Arguments => new[] { new Argument("namespace", "The namespace to change to") };
