@@ -82,6 +82,9 @@ public class ServerBackend
         // print client info
         ConsoleLog.WriteLog(message: $"Client connected!", logLevel: LogLevel.Info);
         ConsoleLog.WriteLog(message: $"Client IP: {client.Client.RemoteEndPoint}", logLevel: LogLevel.Info);
-        _clients.Add(new RemoteClient(client, ConsoleLog));
+        
+        var remoteClient = new RemoteClient(client, ConsoleLog);
+        
+        _clients.Add(remoteClient);
     }
 }
