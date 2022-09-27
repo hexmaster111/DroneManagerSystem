@@ -36,7 +36,7 @@ public class EventMapper
         var handler = new EventHandler<T>(action);
         handlers.Add(eventName, handler);
     }
-    
+
     public void UnregisterAction(string eventName)
     {
         handlers.Remove(eventName);
@@ -67,7 +67,17 @@ public class EventMapper
 
         public void HandleEvent(SendableTarget obj)
         {
-            SendEvent(JObject.Parse(Encoding.Unicode.GetString(obj.ContainedClass)));
+
+            var containedString = Encoding.Unicode.GetString(obj.ContainedClass);
+            var jObject = JObject.Parse(containedString);
+            //Turn the Jobject into the its sendable target
+            var target = jObject.ToObject<SendableTarget>();
+            //Turn the contained class into a JObject
+            var containedClass = JObject.Parse(Encoding.Unicode.GetString(target.ContainedClass));
+            
+            SendEvent(containedClass);
+            
+
         }
     }
 

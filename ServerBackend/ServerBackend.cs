@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using ConsoleCommandHandler;
+using ConsoleCommandHandler.Commands;
 using IConsoleLog;
 
 namespace ServerBackend;
@@ -19,23 +21,30 @@ public class ServerBackend
 
     private string _localIp;
     private TcpListener? _server = null;
-    
+
     public string LocalIp => _localIp;
     public int ServerPort => _serverPort;
     public bool IsRunning => listenerThread.IsAlive;
 
     public int ConnectedClients => _clients.Count;
     
+    public RemoteClient[] Clients => _clients.ToArray();
+
     public static int MaxClients = 10;
 
     public static IConsoleLog.IConsoleLog ConsoleLog { get; set; }
 
     private Thread listenerThread;
-    
-    public void Start(string localIp, int serverPort)
+
+    private ICommandAdder _commandAdder;
+
+    public void Start(string localIp, int serverPort, ICommandAdder cliConnectionManager)
     {
         if (ConsoleLog == null)
             throw new Exception("ConsoleLog is null");
+
+        _commandAdder = cliConnectionManager;
+
         _serverPort = serverPort;
         _localIp = localIp;
         ConsoleLog.WriteLog(message: "Starting Listener...", logLevel: LogLevel.Info);
@@ -82,9 +91,10 @@ public class ServerBackend
         // print client info
         ConsoleLog.WriteLog(message: $"Client connected!", logLevel: LogLevel.Info);
         ConsoleLog.WriteLog(message: $"Client IP: {client.Client.RemoteEndPoint}", logLevel: LogLevel.Info);
-        
+
         var remoteClient = new RemoteClient(client, ConsoleLog);
-        
+
+
         _clients.Add(remoteClient);
     }
 }

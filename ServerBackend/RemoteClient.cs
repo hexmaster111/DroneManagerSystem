@@ -36,6 +36,12 @@ public class RemoteClient
         _writer.SendData(new SendableTarget(new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
             "HandShake"));
     }
+    
+    
+    public void SendData(SendableTarget target)
+    {
+        _writer.SendData(target);
+    }
 
     private void _mapEvents()
     {

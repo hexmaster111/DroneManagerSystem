@@ -14,7 +14,7 @@ public class GenericWriter
 
     public void SendData(SendableTarget data)
     {
-        var target = new SendableTarget("debug", data.ToJson());
+        var target = new SendableTarget(data.TargetInfo, data.ToJson());
 
         var send = target.ToJson();
 

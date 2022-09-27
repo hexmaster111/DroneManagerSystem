@@ -5,10 +5,68 @@ using ICommand = ConsoleCommandHandler.Commands.ICommand;
 
 namespace ConsoleCommandHandler;
 
-public class CommandLineHandler : ICommandManager
+public interface ICommandAdder
+{
+    public void AddCommand(ICommand command);
+    public void RemoveCommand(ICommand command);
+}
+
+public class CommandLineHandler : ICommandManager , ICommandAdder
 {
     private bool _running = true;
     private IConsoleLog.IConsoleLog _log;
+
+    public CommandLineHandler(IConsoleLog.IConsoleLog log, string rootNamespace, string[]? commandNamespace,
+        Assembly commandAssembly)
+    {
+        _log = log;
+        RootRealCsNamespace = rootNamespace;
+        CommandRealCsNamespace = commandNamespace;
+
+        List<ICommand> allCommands =
+            (GetCommands(RootRealCsNamespace, Assembly.GetExecutingAssembly()).ToList() ??
+             throw new InvalidOperationException())!;
+
+        if (CommandRealCsNamespace != null)
+        {
+            foreach (var commandNamespace1 in CommandRealCsNamespace)
+            {
+                allCommands.AddRange(GetCommands(commandNamespace1, commandAssembly)!);
+            }
+        }
+
+        _commands = allCommands.ToArray();
+    }
+    
+    public void AddCommand(ICommand command)
+    {
+        List<ICommand> commands = _commands.ToList();
+        command.CommandManager = this;
+        commands.Add(command);
+        _commands = commands.ToArray();
+    }
+
+    public void RemoveCommand(ICommand command)
+    {
+        List<ICommand> commands = _commands.ToList();
+        commands.Remove(command);
+        _commands = commands.ToArray();
+    }
+
+
+    public void AddNamespace(string commandNamespace, Assembly commandAssembly)
+    {
+        List<ICommand> allCommands = _commands.ToList();
+        allCommands.AddRange(GetCommands(commandNamespace, commandAssembly)!);
+        _commands = allCommands.ToArray();
+    }
+    
+    public void RemoveNamespace(string commandNamespace)
+    {
+        List<ICommand> allCommands = _commands.ToList();
+        allCommands.RemoveAll(x => x.GetType().Namespace == commandNamespace);
+        _commands = allCommands.ToArray();
+    }
 
     private Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
     {
@@ -66,26 +124,6 @@ public class CommandLineHandler : ICommandManager
     public void Stop()
     {
         _running = false;
-    }
-
-    public CommandLineHandler(IConsoleLog.IConsoleLog log, string rootNamespace, string[]? commandNamespace, Assembly commandAssembly)
-    {
-        _log = log;
-        RootRealCsNamespace = rootNamespace;
-        CommandRealCsNamespace = commandNamespace;
-
-        List<ICommand> allCommands =
-            (GetCommands(RootRealCsNamespace, Assembly.GetExecutingAssembly()).ToList() ?? throw new InvalidOperationException())!;
-
-        if (CommandRealCsNamespace != null)
-        {
-            foreach (var commandNamespace1 in CommandRealCsNamespace)
-            {
-                allCommands.AddRange(GetCommands(commandNamespace1, commandAssembly)!);
-            }
-        }
-
-        _commands = allCommands.ToArray();
     }
 
 

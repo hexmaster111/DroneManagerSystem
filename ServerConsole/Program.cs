@@ -18,7 +18,7 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             commandLineHandler.StartReadThread();
             ConsoleLog.WriteLog(message: "Starting server...");
             ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
-            ServerBackend.ServerBackend.Instance.Start("127.0.0.1", 5000);
+            ServerBackend.ServerBackend.Instance.Start("127.0.0.1", 5000, commandLineHandler);
         }
     }
 }
