@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
+      <ProjectReference Include="..\Contracts\Contracts.csproj" />
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
       <ProjectReference Include="..\GenericEventMapper\GenericEventMapper.csproj" />
       <ProjectReference Include="..\GenericMessaging\GenericMessaging.csproj" />

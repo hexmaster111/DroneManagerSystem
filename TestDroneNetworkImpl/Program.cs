@@ -1,5 +1,6 @@
 ﻿using System.Net.Sockets;
 using System.Text;
+using Contracts;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
@@ -26,10 +27,11 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static EventMapper eventMapper;
 
+        private static ServerEndpointContract serverEndpointContract = new ();
 
         private static void _AssignTargets()
         {
-            eventMapper.MapAction<HandShakeMessage>("HandShake", OnHandshake);
+            ContractRegister.RegisterContracts(ref eventMapper, serverEndpointContract);
         }
 
         private static void OnHandshake(HandShakeMessage obj)
