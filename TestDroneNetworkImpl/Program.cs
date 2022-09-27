@@ -29,22 +29,29 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static void _AssignTargets()
         {
+            eventMapper.MapAction<HandShakeMessage>("HandShake", OnHandshake);
+        }
+
+        private static void OnHandshake(HandShakeMessage obj)
+        {
+            log.WriteLog(message: $"Handshake received from {obj.Id} send at {obj.TimeStamp}");
         }
 
         private static void Connect()
         {
-            var client = new TcpClient();
-            client.Connect("172.0.0.1", 5000);
-            var stream = client.GetStream();
-            reader = new GenericReader(stream);
-            writer = new GenericWriter(stream);
             eventMapper = new EventMapper(log);
             _AssignTargets();
+            var client = new TcpClient();
+            client.Connect("127.0.0.1", 5000);
+            var stream = client.GetStream();
+            reader = new GenericReader(stream);
             reader.OnMessageReceived += eventMapper.HandleEvent;
+            writer = new GenericWriter(stream);
+            reader.StartReading();
 
 
-            stream.Close();
-            client.Close();
+            // stream.Close();
+            // client.Close();
         }
 
 

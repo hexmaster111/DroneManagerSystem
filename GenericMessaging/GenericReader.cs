@@ -31,6 +31,7 @@ public class GenericReader
 
     public void StartReading()
     {
+        _reading = true;
         _reader = new Thread(ReadingThread);
         _reader.Start();
     }

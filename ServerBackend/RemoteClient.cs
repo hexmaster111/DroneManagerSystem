@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 using GenericMessaging;
@@ -20,7 +21,7 @@ public class RemoteClient
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
         _client = client;
-        
+
         _log = log;
 
         _reader = new GenericReader(client.GetStream());
@@ -31,11 +32,14 @@ public class RemoteClient
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
 
         _reader.StartReading();
+        _log.WriteLog(message:"Trying to send data", logLevel:LogLevel.Debug);
+        _writer.SendData(new SendableTarget(new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
+            "HandShake"));
     }
 
     private void _mapEvents()
     {
-        _eventMapper.MapAction<HandShakeMessage>("TestHandshake",
+        _eventMapper.MapAction<HandShakeMessage>("Handshake",
             (message) =>
             {
                 _log?.WriteLog(
