@@ -15,6 +15,6 @@ public enum LogLevel
 
 public interface IConsoleLog
 {
-    public void WriteLog([CallerMemberName]string caller = "" , string message = "", LogLevel logLevel = LogLevel.Info);
+    public void WriteLog(string message = "", LogLevel logLevel = LogLevel.Info, [CallerMemberName] string caller = "");
     public void WriteCommandLog(string command, string message = "", LogLevel logLevel = LogLevel.Info);
 }

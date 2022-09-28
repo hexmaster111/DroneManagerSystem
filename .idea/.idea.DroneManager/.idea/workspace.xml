@@ -12,7 +12,15 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="I am a goddess of c#" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="licenser is now static">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionMapperTests/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,11 +32,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81ed92f37980bf22415131b7e1966d7f2a67267bdedb3fd7d350f6a7fd1933/Delegate.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e3a8ffdcd86e30276b61d16979c6967c974581cbca0107a2780ad211bddda/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ff6e15065aca4366778dbe1a1b71b9164dea3534b71e1795c33fd6f159f52/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad2a4b807aefd7738e919aa358fa13721e9a4848eb142d8849c2546109d81e1/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CrappyLicenseTool/LicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CrappyLicenseTool/LicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -221,6 +234,7 @@
       <updated>1664252191371</updated>
       <workItem from="1664252199004" duration="1845000" />
       <workItem from="1664328808154" duration="6099000" />
+      <workItem from="1664405632886" duration="1388000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -243,7 +257,28 @@
       <option name="project" value="LOCAL" />
       <updated>1664333683219</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cleaned up the project">
+      <created>1664337644965</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664337644965</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir">
+      <created>1664405692678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664405692678</updated>
+    </task>
+    <task id="LOCAL-00006" summary="licenser is now static">
+      <created>1664406057595</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664406057595</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,51 +302,9 @@
     <MESSAGE value="Things ~!" />
     <MESSAGE value="Added Contracts" />
     <MESSAGE value="I am a goddess of c#" />
-    <option name="LAST_COMMIT_MESSAGE" value="I am a goddess of c#" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="34" containingFunctionPresentation="method 'RegisterContracts'">
-            <startOffsets>
-              <option value="967" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1184" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs</url>
-          <line>64</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\CrappyLicenseTool\LicManager.cs" initialLine="64" containingFunctionPresentation="method 'IsValid'">
-            <startOffsets>
-              <option value="1597" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1618" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs</url>
-          <line>62</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\CrappyLicenseTool\LicManager.cs" initialLine="62" containingFunctionPresentation="method 'IsValid'">
-            <startOffsets>
-              <option value="1545" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1546" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Cleaned up the project" />
+    <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
+    <MESSAGE value="licenser is now static" />
+    <option name="LAST_COMMIT_MESSAGE" value="licenser is now static" />
   </component>
 </project>

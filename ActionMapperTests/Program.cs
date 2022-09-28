@@ -36,6 +36,6 @@ public static class ActionMapperTests
 
     private static void Action(HandShakeMessage obj)
     {
-        Log.WriteLog(message:"Debug action called" + obj.Id + " " + obj.TimeStamp);
+        Log.WriteLog(message: "Debug action called" + obj.Id + " " + obj.TimeStamp);
     }
 }

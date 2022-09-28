@@ -32,7 +32,7 @@ public class RemoteClient
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
 
         _reader.StartReading();
-        _log.WriteLog(message:"Trying to send data", logLevel:LogLevel.Debug);
+        _log.WriteLog(message: "Trying to send data", logLevel: LogLevel.Debug);
         _writer.SendData(new SendableTarget(new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
             "HandShake"));
     }

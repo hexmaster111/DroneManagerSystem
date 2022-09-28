@@ -76,7 +76,7 @@ public class ConsoleLog : IConsoleLog.IConsoleLog
         public LogLevel LogLevel { get; set; }
     }
 
-    public void WriteLog([CallerMemberName] string caller = "", string message = "", LogLevel logLevel = LogLevel.Info)
+    public void WriteLog(string message = "", LogLevel logLevel = LogLevel.Info, [CallerMemberName] string caller = "")
     {
         var finalMessage = $"[{DateTime.Now:HH:mm}][{logLevel}][{NameOfCallingClass()}.{caller}] {message}";
         if (_logWriterStarted)

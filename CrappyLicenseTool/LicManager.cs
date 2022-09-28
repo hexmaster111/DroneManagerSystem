@@ -48,6 +48,8 @@ public static class LicManager
 
     private static void SaveLicense()
     {
+        if(_license == null)
+            throw new Exception("License manager was not initialized (Init())");
         //serialize the license
         var license = JsonConvert.SerializeObject(_license);
         //write the license to the file
@@ -56,6 +58,8 @@ public static class LicManager
 
     public static bool IsValid()
     {
+        if(_license == null)
+            throw new Exception("License manager was not initialized (Init())");
         //check if the license is a trial
         if (!_license.IsTrial) return true;
         //check if RegDate + trial length is greater than now
