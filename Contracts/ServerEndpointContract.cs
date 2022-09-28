@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using CrappyLicenseTool;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 
@@ -18,6 +19,9 @@ public class ServerEndpointContract
 
 public static class ContractRegister
 {
+
+    public static LicManager _Manager = new();
+    
     /// <summary>
     ///     Registers all contracts into the event mapper
     /// </summary>
@@ -25,6 +29,8 @@ public static class ContractRegister
     /// <param name="contract"></param>
     public static void RegisterContracts(ref EventMapper eventMapper, object contract)
     {
+        if(!_Manager.IsValid()) throw new Exception("License is invalid");
+        
         //Get all ContractItem properties
         var contractItems = contract.GetType()
             .GetProperties()
@@ -47,8 +53,6 @@ public static class ContractRegister
                 throw new Exception(
                     $"{contractItemMemberName} was not registered to, Add your method to the contract before registering");
 
-            // eventMapper.MapAction<compilerMadeType>(contractItemMemberName, actionProperty.GetValue(contractItem));
-
             //Get the Action<T> type
             var actionType = actionProperty.PropertyType;
 
@@ -57,17 +61,14 @@ public static class ContractRegister
 
             //Get the MapAction method
             var mapActionMethod = eventMapper.GetType()
-                .GetMethod("Test")
+                .GetMethod("MapGenericAction") 
                 ?.MakeGenericMethod(genericType);
-
+            
             Debug.Assert(mapActionMethod != null, nameof(mapActionMethod) + " != null");
 
 
             //Call the MapAction method
             mapActionMethod.Invoke(eventMapper, new object[] { contractItemMemberName, action });
-
-
-            // eventMapper.MapAction(contractItemMemberName, action);
         }
     }
 }

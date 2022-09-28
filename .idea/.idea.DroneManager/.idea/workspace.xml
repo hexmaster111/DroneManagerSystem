@@ -12,10 +12,11 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Added Contracts">
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractItem.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="I am a goddess of c#">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/Contracts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/Contracts.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
@@ -27,6 +28,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0b5567882521e02aa3d40a7bce81b7235ccac4db588866e3498e614c3bc/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21a3b398f3380ce39bf79f68955f778c2919dbf1300c224c77e1b93625554/RuntimeHandles.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81ed92f37980bf22415131b7e1966d7f2a67267bdedb3fd7d350f6a7fd1933/Delegate.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ff6e15065aca4366778dbe1a1b71b9164dea3534b71e1795c33fd6f159f52/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
@@ -225,7 +227,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664252191371</updated>
       <workItem from="1664252199004" duration="1845000" />
-      <workItem from="1664328808154" duration="4447000" />
+      <workItem from="1664328808154" duration="6099000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -241,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664328868784</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="I am a goddess of c#">
+      <created>1664333683219</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664333683219</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,101 +273,50 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Things ~!" />
     <MESSAGE value="Added Contracts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Contracts" />
+    <MESSAGE value="I am a goddess of c#" />
+    <option name="LAST_COMMIT_MESSAGE" value="I am a goddess of c#" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\TestDroneNetworkImpl\Program.cs" initialLine="32" containingFunctionPresentation="method '_AssignTargets'">
+          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="34" containingFunctionPresentation="method 'RegisterContracts'">
             <startOffsets>
-              <option value="905" />
+              <option value="967" />
             </startOffsets>
             <endOffsets>
-              <option value="906" />
+              <option value="1184" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
+          <url>file://$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs</url>
+          <line>64</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\CrappyLicenseTool\LicManager.cs" initialLine="64" containingFunctionPresentation="method 'IsValid'">
+            <startOffsets>
+              <option value="1597" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1618" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs</url>
           <line>62</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="25" containingFunctionPresentation="method 'RegisterContracts'">
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\CrappyLicenseTool\LicManager.cs" initialLine="62" containingFunctionPresentation="method 'IsValid'">
             <startOffsets>
-              <option value="2086" />
+              <option value="1545" />
             </startOffsets>
             <endOffsets>
-              <option value="2087" />
+              <option value="1546" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="36" containingFunctionPresentation="method 'RegisterContracts'">
-            <startOffsets>
-              <option value="2080" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2081" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
-          <line>57</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="57" containingFunctionPresentation="method 'RegisterContracts'">
-            <startOffsets>
-              <option value="1914" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1999" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs</url>
-          <line>39</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\TestDroneNetworkImpl\Program.cs" initialLine="39" containingFunctionPresentation="method 'Action'">
-            <startOffsets>
-              <option value="1149" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1185" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs</url>
-          <line>45</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\GenericMapper.cs" initialLine="39" containingFunctionPresentation="method 'Test'">
-            <startOffsets>
-              <option value="1235" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1245" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Contracts/ServerEndpointContract.cs</url>
-          <line>43</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\Contracts\ServerEndpointContract.cs" initialLine="43" containingFunctionPresentation="method 'RegisterContracts'">
-            <startOffsets>
-              <option value="1434" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1479" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
