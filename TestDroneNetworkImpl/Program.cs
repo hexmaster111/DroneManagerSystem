@@ -31,7 +31,17 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static void _AssignTargets()
         {
+            
+            
+            
+            serverEndpointContract.HandShake.Action += Action;
+            serverEndpointContract.HandShake2.Action += Action;
             ContractRegister.RegisterContracts(ref eventMapper, serverEndpointContract);
+        }
+
+        private static void Action(HandShakeMessage obj)
+        {
+            throw new NotImplementedException();
         }
 
         private static void OnHandshake(HandShakeMessage obj)

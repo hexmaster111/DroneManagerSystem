@@ -30,7 +30,23 @@ public class EventMapper
         else
             _log.WriteLog(message: "No handler for event: " + target.TargetInfo, logLevel: LogLevel.Warning);
     }
-
+    
+    public void Test<T>(string name, object? o)
+    {
+        //Cast o To Action<T>
+        //MapAction<T> it
+        var action = (Action<T>) o;
+        //Throw if null
+        if (action == null)
+            throw new Exception("Action is null");
+        MapAction<T>(name, action);
+        
+        
+        
+        var a = 1;
+    }
+    
+    
     public void MapAction<T>(string eventName, Action<T> action)
     {
         var handler = new EventHandler<T>(action);

@@ -1,19 +1,15 @@
-﻿using DroneManager.Interface.ServerInterface;
+﻿using System.Diagnostics;
+using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 
 namespace Contracts;
 
-public class ContractItem<T>
-{
-    public Action<T> Action { get; set; }
-}
-
 public class ServerEndpointContract
 {
-    public ContractItem<HandShakeMessage> HandShake { get; }
-    public ContractItem<HandShakeMessage> HandShake2 { get; }
-    
-    
+    public ContractItem<HandShakeMessage> HandShake { get; } = new();
+    public ContractItem<HandShakeMessage> HandShake2 { get; } = new();
+
+
     // public void Register(ref EventMapper eventMapper)
     // {
     //     eventMapper.MapAction("HandShake" ,HandShake.Action);
@@ -22,6 +18,11 @@ public class ServerEndpointContract
 
 public static class ContractRegister
 {
+    /// <summary>
+    ///     Registers all contracts into the event mapper
+    /// </summary>
+    /// <param name="eventMapper"></param>
+    /// <param name="contract"></param>
     public static void RegisterContracts(ref EventMapper eventMapper, object contract)
     {
         //Get all ContractItem properties
@@ -29,15 +30,42 @@ public static class ContractRegister
             .GetProperties()
             .Where(x => x.PropertyType.IsGenericType &&
                         x.PropertyType.GetGenericTypeDefinition() == typeof(ContractItem<>));
-        
-        
+
+
         //Register all ContractItems
         foreach (var contractItem in contractItems)
         {
             var contractItemMemberName = contractItem.Name;
-            
-            // Pass the action<T> to the eventMapper
-            var action = (Delegate) contractItem.GetValue(contract);
+
+            //Get the Action<T> property
+            var actionProperty = contractItem.PropertyType.GetProperty("Action");
+
+            //Get the Action<T> value
+            var action = actionProperty.GetValue(contractItem.GetValue(contract));
+
+            if (action == null)
+                throw new Exception(
+                    $"{contractItemMemberName} was not registered to, Add your method to the contract before registering");
+
+            // eventMapper.MapAction<compilerMadeType>(contractItemMemberName, actionProperty.GetValue(contractItem));
+
+            //Get the Action<T> type
+            var actionType = actionProperty.PropertyType;
+
+            //Get the T type
+            var genericType = actionType.GetGenericArguments()[0];
+
+            //Get the MapAction method
+            var mapActionMethod = eventMapper.GetType()
+                .GetMethod("Test")
+                ?.MakeGenericMethod(genericType);
+
+            Debug.Assert(mapActionMethod != null, nameof(mapActionMethod) + " != null");
+
+
+            //Call the MapAction method
+            mapActionMethod.Invoke(eventMapper, new object[] { contractItemMemberName, action });
+
 
             // eventMapper.MapAction(contractItemMemberName, action);
         }
