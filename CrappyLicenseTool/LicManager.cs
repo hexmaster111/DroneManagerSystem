@@ -10,16 +10,20 @@ public class LicManager
         System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\license.lic";
 
 
+    
+    
     public class License
     {
         public License(DateTime regDate, bool isTrial)
         {
             RegDate = regDate;
             isTrial = IsTrial;
+            
         }
 
         public DateTime RegDate { get; set; } = DateTime.Now;
         public bool IsTrial { get; set; } = true;
+        public string LicenseKey { get; set; } = "1234567890";
     }
 
     private License _license;
@@ -34,13 +38,10 @@ public class LicManager
         }
 
         //Deserialize license file with neutonsoft.json
-        var license = JsonConvert.DeserializeObject<License>(File.ReadAllText(LicenseFile));
         //check if license is null
-        if (license == null)
-        {
-            //if it is, create a new one
-            license = new License(DateTime.Now, true);
-        }
+        //if it is, create a new one
+        var license = JsonConvert.DeserializeObject<License>(File.ReadAllText(LicenseFile)) ??
+                      new License(DateTime.Now, true);
 
         //set the license
         _license = license;

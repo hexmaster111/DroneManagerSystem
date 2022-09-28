@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
+      <ProjectReference Include="..\CrappyLicenseTool\CrappyLicenseTool.csproj" />
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
     </ItemGroup>
 
