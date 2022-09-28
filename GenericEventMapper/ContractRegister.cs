@@ -23,7 +23,7 @@ public class ContractItem<T>
 
 public static class ContractRegister
 {
-    private static LicManager _licManager = new();
+
     
     /// <summary>
     ///     Registers all contracts into the event mapper
@@ -32,7 +32,7 @@ public static class ContractRegister
     /// <param name="contract"></param>
     public static void RegisterContracts(ref EventMapper eventMapper, object contract)
     {
-        if(!_licManager.IsValid()) throw new Exception("License is invalid");
+        if(!LicManager.IsValid()) throw new Exception("License is invalid");
 
         //Get all ContractItem properties
         var contractItems = contract.GetType()

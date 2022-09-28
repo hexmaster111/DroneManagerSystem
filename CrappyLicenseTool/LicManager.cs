@@ -3,22 +3,19 @@ using Newtonsoft.Json;
 
 namespace CrappyLicenseTool;
 
-public class LicManager
+public static class LicManager
 {
     //exe path + filename
-    public string LicenseFile =
+    public static string LicenseFile =
         System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\license.lic";
 
 
-    
-    
     public class License
     {
         public License(DateTime regDate, bool isTrial)
         {
             RegDate = regDate;
             isTrial = IsTrial;
-            
         }
 
         public DateTime RegDate { get; set; } = DateTime.Now;
@@ -26,9 +23,7 @@ public class LicManager
         public string LicenseKey { get; set; } = "1234567890";
     }
 
-    private License _license;
-
-    public LicManager()
+    public static void Init()
     {
         //Check if license file exists
         if (!File.Exists(LicenseFile))
@@ -43,14 +38,15 @@ public class LicManager
         var license = JsonConvert.DeserializeObject<License>(File.ReadAllText(LicenseFile)) ??
                       new License(DateTime.Now, true);
 
-        //set the license
-        _license = license;
 
         //save the license
         SaveLicense();
     }
 
-    private void SaveLicense()
+    
+    private static License _license;
+
+    private static void SaveLicense()
     {
         //serialize the license
         var license = JsonConvert.SerializeObject(_license);
@@ -58,7 +54,7 @@ public class LicManager
         File.WriteAllText(LicenseFile, license);
     }
 
-    public bool IsValid()
+    public static bool IsValid()
     {
         //check if the license is a trial
         if (!_license.IsTrial) return true;
