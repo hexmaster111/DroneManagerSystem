@@ -12,14 +12,17 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="licenser is now static">
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="changed throws to log messages for incorrect types in the ContractRegister.cs">
+      <change afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionMapperTests/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrappyLicenseTool/LicManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,7 @@
     <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CrappyLicenseTool/LicManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ServerBackend/RemoteClient.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -188,11 +192,11 @@
       </method>
     </configuration>
     <configuration name="ServerConsole" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/ServerConsole/bin/Debug/net6.0/ServerConsole.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerConsole/bin/Debug/net6.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="1" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/ServerConsole/ServerConsole.csproj" />
@@ -200,7 +204,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net6.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -223,6 +227,17 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Project.ActionMapperTests" />
+      <item itemvalue=".NET Project.AssetImplTests" />
+      <item itemvalue=".NET Project.CommunicationCodeTests" />
+      <item itemvalue=".NET Project.DroneManager.UI" />
+      <item itemvalue=".NET Project.DroneTypeEqualityTest" />
+      <item itemvalue=".NET Project.ObjectSerlisationTest" />
+      <item itemvalue=".NET Project.QuickCommunicationSorting" />
+      <item itemvalue=".NET Project.ServerConsole" />
+      <item itemvalue=".NET Project.TestDroneNetworkImpl" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -234,7 +249,7 @@
       <updated>1664252191371</updated>
       <workItem from="1664252199004" duration="1845000" />
       <workItem from="1664328808154" duration="6099000" />
-      <workItem from="1664405632886" duration="1388000" />
+      <workItem from="1664405632886" duration="8040000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -278,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664406057595</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changed throws to log messages for incorrect types in the ContractRegister.cs">
+      <created>1664407170960</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664407170960</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +327,7 @@
     <MESSAGE value="Cleaned up the project" />
     <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
     <MESSAGE value="licenser is now static" />
-    <option name="LAST_COMMIT_MESSAGE" value="licenser is now static" />
+    <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
   </component>
 </project>

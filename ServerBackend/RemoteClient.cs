@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using Contracts;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
@@ -15,8 +16,11 @@ public class RemoteClient
 
     private GenericReader _reader;
     private GenericWriter _writer;
-    private readonly EventMapper _eventMapper;
+    private EventMapper _eventMapper;
     private IConsoleLog.IConsoleLog? _log;
+    
+    private ServerEndpointContract _serverEndpointContract = new (); //Out from the server to the client
+    private ClientEndpointContract _clientEndpointContract = new (); //In from the client to the server
 
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
@@ -29,12 +33,10 @@ public class RemoteClient
         _eventMapper = new EventMapper(log);
 
         _mapEvents();
+        _setupSendingContract();
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
 
         _reader.StartReading();
-        _log.WriteLog(message: "Trying to send data", logLevel: LogLevel.Debug);
-        _writer.SendData(new SendableTarget(new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
-            "HandShake"));
     }
     
     
@@ -43,14 +45,22 @@ public class RemoteClient
         _writer.SendData(target);
     }
 
+
+    private void _setupSendingContract()
+    {
+        SendingContractRegister.RegisterSendingContract(ref _writer, _clientEndpointContract, _log);
+    }
+    
+    
     private void _mapEvents()
     {
-        _eventMapper.MapAction<HandShakeMessage>("Handshake",
-            (message) =>
-            {
-                _log?.WriteLog(
-                    message: $"Received TestHandshake from {message.Id} sent at {message.TimeStamp}",
-                    logLevel: LogLevel.Info);
-            });
+        _serverEndpointContract.HandShake.Action += OnHandShake;
+        _serverEndpointContract.HandShake2.Action += OnHandShake;
+        ReceivingContractRegister.RegisterContracts(ref _eventMapper,_serverEndpointContract, _log);
+    }
+
+    private void OnHandShake(HandShakeMessage obj)
+    {
+        _log.WriteLog("Handshake received");
     }
 }

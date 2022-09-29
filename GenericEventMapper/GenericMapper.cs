@@ -28,7 +28,23 @@ public class EventMapper
         if (handlers.TryGetValue(target.TargetInfo, out var handler))
             handler.HandleEvent(target);
         else
+        {
             _log.WriteLog(message: "No handler for event: " + target.TargetInfo, logLevel: LogLevel.Warning);
+            _log.WriteLog(
+                "Event Target Info: " + target.TargetInfo +
+                Environment.NewLine + "Event Data: " +
+                Environment.NewLine + DeserializeContainedClass(target).ToString(), logLevel: LogLevel.Debug);
+        }
+    }
+
+    private static JObject DeserializeContainedClass(SendableTarget targetReceived)
+    {
+        var containedString = Encoding.Unicode.GetString(targetReceived.ContainedClass);
+        var jObject = JObject.Parse(containedString);
+        //Turn the Jobject into the its sendable target
+        var target = jObject.ToObject<SendableTarget>();
+        //Turn the contained class into a JObject
+        return JObject.Parse(Encoding.Unicode.GetString(target.ContainedClass));
     }
 
     //DO NOT RENAME FROM MapGenericAction - it is used for reflection
@@ -80,14 +96,7 @@ public class EventMapper
 
         public void HandleEvent(SendableTarget obj)
         {
-            var containedString = Encoding.Unicode.GetString(obj.ContainedClass);
-            var jObject = JObject.Parse(containedString);
-            //Turn the Jobject into the its sendable target
-            var target = jObject.ToObject<SendableTarget>();
-            //Turn the contained class into a JObject
-            var containedClass = JObject.Parse(Encoding.Unicode.GetString(target.ContainedClass));
-
-            SendEvent(containedClass);
+            SendEvent(DeserializeContainedClass(obj));
         }
     }
 

@@ -10,8 +10,11 @@ public class CSendTestHandshake : ICommand
     public string Name => "debug_send_handshake";
     public string[]? Aliases => new[] { "dsh" };
     public string Description => "Sends a test handshake to the client";
-    public string RuntimeAssignedNamespace { get; set; } 
-    public Argument[]? Arguments => null;
+    public string RuntimeAssignedNamespace { get; set; }
+
+    public Argument[]? Arguments => new[]
+        { new Argument("TestCmdNumber", "Debug message to send", Argument.CompleteHelperType.None) };
+
     public ICommandManager CommandManager { get; set; }
 
     public void Execute(string?[] args, out string? output, out string? errorString, out string? changeToNamespace)
@@ -19,12 +22,22 @@ public class CSendTestHandshake : ICommand
         changeToNamespace = null;
         errorString = null;
         output = null;
-        
+
         try
         {
-            ServerBackend.ServerBackend.Instance.Clients[0].SendData(new SendableTarget(
-            new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
-            "HandShake"));
+            switch (args[1])
+            {
+                case "1":
+                    ServerBackend.ServerBackend.Instance.Clients[0].SendData(new SendableTarget(
+                        new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
+                        "BadTarget"));
+                    break;
+                case "2":
+                    ServerBackend.ServerBackend.Instance.Clients[0].SendData(new SendableTarget(
+                        new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
+                        "HandShake"));
+                    break;
+            }
         }
         catch (Exception e)
         {
@@ -32,6 +45,7 @@ public class CSendTestHandshake : ICommand
             errorString = "Exception: " + e.Message;
             return;
         }
+
         output = "Sent handshake";
     }
 }

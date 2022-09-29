@@ -1,14 +1,7 @@
-﻿using System.Diagnostics;
-using CrappyLicenseTool;
-using GenericEventMapper;
+﻿using Contracts;
 using IConsoleLog;
 
-namespace Contracts;
-
-public class ContractItem<T>
-{
-    public Action<T> Action { get; set; }
-}
+namespace GenericEventMapper;
 
 /* Example usage */
 /*
@@ -22,7 +15,11 @@ public class ContractItem<T>
  *  The EventName is generated off the the property name, and the type of the action it will send is the <T> type
  */
 
-public static class ContractRegister
+/// <summary>
+///     This is so that a mapper can be automatically assigned to a contract that will be used as a message receiver
+///     Use case: A server has a contract that the Client can send to, the server would then use ReceivingContractRegister
+/// </summary>
+public static class ReceivingContractRegister
 {
     /// <summary>
     ///     Registers all contracts into the event mapper
@@ -81,13 +78,16 @@ public static class ContractRegister
                 .GetMethod("MapGenericAction")
                 ?.MakeGenericMethod(genericType);
 
-            Debug.Assert(mapActionMethod != null, nameof(mapActionMethod) + " != null");
-
-            if (mapActionMethod != null) log.WriteLog("MapAction method is not null; ", LogLevel.Error);
-
 
             //Call the MapAction method
-            mapActionMethod.Invoke(eventMapper, new object[] { contractItemMemberName, action });
+            if (mapActionMethod != null)
+                mapActionMethod.Invoke(eventMapper, new object[] { contractItemMemberName, action });
+            else
+            {
+                log.WriteLog("MapAction method is null", LogLevel.Error);
+                continue;
+                throw new Exception("MapAction method is null");
+            }
         }
     }
 }
