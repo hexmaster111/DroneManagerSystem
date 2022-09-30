@@ -5,12 +5,6 @@ using ICommand = ConsoleCommandHandler.Commands.ICommand;
 
 namespace ConsoleCommandHandler;
 
-public interface ICommandAdder
-{
-    public void AddCommand(ICommand command);
-    public void RemoveCommand(ICommand command);
-}
-
 public class CommandLineHandler : ICommandManager , ICommandAdder
 {
     private bool _running = true;

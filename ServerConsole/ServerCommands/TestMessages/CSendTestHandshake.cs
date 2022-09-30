@@ -1,6 +1,7 @@
 using ConsoleCommandHandler.Commands;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.ServerInterface;
+using GenericEventMapper;
 using GenericMessaging;
 
 namespace ServerConsole.ServerCommands.TestMessages;
@@ -31,12 +32,14 @@ public class CSendTestHandshake : ICommand
                     ServerBackend.ServerBackend.Instance.Clients[0].SendData(new SendableTarget(
                         new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
                         "BadTarget"));
-                    break;
+                    output = "Sent badTarget";
+                    return;
                 case "2":
                     ServerBackend.ServerBackend.Instance.Clients[0].SendData(new SendableTarget(
                         new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)),
                         "HandShake"));
-                    break;
+                    output = "Sent handshake";
+                    return;
             }
         }
         catch (Exception e)
@@ -45,7 +48,8 @@ public class CSendTestHandshake : ICommand
             errorString = "Exception: " + e.Message;
             return;
         }
-
-        output = "Sent handshake";
+        
+        output = null;
+        errorString = "Invalid argument";
     }
 }

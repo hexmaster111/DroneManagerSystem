@@ -28,23 +28,26 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         private static EventMapper eventMapper;
 
         private static ServerEndpointContract serverEndpointContract = new();
-        private static ClientEndpointContract clientEndpointContract = new();
+        private static ClientEndpointContract _clientEndpointContract = new();
 
         private static void _AssignTargets()
         {
-            serverEndpointContract.HandShake.Action += OnHandshake;
-            serverEndpointContract.HandShake2.Action += message => throw new NotImplementedException();
-            ReceivingContractRegister.RegisterContracts(ref eventMapper, serverEndpointContract, log);
+            _clientEndpointContract.HandShake.Action += OnHandshake;
+            ReceivingContractRegister.RegisterContracts(ref eventMapper, _clientEndpointContract, RefreshContractFunc, log);
         }
 
-        private static void Action(HandShakeMessage obj)
-        {
-            throw new NotImplementedException();
-        }
 
         private static void OnHandshake(HandShakeMessage obj)
         {
             log.WriteLog(message: $"Handshake received from {obj.Id} send at {obj.TimeStamp}");
+        }
+        
+        public static Func<bool> RefreshContractFunc = RefreshContract;
+
+        private static bool RefreshContract()
+        {
+            SendingContractRegister.RegisterSendingContract(serverEndpointContract, new object[] { writer }, log);
+            return true;    
         }
 
         private static void Connect()
@@ -58,7 +61,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             reader.OnMessageReceived += eventMapper.HandleEvent;
             writer = new GenericWriter(stream);
 
-            SendingContractRegister.RegisterSendingContract(clientEndpointContract, new object[] { writer }, log);
+            RefreshContract();
 
 
             reader.StartReading();
@@ -82,7 +85,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
                     case "test":
                     {
-                        clientEndpointContract.HandShake.Send(
+                        _clientEndpointContract.HandShake.Send(
                             new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)));
                     }
                         break;

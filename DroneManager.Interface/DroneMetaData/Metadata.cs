@@ -1,6 +1,5 @@
 namespace DroneManager.Interface.DroneMetaData;
 
-//Todo Add a do not send to drone flag to the meta data
 public class Metadata
 {
     public KinkInfo KinkInfo { get; set; }

@@ -1,6 +1,7 @@
 using System.Net.Sockets;
 using Contracts;
 using DroneManager.Interface.GenericTypes;
+using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 using GenericMessaging;
@@ -8,9 +9,16 @@ using IConsoleLog;
 
 namespace ServerBackend;
 
-public class RemoteClient
+public interface IRemoteClient
 {
-    private TcpClient _client;
+    public ClientEndpointContract ClientEndpoint { get; }
+    public bool IsConnected { get; }
+    public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
+}
+
+public class RemoteClient : IRemoteClient
+{
+    private TcpClient? _client;
     private readonly NetworkStream _stream;
     private readonly Thread _thread;
 
@@ -36,31 +44,54 @@ public class RemoteClient
         _setupSendingContract();
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
 
+
         _reader.StartReading();
     }
 
 
     public void SendData(SendableTarget target)
     {
-        _writer.SendData(target);
+        try
+        {
+            _writer.SendData(target);
+        }
+        //Catch the unable to write exception and send the new connection Action
+        catch (Exception e)
+        {
+            _log?.WriteLog("Client disconnected");
+            _client?.Close();
+            _client = null;
+            OnConnectionStatusChanged?.Invoke(ConnectionStatus.Disconnected);
+        }
+
     }
 
 
     private void _setupSendingContract()
     {
-        SendingContractRegister.RegisterSendingContract(_clientEndpointContract, new object[] {  _writer }, _log);
+        SendingContractRegister.RegisterSendingContract(_clientEndpointContract, new object[] { _writer }, _log);
     }
 
 
+    private bool refreshContracts()
+    {
+        ReceivingContractRegister.RegisterContracts(ref _eventMapper, _serverEndpointContract, this.refreshContracts, _log);
+        return true;
+    }
+    
     private void _mapEvents()
     {
         _serverEndpointContract.HandShake.Action += OnHandShake;
         _serverEndpointContract.HandShake2.Action += OnHandShake;
-        ReceivingContractRegister.RegisterContracts(ref _eventMapper, _serverEndpointContract, _log);
+        refreshContracts();
     }
 
     private void OnHandShake(HandShakeMessage obj)
     {
-        _log.WriteLog("Handshake received");
+        _log?.WriteLog("Handshake received");
     }
+
+    public ClientEndpointContract ClientEndpoint => _clientEndpointContract;
+    public bool IsConnected => _client.Connected;
+    public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
 }

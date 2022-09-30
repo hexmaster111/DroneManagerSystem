@@ -10,8 +10,3 @@ public class ServerEndpointContract //Things the server can receive and the clie
     public ContractItem<HandShakeMessage> HandShake2 { get; } = new TcpContractItem<HandShakeMessage>();
 
 }
-
-public class ClientEndpointContract //Things the client can receive and the server can send
-{
-    public ContractItem<HandShakeMessage> HandShake { get; } = new TcpContractItem<HandShakeMessage>();
-}

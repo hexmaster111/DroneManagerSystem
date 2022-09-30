@@ -54,6 +54,7 @@ public class EventMapper
         //Throw if null
         if (action == null)
             throw new Exception("Action is null");
+        
         MapAction<T>(name, action);
     }
 

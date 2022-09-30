@@ -4,7 +4,8 @@ namespace GenericEventMapper;
 
 public static class SendingContractRegister
 {
-    public static void RegisterSendingContract(object contract, object[] sendSetupArgs, IConsoleLog.IConsoleLog log)
+    public static void RegisterSendingContract(object contract, object[] sendSetupArgs,
+        IConsoleLog.IConsoleLog log)
     {
         //Get all ContractItem properties
         var contractItems = contract.GetType()
@@ -29,7 +30,8 @@ public static class SendingContractRegister
             Array.Copy(sendSetupArgs, 0, sendSetupArgsWithContractName, 1, sendSetupArgs.Length);
 
 
-            contractItemInitSenderMethod.Invoke(contractItemValue, new object?[] { sendSetupArgsWithContractName });
+            contractItemInitSenderMethod.Invoke(contractItemValue,
+                new object?[] { sendSetupArgsWithContractName});
         }
     }
 }

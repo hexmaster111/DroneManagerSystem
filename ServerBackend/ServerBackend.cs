@@ -2,14 +2,22 @@
 using System.Net.Sockets;
 using ConsoleCommandHandler;
 using ConsoleCommandHandler.Commands;
+using Contracts;
 using IConsoleLog;
 
 namespace ServerBackend;
 
+public interface IClientProvider
+{
+    // public IRemoteClient[] RemoteClients { get; }
+    public Action<IRemoteClient> OnClientConnected { get; set; }
+}
+
+
 /// <summary>
 ///     Singleton
 /// </summary>
-public class ServerBackend
+public class ServerBackend : IClientProvider
 {
     private static ServerBackend _instance;
     public static ServerBackend Instance => _instance ??= new ServerBackend();
@@ -94,7 +102,11 @@ public class ServerBackend
 
         var remoteClient = new RemoteClient(client, ConsoleLog);
 
+        OnClientConnected?.Invoke(remoteClient);
 
         _clients.Add(remoteClient);
     }
+
+    public IRemoteClient[] RemoteClients => Clients;
+    public Action<IRemoteClient> OnClientConnected { get; set; }
 }
