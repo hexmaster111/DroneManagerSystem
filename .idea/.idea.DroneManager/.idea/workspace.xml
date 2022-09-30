@@ -12,15 +12,31 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Generial cleanup">
+      <change afterPath="$PROJECT_DIR$/ConsoleCommandHandler/ICommandAdder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IConsoleLog/LogLevel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestAssetImpl/TestMetadataGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionMapperTests/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleCommandHandler/CommandLineHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommandHandler/CommandLineHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/DroneMetaData/Metadata.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/DroneMetaData/Metadata.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/IDrone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/IDrone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteConnection/IRemoteStreamConnection.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/EventMapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/Write.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IConsoleLog/IConsoleLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +53,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e3a8ffdcd86e30276b61d16979c6967c974581cbca0107a2780ad211bddda/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ff6e15065aca4366778dbe1a1b71b9164dea3534b71e1795c33fd6f159f52/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad2a4b807aefd7738e919aa358fa13721e9a4848eb142d8849c2546109d81e1/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ConsoleCommandHandler/CommandLineHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/IConsoleLog/IConsoleLog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/TestDroneNetworkImpl/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -245,7 +267,7 @@
       <workItem from="1664252199004" duration="1845000" />
       <workItem from="1664328808154" duration="6099000" />
       <workItem from="1664405632886" duration="9145000" />
-      <workItem from="1664496784631" duration="2875000" />
+      <workItem from="1664496784631" duration="11612000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -303,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664414148412</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Made the SendableEvents Generic">
+      <created>1664503454350</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664503454350</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,23 +361,142 @@
     <MESSAGE value="licenser is now static" />
     <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
     <MESSAGE value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
+    <MESSAGE value="Made the SendableEvents Generic" />
+    <MESSAGE value="Generial cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generial cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs</url>
-          <line>16</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\SendingContractRegister.cs" initialLine="18" containingFunctionPresentation="method 'RegisterSendingContract'">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
+          <line>42</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="41" containingFunctionPresentation="method 'OnHandshake'">
             <startOffsets>
-              <option value="600" />
+              <option value="1131" />
             </startOffsets>
             <endOffsets>
-              <option value="601" />
+              <option value="1132" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="32" containingFunctionPresentation="constructor 'UnRegisteredClient'">
+            <startOffsets>
+              <option value="779" />
+            </startOffsets>
+            <endOffsets>
+              <option value="780" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="17" containingFunctionPresentation="property 'Id'">
+            <startOffsets>
+              <option value="460" />
+            </startOffsets>
+            <endOffsets>
+              <option value="464" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="36" containingFunctionPresentation="constructor 'UnRegisteredClient'">
+            <startOffsets>
+              <option value="989" />
+            </startOffsets>
+            <endOffsets>
+              <option value="990" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="35" containingFunctionPresentation="constructor 'UnRegisteredClient'">
+            <startOffsets>
+              <option value="822" />
+            </startOffsets>
+            <endOffsets>
+              <option value="882" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient.cs</url>
+          <line>89</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClient.cs" initialLine="83" containingFunctionPresentation="method 'OnHandShake'">
+            <startOffsets>
+              <option value="2533" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2534" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient.cs</url>
+          <line>77</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClient.cs" initialLine="77" containingFunctionPresentation="method 'refreshContracts'">
+            <startOffsets>
+              <option value="2127" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2243" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs</url>
+          <line>44</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\ReceivingContractRegister.cs" initialLine="44" containingFunctionPresentation="method 'RegisterContracts'">
+            <startOffsets>
+              <option value="1723" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1797" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs</url>
+          <line>43</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\ReceivingContractRegister.cs" initialLine="43" containingFunctionPresentation="method 'RegisterContracts'">
+            <startOffsets>
+              <option value="1631" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1710" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs</url>
+          <line>47</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\ReceivingContractRegister.cs" initialLine="47" containingFunctionPresentation="method 'RegisterContracts'">
+            <startOffsets>
+              <option value="1812" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1859" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
