@@ -1,8 +1,6 @@
 ﻿using System.Text;
-using DroneManager.Interface.ServerInterface;
 using GenericMessaging;
 using IConsoleLog;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace GenericEventMapper;
@@ -11,7 +9,7 @@ public class EventMapper
 {
     private readonly IConsoleLog.IConsoleLog? _log = null;
 
-    public EventMapper(ref Action<SendableTarget> eventSource, ConsoleLog.ConsoleLog? consoleLog = null)
+    public EventMapper(ref Action<SendableTarget>? eventSource, ConsoleLog.ConsoleLog? consoleLog = null)
     {
         _log = consoleLog;
         eventSource += HandleEvent;
@@ -29,8 +27,8 @@ public class EventMapper
             handler.HandleEvent(target);
         else
         {
-            _log.WriteLog(message: "No handler for event: " + target.TargetInfo, logLevel: LogLevel.Warning);
-            _log.WriteLog(
+            _log?.WriteLog(message: "No handler for event: " + target.TargetInfo, logLevel: LogLevel.Warning);
+            _log?.WriteLog(
                 "Event Target Info: " + target.TargetInfo +
                 Environment.NewLine + "Event Data: " +
                 Environment.NewLine + DeserializeContainedClass(target).ToString(), logLevel: LogLevel.Debug);
@@ -44,7 +42,7 @@ public class EventMapper
         //Turn the Jobject into the its sendable target
         var target = jObject.ToObject<SendableTarget>();
         //Turn the contained class into a JObject
-        return JObject.Parse(Encoding.Unicode.GetString(target.ContainedClass));
+        return JObject.Parse(Encoding.Unicode.GetString(target?.ContainedClass ?? throw new InvalidOperationException()));
     }
 
     //DO NOT RENAME FROM MapGenericAction - it is used for reflection

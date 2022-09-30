@@ -12,16 +12,15 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="changed throws to log messages for incorrect types in the ContractRegister.cs">
-      <change afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/GenericMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +40,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CrappyLicenseTool/LicManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CrappyLicenseTool/LicManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/GenericEventMapper/ContractRegister.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ServerBackend/RemoteClient.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,14 +50,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.TestDroneNetworkImpl">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -249,7 +244,8 @@
       <updated>1664252191371</updated>
       <workItem from="1664252199004" duration="1845000" />
       <workItem from="1664328808154" duration="6099000" />
-      <workItem from="1664405632886" duration="8040000" />
+      <workItem from="1664405632886" duration="9145000" />
+      <workItem from="1664496784631" duration="2875000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -300,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664407170960</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server">
+      <created>1664414148412</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664414148412</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +331,26 @@
     <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
     <MESSAGE value="licenser is now static" />
     <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
+    <MESSAGE value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GenericEventMapper/SendingContractRegister.cs</url>
+          <line>16</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GenericEventMapper\SendingContractRegister.cs" initialLine="18" containingFunctionPresentation="method 'RegisterSendingContract'">
+            <startOffsets>
+              <option value="600" />
+            </startOffsets>
+            <endOffsets>
+              <option value="601" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

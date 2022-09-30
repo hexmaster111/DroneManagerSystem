@@ -1,26 +1,13 @@
 ﻿using GenericMessaging;
 
-namespace Contracts;
+namespace GenericEventMapper;
 
-public class ContractItem<T>
+public abstract class ContractItem<T>
 {
-    public Action<T> Action { get; set; }
-    public GenericWriter Writer { get; set; }
+    public abstract string Name { get; }
+    public abstract Action<T> Action { get; set; }
 
-    public void InitSender(GenericWriter writer, string name)
-    {
-        Writer = writer;
-        Name = name;
-    }
+    public abstract void Send(ISendable value);
 
-    public string Name;
-    
-    public void Send(ISendable value)
-    {
-        if (Writer == null || Name == null)
-            throw new Exception("This contract item was not registered with the SendingContractRegister, " +
-                                "it is either being misused or not registered.");
-        
-        Writer.SendData(new SendableTarget(value, Name));
-    }
+    public abstract void InitSender(object[] args);
 }

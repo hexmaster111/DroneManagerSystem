@@ -18,9 +18,9 @@ public class RemoteClient
     private GenericWriter _writer;
     private EventMapper _eventMapper;
     private IConsoleLog.IConsoleLog? _log;
-    
-    private ServerEndpointContract _serverEndpointContract = new (); //Out from the server to the client
-    private ClientEndpointContract _clientEndpointContract = new (); //In from the client to the server
+
+    private ServerEndpointContract _serverEndpointContract = new(); //Out from the server to the client
+    private ClientEndpointContract _clientEndpointContract = new(); //In from the client to the server
 
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
@@ -38,8 +38,8 @@ public class RemoteClient
 
         _reader.StartReading();
     }
-    
-    
+
+
     public void SendData(SendableTarget target)
     {
         _writer.SendData(target);
@@ -48,15 +48,15 @@ public class RemoteClient
 
     private void _setupSendingContract()
     {
-        SendingContractRegister.RegisterSendingContract(ref _writer, _clientEndpointContract, _log);
+        SendingContractRegister.RegisterSendingContract(_clientEndpointContract, new object[] {  _writer }, _log);
     }
-    
-    
+
+
     private void _mapEvents()
     {
         _serverEndpointContract.HandShake.Action += OnHandShake;
         _serverEndpointContract.HandShake2.Action += OnHandShake;
-        ReceivingContractRegister.RegisterContracts(ref _eventMapper,_serverEndpointContract, _log);
+        ReceivingContractRegister.RegisterContracts(ref _eventMapper, _serverEndpointContract, _log);
     }
 
     private void OnHandShake(HandShakeMessage obj)

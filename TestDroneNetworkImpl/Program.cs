@@ -28,6 +28,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         private static EventMapper eventMapper;
 
         private static ServerEndpointContract serverEndpointContract = new();
+        private static ClientEndpointContract clientEndpointContract = new();
 
         private static void _AssignTargets()
         {
@@ -57,7 +58,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             reader.OnMessageReceived += eventMapper.HandleEvent;
             writer = new GenericWriter(stream);
 
-            SendingContractRegister.RegisterSendingContract(ref writer, serverEndpointContract, log);
+            SendingContractRegister.RegisterSendingContract(clientEndpointContract, new object[] { writer }, log);
 
 
             reader.StartReading();
@@ -81,7 +82,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
                     case "test":
                     {
-                        serverEndpointContract.HandShake.Send(
+                        clientEndpointContract.HandShake.Send(
                             new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)));
                     }
                         break;

@@ -1,5 +1,4 @@
-﻿using Contracts;
-using IConsoleLog;
+﻿using IConsoleLog;
 
 namespace GenericEventMapper;
 

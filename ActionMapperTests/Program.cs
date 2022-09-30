@@ -7,7 +7,7 @@ namespace ActionMapperTests;
 
 public static class ActionMapperTests
 {
-    public static Action<SendableTarget> testSource;
+    public static Action<SendableTarget>? TestSource;
     public static ConsoleLog.ConsoleLog Log = new ConsoleLog.ConsoleLog();
     private static bool _run = true;
 
@@ -15,7 +15,7 @@ public static class ActionMapperTests
     {
         Log.StartLogWriter();
 
-        EventMapper mapper = new EventMapper(ref testSource, Log);
+        EventMapper mapper = new EventMapper(ref TestSource, Log);
 
         mapper.MapAction("DEBUG", new Action<HandShakeMessage>(Action));
         
@@ -25,7 +25,7 @@ public static class ActionMapperTests
         while (_run)
         {
             Console.ReadLine();
-            testSource?.Invoke(new SendableTarget("DEBUG",
+            TestSource?.Invoke(new SendableTarget("DEBUG",
                 new HandShakeMessage(
                         new DroneId(
                             DroneType.Experimental,
