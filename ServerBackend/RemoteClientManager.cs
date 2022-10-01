@@ -3,6 +3,7 @@ using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
 using DroneManager.Interface.RemoteConnection;
 using DroneManager.Interface.ServerInterface;
+using IConsoleLog;
 
 namespace ServerBackend;
 
@@ -33,7 +34,7 @@ public class UnRegisteredClient
     {
         OnRegister = onRegister;
         remoteClient.ClientEndpoint.HandShake.Action += OnHandshake;
-        remoteClient.ClientEndpoint.HandShake.RefreshContract();
+        remoteClient.ClientEndpoint.RefreshReceivingContract();
         RemoteClient = remoteClient;
     }
 
@@ -42,7 +43,7 @@ public class UnRegisteredClient
     private void OnHandshake(HandShakeMessage obj)
     {
         RemoteClient.ClientEndpoint.HandShake.Action -= OnHandshake;
-        RemoteClient.ClientEndpoint.HandShake.RefreshContract();
+        RemoteClient.ClientEndpoint.RefreshReceivingContract();
 
         var drone = new DroneCommunicationLayerAbstraction();
         drone.RemoteClient = RemoteClient;
@@ -61,10 +62,13 @@ public class RemoteClientManager
     private List<UnRegisteredClient> _unregisteredClients = new();
 
     private Action<DroneCommunicationLayerAbstraction, object> _onClientRegistered;
+    
+    private IConsoleLog.IConsoleLog _consoleLog;
 
-    public RemoteClientManager(IClientProvider clientProvider)
+    public RemoteClientManager(IClientProvider clientProvider, IConsoleLog.IConsoleLog consoleLog)
     {
         _clientProvider = clientProvider;
+        _consoleLog = consoleLog;
         _clientProvider.OnClientConnected += OnClientConnected;
         _onClientRegistered += OnClientRegistered;
     }
@@ -74,20 +78,19 @@ public class RemoteClientManager
         // Rmeove the unregistered client from the list
         _unregisteredClients.Remove((UnRegisteredClient)sender);
         // Check if the client is already in the list
-        if (!_clients.Contains(obj))
+        if (_clients.Contains(obj))
         {
-            // Add the client to the list
-            _clients.Add(obj);
+            // check for clients with the same ID and remove them
+            var clientsWithSameId = _clients.Where(x => x.Id == obj.Id).ToList();
+            foreach (var client in clientsWithSameId)
+            {
+                _clients.Remove(client);
+            }
         }
+        
+        _consoleLog.WriteLog($"Drone {obj.Id} connected", LogLevel.Notice);
 
-        // check for clients with the same ID and remove them
-        var clientsWithSameId = _clients.Where(x => x.Id == obj.Id).ToList();
-        foreach (var client in clientsWithSameId)
-        {
-            _clients.Remove(client);
-        }
-
-        // Add the new client to the list
+        // Add the client to the list
         _clients.Add(obj);
     }
 

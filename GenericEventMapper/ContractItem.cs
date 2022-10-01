@@ -10,6 +10,4 @@ public abstract class ContractItem<T>
     public abstract void Send(ISendable value);
 
     public abstract void InitSender(object[] args);
-
-    public Func<bool> RefreshContract;
 }

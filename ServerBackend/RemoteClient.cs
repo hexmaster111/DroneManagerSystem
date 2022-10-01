@@ -27,8 +27,10 @@ public class RemoteClient : IRemoteClient
     private EventMapper _eventMapper;
     private IConsoleLog.IConsoleLog? _log;
 
-    private ServerEndpointContract _serverEndpointContract = new(); //Out from the server to the client
-    private ClientEndpointContract _clientEndpointContract = new(); //In from the client to the server
+    private ServerEndpointContract _serverEndpointContract;
+    private ClientEndpointContract _clientEndpointContract;
+    
+    
 
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
@@ -39,6 +41,8 @@ public class RemoteClient : IRemoteClient
         _reader = new GenericReader(client.GetStream());
         _writer = new GenericWriter(client.GetStream());
         _eventMapper = new EventMapper(log);
+        _serverEndpointContract = new ServerEndpointContractImpl();
+        _clientEndpointContract = new ClientEndpointContractImpl(ref _eventMapper, log);
 
         _mapEvents();
         _setupSendingContract();
@@ -75,7 +79,7 @@ public class RemoteClient : IRemoteClient
 
     private bool refreshContracts()
     {
-        ReceivingContractRegister.RegisterContracts(ref _eventMapper, _serverEndpointContract, this.refreshContracts, _log);
+        ReceivingContractRegister.RegisterContracts(_eventMapper, _serverEndpointContract, _log);
         return true;
     }
     

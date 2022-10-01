@@ -62,6 +62,11 @@ public class EventMapper
     public void MapAction<T>(string eventName, Action<T> action)
     {
         var handler = new EventHandler<T>(action);
+        
+        //check if the event is already mapped, if so, remove it from the dictionary and add the new one
+        if (handlers.ContainsKey(eventName))
+            handlers.Remove(eventName);
+        
         handlers.Add(eventName, handler);
     }
 

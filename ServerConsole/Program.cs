@@ -23,7 +23,7 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             ConsoleLog.WriteLog(message: "Starting server...");
             ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
             _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
-            RemoteClientManager = new RemoteClientManager(_serverBackend);
+            RemoteClientManager = new RemoteClientManager(_serverBackend, ConsoleLog);
             
         }
     }

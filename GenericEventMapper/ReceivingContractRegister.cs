@@ -25,7 +25,7 @@ public static class ReceivingContractRegister
     /// </summary>
     /// <param name="eventMapper"></param>
     /// <param name="contract"></param>
-    public static void RegisterContracts(ref EventMapper eventMapper, object contract, Func<bool> refreshCommand,
+    public static void RegisterContracts(EventMapper eventMapper, object contract,
         IConsoleLog.IConsoleLog log)
     {
         // if (!LicManager.IsValid()) throw new Exception("License is invalid");
@@ -40,11 +40,6 @@ public static class ReceivingContractRegister
         //Register all ContractItems
         foreach (var contractItem in contractItems)
         {
-            //Get the RefreshContract Func<bool> property, and set it to the refreshCommand
-            var refreshContract = contractItem.PropertyType.GetProperty("RefreshContract");
-            refreshContract.SetValue(contractItem.GetValue(contract), refreshCommand);
-
-
             var contractItemMemberName = contractItem.Name;
 
             //Get the Action<T> property
@@ -52,7 +47,7 @@ public static class ReceivingContractRegister
 
             if (actionProperty == null)
             {
-                log.WriteLog("ContractItem property does not have an Action property", LogLevel.Error);
+                log.WriteLog($"{contractItemMemberName} does not have an Action property", LogLevel.Error);
                 continue;
                 //Left in code for debugging
                 throw new Exception(
@@ -65,8 +60,8 @@ public static class ReceivingContractRegister
             if (action == null)
             {
                 log.WriteLog(
-                    "{contractItemMemberName} was not registered to, Add your method to the contract before registering",
-                    LogLevel.Error);
+                    $"{contractItemMemberName} was not registered to, Add your method to the contract before registering",
+                    LogLevel.Warning);
                 continue;
                 throw new Exception(
                     $"{contractItemMemberName} was not registered to, Add your method to the contract before registering");

@@ -27,13 +27,13 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static EventMapper eventMapper;
 
-        private static ServerEndpointContract serverEndpointContract = new();
-        private static ClientEndpointContract _clientEndpointContract = new();
+        private static ServerEndpointContract serverEndpointContract;
+        private static ClientEndpointContract clientEndpointContract;
 
         private static void _AssignTargets()
         {
-            _clientEndpointContract.HandShake.Action += OnHandshake;
-            ReceivingContractRegister.RegisterContracts(ref eventMapper, _clientEndpointContract, RefreshContractFunc, log);
+            clientEndpointContract.HandShake.Action += OnHandshake;
+            ReceivingContractRegister.RegisterContracts(eventMapper, clientEndpointContract, log);
         }
 
 
@@ -42,8 +42,6 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             log.WriteLog(message: $"Handshake received from {obj.Id} send at {obj.TimeStamp}");
         }
         
-        public static Func<bool> RefreshContractFunc = RefreshContract;
-
         private static bool RefreshContract()
         {
             SendingContractRegister.RegisterSendingContract(serverEndpointContract, new object[] { writer }, log);
@@ -52,15 +50,18 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static void Connect()
         {
-            eventMapper = new EventMapper(log);
-            _AssignTargets();
             var client = new TcpClient();
             client.Connect("127.0.0.1", 5000);
             var stream = client.GetStream();
             reader = new GenericReader(stream);
-            reader.OnMessageReceived += eventMapper.HandleEvent;
             writer = new GenericWriter(stream);
+            eventMapper = new EventMapper(log);
+            
+            serverEndpointContract = new ServerEndpointContractImpl();
+            clientEndpointContract = new ClientEndpointContractImpl();
 
+            reader.OnMessageReceived += eventMapper.HandleEvent;
+            _AssignTargets();
             RefreshContract();
 
 
@@ -85,7 +86,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
                     case "test":
                     {
-                        _clientEndpointContract.HandShake.Send(
+                        serverEndpointContract.HandShake.Send(
                             new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)));
                     }
                         break;
