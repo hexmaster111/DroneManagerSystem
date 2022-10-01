@@ -3,7 +3,6 @@ using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
 using DroneManager.Interface.RemoteConnection;
 using DroneManager.Interface.RemoteHardware;
-using DroneManager.Interface.ServerInterface;
 using GenericMessaging;
 
 namespace TestAssetImpl;

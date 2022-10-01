@@ -1,8 +1,8 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using Contracts;
+using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
-using DroneManager.Interface.ServerInterface;
 using GenericEventMapper;
 using GenericMessaging;
 
@@ -86,7 +86,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
                     case "test":
                     {
-                        serverEndpointContract.HandShake.Send(
+                        serverEndpointContract.InitialConnectionHandShake.Send(
                             new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)));
                     }
                         break;

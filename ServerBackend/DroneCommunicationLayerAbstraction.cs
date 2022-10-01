@@ -8,6 +8,10 @@ public class DroneCommunicationLayerAbstraction : IDrone
 {
     public IRemoteClient? RemoteClient { get; set; }
 
+    public void OnConnect()
+    {
+        
+    }
 
     #region IDrone Members
 
@@ -26,6 +30,7 @@ public class DroneCommunicationLayerAbstraction : IDrone
     
     
     public IVital Vitals { get; }
+    
     public IControl Control { get; }
 
     #endregion

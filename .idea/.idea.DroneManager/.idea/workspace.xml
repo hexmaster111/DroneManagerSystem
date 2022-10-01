@@ -12,8 +12,22 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone">
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="_cleanup song_">
+      <change afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/ServerInterface/HandShakeMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/ContractImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664593528012</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="_cleanup song_">
+      <created>1664594591697</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664594591697</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +356,39 @@
     <MESSAGE value="Made the SendableEvents Generic" />
     <MESSAGE value="Generial cleanup" />
     <MESSAGE value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
-    <option name="LAST_COMMIT_MESSAGE" value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
+    <MESSAGE value="_cleanup song_" />
+    <option name="LAST_COMMIT_MESSAGE" value="_cleanup song_" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\RemoteClientManager.cs" initialLine="30" containingFunctionPresentation="method 'OnClientRegistered'">
+            <startOffsets>
+              <option value="1176" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1203" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="17" containingFunctionPresentation="method 'OnHandshake'">
+            <startOffsets>
+              <option value="584" />
+            </startOffsets>
+            <endOffsets>
+              <option value="585" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

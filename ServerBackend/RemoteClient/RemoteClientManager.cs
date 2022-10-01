@@ -1,34 +1,7 @@
 ﻿using DroneManager.Interface.RemoteConnection;
-using DroneManager.Interface.ServerInterface;
 using IConsoleLog;
 
 namespace ServerBackend;
-
-public class UnRegisteredClient
-{
-    public UnRegisteredClient(IRemoteClient remoteClient, Action<DroneCommunicationLayerAbstraction, object> onRegister)
-    {
-        OnRegister = onRegister;
-        remoteClient.ClientEndpoint.HandShake.Action += OnHandshake;
-        remoteClient.ClientEndpoint.RefreshReceivingContract();
-        RemoteClient = remoteClient;
-    }
-
-    private Action<DroneCommunicationLayerAbstraction, object> OnRegister { get; }
-
-    private void OnHandshake(HandShakeMessage obj)
-    {
-        RemoteClient.ClientEndpoint.HandShake.Action -= OnHandshake;
-        RemoteClient.ClientEndpoint.RefreshReceivingContract();
-
-        var drone = new DroneCommunicationLayerAbstraction();
-        drone.RemoteClient = RemoteClient;
-        drone.Id = obj.Id;
-        OnRegister(drone, this);
-    }
-
-    public IRemoteClient RemoteClient { get; set; }
-}
 
 public class RemoteClientManager
 {
@@ -37,8 +10,9 @@ public class RemoteClientManager
     private List<DroneCommunicationLayerAbstraction> _clients = new();
     private List<UnRegisteredClient> _unregisteredClients = new();
 
+    //Event handler for when a client sends its first hadshake
     private Action<DroneCommunicationLayerAbstraction, object> _onClientRegistered;
-    
+
     private IConsoleLog.IConsoleLog _consoleLog;
 
     public RemoteClientManager(IClientProvider clientProvider, IConsoleLog.IConsoleLog consoleLog)
@@ -54,6 +28,7 @@ public class RemoteClientManager
         // Rmeove the unregistered client from the list
         _unregisteredClients.Remove((UnRegisteredClient)sender);
         // Check if the client is already in the list
+        //BUG: This is not returning true when there is a client with the same id
         if (_clients.Contains(obj))
         {
             // check for clients with the same ID and remove them
@@ -63,9 +38,9 @@ public class RemoteClientManager
                 _clients.Remove(client);
             }
         }
-        
-        _consoleLog.WriteLog($"Drone {obj.Id} connected", LogLevel.Notice);
 
+        _consoleLog.WriteLog($"{obj.Id} connected", LogLevel.Notice);
+        obj.OnConnect();
         // Add the client to the list
         _clients.Add(obj);
     }

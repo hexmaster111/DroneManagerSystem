@@ -3,7 +3,7 @@ using GenericMessaging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace DroneManager.Interface.ServerInterface;
+namespace Contracts.ContractDTOs;
 
 public class HandShakeMessage : ISendable
 {

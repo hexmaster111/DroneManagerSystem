@@ -1,5 +1,5 @@
-﻿using DroneManager.Interface.GenericTypes;
-using DroneManager.Interface.ServerInterface;
+﻿using Contracts.ContractDTOs;
+using DroneManager.Interface.GenericTypes;
 using GenericEventMapper;
 using GenericMessaging;
 

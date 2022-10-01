@@ -1,4 +1,4 @@
-﻿using DroneManager.Interface.ServerInterface;
+﻿using Contracts.ContractDTOs;
 using GenericEventMapper;
 
 namespace Contracts;

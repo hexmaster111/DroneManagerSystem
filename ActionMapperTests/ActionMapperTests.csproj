@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
+      <ProjectReference Include="..\Contracts\Contracts.csproj" />
       <ProjectReference Include="..\GenericEventMapper\GenericEventMapper.csproj" />
     </ItemGroup>
 
