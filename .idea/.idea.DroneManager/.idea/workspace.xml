@@ -12,20 +12,8 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Generial cleanup">
-      <change afterPath="$PROJECT_DIR$/ServerBackend/ContractImpl.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Contractimpl.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/EventMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/EventMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ReceivingContractRegister.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +22,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ClientEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ClientEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ServerEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -307,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664503454350</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone">
+      <created>1664593528012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664593528012</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,57 +334,7 @@
     <MESSAGE value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
     <MESSAGE value="Made the SendableEvents Generic" />
     <MESSAGE value="Generial cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generial cleanup" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
-          <line>43</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="41" containingFunctionPresentation="method 'OnHandshake'" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
-          <line>78</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="74" containingFunctionPresentation="method 'OnClientRegistered'">
-            <startOffsets>
-              <option value="2335" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2391" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
-          <line>93</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="79" containingFunctionPresentation="method 'OnClientRegistered'">
-            <startOffsets>
-              <option value="2905" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2923" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs</url>
-          <line>86</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClientManager.cs" initialLine="86" containingFunctionPresentation="method 'OnClientRegistered'">
-            <startOffsets>
-              <option value="2724" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2748" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
+    <option name="LAST_COMMIT_MESSAGE" value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
   </component>
 </project>

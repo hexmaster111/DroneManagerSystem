@@ -1,32 +1,8 @@
-﻿using DroneManager.Interface.GenericTypes;
-using DroneManager.Interface.GenericTypes.BaseTypes;
-using DroneManager.Interface.Remote;
-using DroneManager.Interface.RemoteConnection;
+﻿using DroneManager.Interface.RemoteConnection;
 using DroneManager.Interface.ServerInterface;
 using IConsoleLog;
 
 namespace ServerBackend;
-
-public class DroneCommunicationLayerAbstraction : IDrone
-{
-    public IRemoteClient? RemoteClient { get; set; }
-
-
-    #region IDrone Members
-
-    #region DroneId Implementation
-
-    public DroneId Id { get; set; }
-
-    #endregion
-
-
-    public Location CurrentLocation { get; }
-    public IVital Vitals { get; }
-    public IControl Control { get; }
-
-    #endregion
-}
 
 public class UnRegisteredClient
 {
