@@ -17,18 +17,7 @@ public static class TestDroneGenerator
     
     private class DroneImpl : IDrone
     {
-
-        public Location CurrentLocation => new Location()
-        {
-            Latitude = 0,
-            Longitude = 0,
-            Speed = 0,
-            TimeStamp = DateTime.Now,
-            LocationProvider = "Debugging",
-            LocationName = "The Lab",
-            LocationAddress = "The Hive"
-        };
-
+        public Location CurrentLocation { get; }
         public IVital Vitals => new VitalImpl();
         public IControl Control => new ControlImpl();
         public DroneId Id => new DroneId(DroneType.Experimental, 1234);

@@ -4,6 +4,7 @@ using System.Text;
 using Contracts;
 using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
+using DroneManager.Interface.GenericTypes.BaseTypes;
 using GenericEventMapper;
 using GenericMessaging;
 
@@ -15,18 +16,29 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static IPAddress ServerIp;
         private static DroneId DroneId;
-        
+
         private static void Main(string[] args)
         {
             log.StartLogWriter();
             log.WriteLog(message: "Starting Drone Network Test");
 
-            ServerIp = IPAddress.Parse(args[1]);
-            
-            int id = int.Parse(args[0]);
-            DroneId = new DroneId(DroneType.Experimental, id);
-            
-            
+            if (args.Length != 2)
+            {
+                log.WriteLog(message: "Invalid number of arguments. Expected 2, got " + args.Length);
+                log.WriteLog(message: "Usage: TestDroneNetworkImpl.exe <server ip> <drone id>");
+                log.WriteLog(message: "Starting with defualt values");
+                ServerIp = IPAddress.Parse("127.0.0.1");
+                DroneId = new DroneId(DroneType.Experimental, 5050);
+            }
+            else
+            {
+                ServerIp = IPAddress.Parse(args[1]);
+
+                int id = int.Parse(args[0]);
+                DroneId = new DroneId(DroneType.Experimental, id);
+            }
+
+
             Connect();
             ConsoleLoop();
         }
@@ -72,7 +84,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             reader = new GenericReader(stream);
             writer = new GenericWriter(stream);
             eventMapper = new EventMapper(log);
-            
+
             serverEndpointContract = new ServerEndpointContractImpl(eventMapper);
             clientEndpointContract = new ClientEndpointContractImpl();
 
@@ -109,9 +121,24 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         break;
 
                     case "test2":
-                        serverEndpointContract.VitalsUpdate.Send(new VitalsUpdateMessage( 69, 420, 42));
+                        serverEndpointContract.VitalsUpdate.Send(new VitalsUpdateMessage(69, 420, 42));
                         break;
 
+                    case "test3":
+
+                        var location = new Location()
+                        {
+                            Latitude = 69,
+                            Longitude = 420,
+                            Speed = 42,
+                            LocationAddress = "Hello address",
+                            LocationName = "Hello name",
+                            LocationProvider = "Epic provider",
+                            TimeStamp = DateTime.Now
+                        };
+
+                        serverEndpointContract.LocationUpdate.Send(new LocationMessage(location));
+                        break;
 
                     case "help":
                         Console.WriteLine("Available commands:");

@@ -19,7 +19,7 @@ public class GenericReader
 
     public SendableTarget? ReadData()
     {
-        var buffer = new byte[2048];
+        var buffer = new byte[100_000];
         var read = _stream.Read(buffer, 0, buffer.Length);
         var data = Encoding.ASCII.GetString(buffer, 0, read);
         var message = JObject.Parse(data);

@@ -2,6 +2,7 @@
 
 public class Location
 {
+
     public double Latitude { get; init; }
     public double Longitude { get; init; }
     public double Speed { get; init; }

@@ -135,6 +135,18 @@ public class DroneClientCommandBuilder
                     $"{tab}{tab}{tab}{tab}Heart Rate: {_client.Vitals.HeartRate} bpm  (Min: {_client.Vitals.MinHeartRate} bpm, Max: {_client.Vitals.MaxHeartRate} bpm)");
             }
 
+            if (_client.CurrentLocation != null)
+            {
+                sb.AppendLine($"{tab}Location: ");
+                sb.AppendLine($"{tab}{tab}Latitude: {_client.CurrentLocation.Latitude}");
+                sb.AppendLine($"{tab}{tab}Longitude: {_client.CurrentLocation.Longitude}");
+
+                sb.AppendLine($"{tab}{tab}Speed: {_client.CurrentLocation.Speed}");
+                sb.AppendLine($"{tab}{tab}Address: {_client.CurrentLocation.LocationAddress}");
+                sb.AppendLine($"{tab}{tab}Name: {_client.CurrentLocation.LocationName}");
+                sb.AppendLine($"{tab}{tab}Provider: {_client.CurrentLocation.LocationProvider}");
+                sb.AppendLine($"{tab}{tab}Last Updated: {_client.CurrentLocation.TimeStamp}");
+            }
 
             output = sb.ToString();
         }
