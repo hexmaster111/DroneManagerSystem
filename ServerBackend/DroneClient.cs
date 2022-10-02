@@ -20,11 +20,11 @@ public class DroneClient : IDrone
     public void OnConnect()
     {
         Vitals = new VitalImpl(RemoteClient.ReceivingContract);
-        
+
         RemoteClient.ReceivingContract.LocationUpdate.Action += LocationUpdate;
 
 
-            //Disconnect handler
+        //Disconnect handler
         RemoteClient.OnConnectionStatusChanged += (status) =>
         {
             if (status == ConnectionStatus.Disconnected)
@@ -32,13 +32,14 @@ public class DroneClient : IDrone
                 OnDisconnect(this);
             }
         };
-        
+
         RemoteClient.ReceivingContract.RefreshReceivingContract();
     }
 
 
-
     #region IDrone Members
+
+    public IControl Control { get; }
 
     #region DroneId Implementation
 
@@ -91,14 +92,11 @@ public class DroneClient : IDrone
 
     public Location CurrentLocation { get; private set; }
 
-    
+
     private void LocationUpdate(LocationMessage obj)
     {
         CurrentLocation = obj.Location;
     }
-
-
-    public IControl Control { get; }
 
     #endregion
 
