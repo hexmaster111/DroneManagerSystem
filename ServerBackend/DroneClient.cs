@@ -1,3 +1,5 @@
+using Contracts;
+using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
@@ -6,11 +8,26 @@ namespace ServerBackend;
 
 public class DroneClient : IDrone
 {
-    public IRemoteClient? RemoteClient { get; set; }
+    public DroneClient(RemoteClient? remoteClient)
+    {
+        RemoteClient = remoteClient;
+    }
+
+    public RemoteClient? RemoteClient { get; set; }
+    public Action<DroneClient> OnDisconnect { get; set; }
+    
 
     public void OnConnect()
     {
-        Vitals = new VitalImpl();
+        Vitals = new VitalImpl(RemoteClient.ReceivingContract);
+        //Disconnect handler
+        RemoteClient.OnConnectionStatusChanged += (status) => 
+        {
+            if (status == ConnectionStatus.Disconnected)
+            {
+                OnDisconnect(this);
+            }
+        };
     }
 
     #region IDrone Members
@@ -40,6 +57,19 @@ public class DroneClient : IDrone
 
     private class VitalImpl : IVital
     {
+        public VitalImpl(ServerEndpointContract serverEndpointContract)
+        {
+            serverEndpointContract.VitalsUpdate.Action += VitalsUpdate_Action;
+            serverEndpointContract.RefreshReceivingContract();
+        }
+
+        private void VitalsUpdate_Action(VitalsUpdateMessage obj)
+        {
+            Temperature = obj.Temperature;
+            HeartRate = obj.HeartRate;
+            BreathingRate = obj.BreathingRate;
+        }
+
         public double Temperature { get; private set; } = double.NaN;
         public double HeartRate { get; private set; } = double.NaN;
         public double BreathingRate { get; private set; } = double.NaN;

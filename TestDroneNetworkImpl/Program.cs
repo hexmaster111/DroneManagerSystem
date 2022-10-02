@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using Contracts;
 using Contracts.ContractDTOs;
@@ -12,11 +13,20 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
     {
         private static ConsoleLog.ConsoleLog log = new ConsoleLog.ConsoleLog();
 
+        private static IPAddress ServerIp;
+        private static DroneId DroneId;
+        
         private static void Main(string[] args)
         {
             log.StartLogWriter();
             log.WriteLog(message: "Starting Drone Network Test");
 
+            ServerIp = IPAddress.Parse(args[1]);
+            
+            int id = int.Parse(args[0]);
+            DroneId = new DroneId(DroneType.Experimental, id);
+            
+            
             Connect();
             ConsoleLoop();
         }
@@ -33,7 +43,13 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         private static void _AssignTargets()
         {
             clientEndpointContract.HandShake.Action += OnHandshake;
+            clientEndpointContract.BroadcastChatMessage.Action += OnBroadcastChatMessage;
             ReceivingContractRegister.RegisterContracts(eventMapper, clientEndpointContract, log);
+        }
+
+        private static void OnBroadcastChatMessage(ChatMessage obj)
+        {
+            log.WriteLog(message: $"[{obj.Sender}] \"{obj.Message}\"");
         }
 
 
@@ -41,17 +57,17 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         {
             log.WriteLog(message: $"Handshake received from {obj.Id} send at {obj.TimeStamp}");
         }
-        
+
         private static bool RefreshContract()
         {
             SendingContractRegister.RegisterSendingContract(serverEndpointContract, new object[] { writer }, log);
-            return true;    
+            return true;
         }
 
         private static void Connect()
         {
             var client = new TcpClient();
-            client.Connect("127.0.0.1", 5000);
+            client.Connect(ServerIp, 5000);
             var stream = client.GetStream();
             reader = new GenericReader(stream);
             writer = new GenericWriter(stream);
@@ -66,6 +82,9 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
 
             reader.StartReading();
+            Thread.Sleep(Random.Shared.Next(0, 1000));
+            serverEndpointContract.InitialConnectionHandShake.Send(
+                new HandShakeMessage(DroneId));
         }
 
 
@@ -85,11 +104,15 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                         running = false;
                         break;
                     case "test":
-                    {
                         serverEndpointContract.InitialConnectionHandShake.Send(
-                            new HandShakeMessage(new DroneId(DroneType.Experimental, 5050)));
-                    }
+                            new HandShakeMessage(DroneId));
                         break;
+
+                    case "test2":
+                        serverEndpointContract.VitalsUpdate.Send(new VitalsUpdateMessage( 69, 420, 42));
+                        break;
+
+
                     case "help":
                         Console.WriteLine("Available commands:");
                         Console.WriteLine("exit - exit the program");

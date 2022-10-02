@@ -10,7 +10,7 @@ namespace ServerBackend;
 public interface IClientProvider
 {
     // public IRemoteClient[] RemoteClients { get; }
-    public Action<IRemoteClient> OnClientConnected { get; set; }
+    public Action<RemoteClient> OnClientConnected { get; set; }
 }
 
 
@@ -93,6 +93,7 @@ public class ServerBackend : IClientProvider
     }
 
     private List<RemoteClient> _clients = new();
+    
 
     private void HandleClient(TcpClient client)
     {
@@ -101,12 +102,17 @@ public class ServerBackend : IClientProvider
         ConsoleLog.WriteLog(message: $"Client IP: {client.Client.RemoteEndPoint}", logLevel: LogLevel.Info);
 
         var remoteClient = new RemoteClient(client, ConsoleLog);
-
+        
         OnClientConnected?.Invoke(remoteClient);
 
         _clients.Add(remoteClient);
     }
+    
+    public void RemoveClient(RemoteClient client)
+    {
+        _clients.Remove(client);
+    }
 
     public IRemoteClient[] RemoteClients => Clients;
-    public Action<IRemoteClient> OnClientConnected { get; set; }
+    public Action<RemoteClient> OnClientConnected { get; set; }
 }

@@ -13,7 +13,8 @@ namespace ServerBackend;
 
 public interface IRemoteClient
 {
-    public ServerEndpointContract ClientEndpoint { get; }
+    public ServerEndpointContract ReceivingContract { get; }
+    public ClientEndpointContract SendingContract { get; }
     public bool IsConnected { get; }
     public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
     public IRemoteClientNetworkInfo NetworkInformation { get; }
@@ -54,6 +55,8 @@ public class RemoteClient : IRemoteClient, IRemoteClientNetworkInfo
         _serverEndpointContract = new ServerEndpointContractImpl(ref _eventMapper, log);
         _clientEndpointContract = new ClientEndpointContractImpl();
 
+        _writer.StreamClosed += () => { OnConnectionStatusChanged?.Invoke(ConnectionStatus.Disconnected); };
+
         _serverEndpointContract.RefreshReceivingContract();
         _setupSendingContract();
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
@@ -64,6 +67,7 @@ public class RemoteClient : IRemoteClient, IRemoteClientNetworkInfo
     }
 
     public DateTime LastMessage { get; private set; }
+
     private void ReaderOnOnMessageReceived(SendableTarget _)
     {
         LastMessage = DateTime.Now;
@@ -92,7 +96,8 @@ public class RemoteClient : IRemoteClient, IRemoteClientNetworkInfo
     }
 
 
-    public ServerEndpointContract ClientEndpoint => _serverEndpointContract;
+    public ServerEndpointContract ReceivingContract => _serverEndpointContract;
+    public ClientEndpointContract SendingContract => _clientEndpointContract;
 
     public ConnectionStatus ConnectionStatus =>
         _client == null ? ConnectionStatus.Disconnected : ConnectionStatus.Connected;

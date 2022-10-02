@@ -11,9 +11,18 @@ public class TcpContractItem<T> : ContractItem<T>
             throw new Exception("This contract item was not registered with the SendingContractRegister, " +
                                 "it is either being misused or not registered.");
 
-        Writer.SendData(new SendableTarget(value, Name));
+        try
+        {
+            Writer.SendData(new SendableTarget(value, Name));
+        }
+        catch (Exception e)
+        {
+            StreamClosed?.Invoke();
+        }
     }
 
+    public Action StreamClosed { get; set; }
+    
     private GenericWriter Writer { get; set; }
 
     public override void InitSender(object[] args)

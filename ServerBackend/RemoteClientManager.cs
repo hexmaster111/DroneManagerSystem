@@ -10,6 +10,7 @@ public interface IRemoteClientManager
     /// Action thrown when a new client provides a handshake and is accepted
     /// </summary>
     public Action<DroneClient> OnConnectedClient { get; set; }
+    public Action<DroneClient> OnDisconnectedClient { get; set; }
 }
 
 public class RemoteClientManager : IRemoteClientManager
@@ -53,13 +54,25 @@ public class RemoteClientManager : IRemoteClientManager
 
         _consoleLog.WriteLog($"{obj.Id} connected", LogLevel.Notice);
         obj.OnConnect();
+        obj.OnDisconnect += OnClientDisconnected;
         OnConnectedClient?.Invoke(obj);
         // Add the client to the list
         _clients.Add(obj);
     }
+    
+    private void OnClientDisconnected(DroneClient obj)
+    {
+        OnDisconnectedClient?.Invoke(obj);
+        _clients.Remove(obj);
+        _consoleLog.WriteLog($"{obj.Id} disconnected", LogLevel.Notice);
+
+        
+        
+        ServerBackend.Instance.RemoveClient(obj.RemoteClient);
+    }
 
 
-    private void OnClientConnected(IRemoteClient obj)
+    private void OnClientConnected(RemoteClient obj)
     {
         //Add the client to a list of clients who have not yet given the handshakeInfo
         var client = new UnRegisteredClient(obj, _onClientRegistered);
@@ -68,4 +81,5 @@ public class RemoteClientManager : IRemoteClientManager
 
     
     public Action<DroneClient> OnConnectedClient { get; set; }
+    public Action<DroneClient> OnDisconnectedClient { get; set; }
 }
