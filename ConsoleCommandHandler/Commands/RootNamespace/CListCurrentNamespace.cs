@@ -16,12 +16,12 @@ public class CListCurrentNamespace : ICommand
         output = null;
         errorString = null;
         changeToNamespace = null;
-        
+
 
         var sb = new StringBuilder();
 
         sb.AppendLine("Available Namespaces:");
-
+        
         foreach (var command in CommandManager.Commands)
         {
             if (!sb.ToString().Contains(command.RuntimeAssignedNamespace))

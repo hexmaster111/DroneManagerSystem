@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using ConsoleCommandHandler;
 using ConsoleCommandHandler.Commands;
+using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.Remote;
 using ServerBackend;
@@ -52,6 +53,7 @@ public class DroneClientCommandBuilder
     {
         var commands = new List<ICommand>();
         commands.Add(new CDroneStatus(client));
+        commands.Add(new CMessageDrone(client));
 
         return commands;
     }
@@ -135,6 +137,56 @@ public class DroneClientCommandBuilder
 
 
             output = sb.ToString();
+        }
+    }
+
+    private class CMessageDrone : ICommand
+    {
+        private DroneClient _client;
+
+        public CMessageDrone(DroneClient client)
+        {
+            _client = client;
+        }
+
+        public string Name => "sendMessage";
+        public string[]? Aliases => new[] { "msg" };
+        public string Description => "Sends a message to the drone";
+
+        public string RuntimeAssignedNamespace
+        {
+            get => $"Drones.{_client.Id}";
+            set => throw new NotImplementedException("This property is read only");
+        }
+
+        public Argument[]? Arguments => new Argument[]
+        {
+            new Argument("message", "The message to send to the drone", Argument.CompleteHelperType.None)
+        };
+
+        public ICommandManager CommandManager { get; set; }
+
+        public void Execute(string?[] args, out string? output, out string? errorString, out string? changeToNamespace)
+        {
+            errorString = null;
+            changeToNamespace = null;
+            output = null;
+
+            if (args == null || args.Length == 0)
+            {
+                errorString = "No message was provided";
+                return;
+            }
+
+            var message = string.Join(" ", args);
+
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                errorString = "No message was provided";
+                return;
+            }
+
+            _client.RemoteClient.SendingContract.BroadcastChatMessage.Send(new ChatMessage("PM", message));
         }
     }
 

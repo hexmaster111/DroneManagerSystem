@@ -12,22 +12,10 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Exposed some client info through the NetworkInformation interface">
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/ChatMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/Drones/CBrodcast.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Now with disconnect handling!">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleCommandHandler/Commands/RootNamespace/CListCurrentNamespace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommandHandler/Commands/RootNamespace/CListCurrentNamespace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664735594236</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Now with disconnect handling!">
+      <created>1664750138155</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1664750138155</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +390,7 @@
     <MESSAGE value="fixed up the issues with unregistering an action from the contract" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Exposed some client info through the NetworkInformation interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exposed some client info through the NetworkInformation interface" />
+    <MESSAGE value="Now with disconnect handling!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now with disconnect handling!" />
   </component>
 </project>
