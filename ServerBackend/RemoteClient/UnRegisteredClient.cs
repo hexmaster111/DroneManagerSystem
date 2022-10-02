@@ -7,7 +7,7 @@ public class UnRegisteredClient
     public UnRegisteredClient(IRemoteClient remoteClient, Action<DroneCommunicationLayerAbstraction, object> onRegister)
     {
         OnRegister = onRegister;
-        remoteClient.ClientEndpoint.InitialConnectionHandShake.Action += OnHandshake;
+        remoteClient.ClientEndpoint.InitialConnectionHandShake.Action = OnHandshake;
         remoteClient.ClientEndpoint.RefreshReceivingContract();
         RemoteClient = remoteClient;
     }
@@ -16,12 +16,15 @@ public class UnRegisteredClient
 
     private void OnHandshake(HandShakeMessage obj)
     {
-        RemoteClient.ClientEndpoint.InitialConnectionHandShake.Action -= OnHandshake;
-        RemoteClient.ClientEndpoint.RefreshReceivingContract();
+        RemoteClient.ClientEndpoint.EventMapper.UnregisterAction(nameof(RemoteClient.ClientEndpoint
+            .InitialConnectionHandShake));
+
+
+        //RemoteClient.ClientEndpoint.RefreshReceivingContract();
 
         var drone = new DroneCommunicationLayerAbstraction();
         drone.RemoteClient = RemoteClient;
-        drone.Id = obj.Id;
+        drone.SetDroneId(obj.Id);
         OnRegister(drone, this);
     }
 

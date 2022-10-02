@@ -12,21 +12,16 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="_cleanup song_">
-      <change afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActionMapperTests/ActionMapperTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/ServerInterface/HandShakeMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ContractImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/ServerCommands/TestMessages/CSendTestHandshake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Contractimpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Contractimpl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +30,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23ac3741ace945aa8fb09ed04ff9815e83498/b0/ccb2c971/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ClientEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ClientEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/RiderProjects/DroneManagerSystem/Contracts/ServerEndpointContract.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,16 +43,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.3148148",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.ServerConsole">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -246,6 +240,8 @@
       <workItem from="1664328808154" duration="6099000" />
       <workItem from="1664405632886" duration="9145000" />
       <workItem from="1664496784631" duration="11612000" />
+      <workItem from="1664635504967" duration="5021000" />
+      <workItem from="1664724141953" duration="2052000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -324,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664594591697</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="ifioi">
+      <created>1664597124548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664597124548</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,36 +360,76 @@
     <MESSAGE value="Generial cleanup" />
     <MESSAGE value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
     <MESSAGE value="_cleanup song_" />
-    <option name="LAST_COMMIT_MESSAGE" value="_cleanup song_" />
+    <MESSAGE value="ifioi" />
+    <option name="LAST_COMMIT_MESSAGE" value="ifioi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\RemoteClientManager.cs" initialLine="30" containingFunctionPresentation="method 'OnClientRegistered'">
-            <startOffsets>
-              <option value="1176" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1203" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
           <line>17</line>
           <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="17" containingFunctionPresentation="method 'OnHandshake'">
             <startOffsets>
-              <option value="584" />
+              <option value="583" />
             </startOffsets>
             <endOffsets>
-              <option value="585" />
+              <option value="584" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="21" containingFunctionPresentation="method 'OnHandshake'">
+            <startOffsets>
+              <option value="805" />
+            </startOffsets>
+            <endOffsets>
+              <option value="858" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
+          <line>7</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="7" containingFunctionPresentation="constructor 'UnRegisteredClient'">
+            <startOffsets>
+              <option value="216" />
+            </startOffsets>
+            <endOffsets>
+              <option value="217" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
+          <line>9</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="9" containingFunctionPresentation="constructor 'UnRegisteredClient'">
+            <startOffsets>
+              <option value="259" />
+            </startOffsets>
+            <endOffsets>
+              <option value="335" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GenericEventMapper/EventMapper.cs</url>
+          <line>73</line>
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\GenericEventMapper\EventMapper.cs" initialLine="73" containingFunctionPresentation="method 'UnregisterAction'">
+            <startOffsets>
+              <option value="2462" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2463" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

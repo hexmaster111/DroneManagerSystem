@@ -25,9 +25,15 @@ public class DroneId
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }
+
     public override bool Equals(object? obj)
     {
-        return obj is DroneId id && Equals(id);
+        var id = obj as DroneId;
+        var same = id != null &&
+                   Type == id.Type &&
+                   Id == id.Id;
+
+        return same;
     }
 
     private bool Equals(DroneId other)

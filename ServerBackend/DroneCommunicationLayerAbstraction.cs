@@ -21,7 +21,12 @@ public class DroneCommunicationLayerAbstraction : IDrone
     ///     The DroneID is a unique identifier for the drone. It is used to identify the drone in the network.
     ///     This value is set when the drone is registered at the server.
     /// </summary>
-    public DroneId Id { get; set; }
+    public DroneId Id { get; private set; }
+    
+    public void SetDroneId(DroneId id)
+    {
+        Id = id;
+    }
 
     #endregion
 

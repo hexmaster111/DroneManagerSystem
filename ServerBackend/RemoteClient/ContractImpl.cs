@@ -17,7 +17,7 @@ public class ServerEndpointContractImpl : ServerEndpointContract
     private readonly EventMapper _eventMapper;
     private readonly IConsoleLog.IConsoleLog _consoleLog;
 
-    public ServerEndpointContractImpl(ref EventMapper eventMapper, IConsoleLog.IConsoleLog consoleLog)
+    public ServerEndpointContractImpl(ref EventMapper eventMapper, IConsoleLog.IConsoleLog consoleLog) : base(eventMapper)
     {
         _eventMapper = eventMapper;
         _consoleLog = consoleLog;

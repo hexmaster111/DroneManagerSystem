@@ -57,7 +57,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             writer = new GenericWriter(stream);
             eventMapper = new EventMapper(log);
             
-            serverEndpointContract = new ServerEndpointContractImpl();
+            serverEndpointContract = new ServerEndpointContractImpl(eventMapper);
             clientEndpointContract = new ClientEndpointContractImpl();
 
             reader.OnMessageReceived += eventMapper.HandleEvent;

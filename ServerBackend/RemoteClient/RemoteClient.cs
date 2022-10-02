@@ -35,7 +35,6 @@ public class RemoteClient : IRemoteClient
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
         _client = client;
-
         _log = log;
 
         _reader = new GenericReader(client.GetStream());

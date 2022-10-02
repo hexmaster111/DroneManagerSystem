@@ -28,11 +28,13 @@ public class RemoteClientManager
         // Rmeove the unregistered client from the list
         _unregisteredClients.Remove((UnRegisteredClient)sender);
         // Check if the client is already in the list
-        //BUG: This is not returning true when there is a client with the same id
-        if (_clients.Contains(obj))
+        var found = _clients.Any(client => Equals(client.Id, obj.Id));
+
+        if (found)
         {
             // check for clients with the same ID and remove them
-            var clientsWithSameId = _clients.Where(x => x.Id == obj.Id).ToList();
+            var clientsWithSameId = _clients
+                .Where(x => Equals(x.Id, obj.Id)).ToList();
             foreach (var client in clientsWithSameId)
             {
                 _clients.Remove(client);
