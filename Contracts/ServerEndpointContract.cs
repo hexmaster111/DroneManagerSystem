@@ -13,6 +13,7 @@ public abstract class ServerEndpointContract : ContractBase //Things the server 
 
     public ContractItem<HandShakeMessage> InitialConnectionHandShake { get; } = new TcpContractItem<HandShakeMessage>();
     
+    
     public EventMapper EventMapper { get; }
 
 }

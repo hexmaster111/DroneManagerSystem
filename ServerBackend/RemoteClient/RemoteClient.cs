@@ -1,8 +1,10 @@
+using System.Net;
 using System.Net.Sockets;
 using Contracts;
 using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
+using DroneManager.Interface.RemoteConnection;
 using GenericEventMapper;
 using GenericMessaging;
 using IConsoleLog;
@@ -14,9 +16,19 @@ public interface IRemoteClient
     public ServerEndpointContract ClientEndpoint { get; }
     public bool IsConnected { get; }
     public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
+    public IRemoteClientNetworkInfo NetworkInformation { get; }
 }
 
-public class RemoteClient : IRemoteClient
+public interface IRemoteClientNetworkInfo
+{
+    public ConnectionStatus ConnectionStatus { get; }
+    public bool IsConnected { get; }
+    public IPAddress ClientProviderAddress { get; }
+    public int ClientProviderPort { get; }
+    public DateTime LastMessage { get; }
+}
+
+public class RemoteClient : IRemoteClient, IRemoteClientNetworkInfo
 {
     private TcpClient? _client;
     private readonly NetworkStream _stream;
@@ -29,8 +41,7 @@ public class RemoteClient : IRemoteClient
 
     private ServerEndpointContract _serverEndpointContract;
     private ClientEndpointContract _clientEndpointContract;
-    
-    
+
 
     public RemoteClient(TcpClient client, IConsoleLog.IConsoleLog? log = null)
     {
@@ -46,9 +57,16 @@ public class RemoteClient : IRemoteClient
         _serverEndpointContract.RefreshReceivingContract();
         _setupSendingContract();
         _reader.OnMessageReceived += _eventMapper.HandleEvent;
+        _reader.OnMessageReceived += ReaderOnOnMessageReceived;
 
 
         _reader.StartReading();
+    }
+
+    public DateTime LastMessage { get; private set; }
+    private void ReaderOnOnMessageReceived(SendableTarget _)
+    {
+        LastMessage = DateTime.Now;
     }
 
 
@@ -66,17 +84,22 @@ public class RemoteClient : IRemoteClient
             _client = null;
             OnConnectionStatusChanged?.Invoke(ConnectionStatus.Disconnected);
         }
-
     }
-    
+
     private void _setupSendingContract()
     {
         SendingContractRegister.RegisterSendingContract(_clientEndpointContract, new object[] { _writer }, _log);
     }
-    
 
 
     public ServerEndpointContract ClientEndpoint => _serverEndpointContract;
+
+    public ConnectionStatus ConnectionStatus =>
+        _client == null ? ConnectionStatus.Disconnected : ConnectionStatus.Connected;
+
     public bool IsConnected => _client.Connected;
+    public IPAddress ClientProviderAddress => ((IPEndPoint)_client.Client.RemoteEndPoint).Address;
+    public int ClientProviderPort => ((IPEndPoint)_client.Client.RemoteEndPoint).Port;
     public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
+    public IRemoteClientNetworkInfo NetworkInformation => this;
 }

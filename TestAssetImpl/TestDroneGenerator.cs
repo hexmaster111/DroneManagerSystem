@@ -104,6 +104,12 @@ public static class TestDroneGenerator
         public double Temperature => 98.6;
         public double HeartRate => 60;
         public double BreathingRate => 12;
+        public double MaxTemperature => 100;
+        public double MaxHeartRate => 100;
+        public double MaxBreathingRate => 20;
+        public double MinTemperature => 95;
+        public double MinHeartRate => 50;
+        public double MinBreathingRate => 10;
     }
     
 }

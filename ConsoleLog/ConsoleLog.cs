@@ -48,6 +48,7 @@ public class ConsoleLog : IConsoleLog.IConsoleLog
             if (!_logQueue.TryDequeue(out var log)) continue;
             Console.ForegroundColor = _logToColor(log.LogLevel);
             Console.WriteLine(log.Message);
+            Console.ResetColor();
         }
     }
 

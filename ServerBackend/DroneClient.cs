@@ -10,7 +10,7 @@ public class DroneClient : IDrone
 
     public void OnConnect()
     {
-        
+        Vitals = new VitalImpl();
     }
 
     #region IDrone Members
@@ -22,7 +22,7 @@ public class DroneClient : IDrone
     ///     This value is set when the drone is registered at the server.
     /// </summary>
     public DroneId Id { get; private set; }
-    
+
     public void SetDroneId(DroneId id)
     {
         Id = id;
@@ -30,13 +30,28 @@ public class DroneClient : IDrone
 
     #endregion
 
-
     public Location CurrentLocation { get; }
-    
-    
-    public IVital Vitals { get; }
-    
+
     public IControl Control { get; }
+
+    #region Vitals Implementation
+
+    public IVital Vitals { get; private set; }
+
+    private class VitalImpl : IVital
+    {
+        public double Temperature { get; private set; } = double.NaN;
+        public double HeartRate { get; private set; } = double.NaN;
+        public double BreathingRate { get; private set; } = double.NaN;
+        public double MaxTemperature => 40;
+        public double MaxHeartRate => 200;
+        public double MaxBreathingRate => 40;
+        public double MinTemperature => 20;
+        public double MinHeartRate => 40;
+        public double MinBreathingRate => 10;
+    }
+
+    #endregion
 
     #endregion
 }
