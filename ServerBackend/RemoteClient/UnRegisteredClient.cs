@@ -4,7 +4,7 @@ namespace ServerBackend;
 
 public class UnRegisteredClient
 {
-    public UnRegisteredClient(IRemoteClient remoteClient, Action<DroneCommunicationLayerAbstraction, object> onRegister)
+    public UnRegisteredClient(IRemoteClient remoteClient, Action<DroneClient, object> onRegister)
     {
         OnRegister = onRegister;
         remoteClient.ClientEndpoint.InitialConnectionHandShake.Action = OnHandshake;
@@ -12,7 +12,7 @@ public class UnRegisteredClient
         RemoteClient = remoteClient;
     }
 
-    private Action<DroneCommunicationLayerAbstraction, object> OnRegister { get; }
+    private Action<DroneClient, object> OnRegister { get; }
 
     private void OnHandshake(HandShakeMessage obj)
     {
@@ -22,7 +22,7 @@ public class UnRegisteredClient
 
         //RemoteClient.ClientEndpoint.RefreshReceivingContract();
 
-        var drone = new DroneCommunicationLayerAbstraction();
+        var drone = new DroneClient();
         drone.RemoteClient = RemoteClient;
         drone.SetDroneId(obj.Id);
         OnRegister(drone, this);

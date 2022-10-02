@@ -12,17 +12,13 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="fixed up the issues with unregistering an action from the contract">
+      <change afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/ContractImpl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneCommunicationLayerAbstraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Contractimpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Contractimpl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +28,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23ac3741ace945aa8fb09ed04ff9815e83498/b0/ccb2c971/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -241,7 +238,7 @@
       <workItem from="1664405632886" duration="9145000" />
       <workItem from="1664496784631" duration="11612000" />
       <workItem from="1664635504967" duration="5021000" />
-      <workItem from="1664724141953" duration="2052000" />
+      <workItem from="1664724141953" duration="4736000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -327,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664597124548</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed up the issues with unregistering an action from the contract">
+      <created>1664727099597</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1664727099597</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,75 +365,24 @@
     <MESSAGE value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
     <MESSAGE value="_cleanup song_" />
     <MESSAGE value="ifioi" />
-    <option name="LAST_COMMIT_MESSAGE" value="ifioi" />
+    <MESSAGE value="fixed up the issues with unregistering an action from the contract" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed up the issues with unregistering an action from the contract" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
+          <url>file://$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs</url>
           <line>17</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="17" containingFunctionPresentation="method 'OnHandshake'">
+          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerConsole\ServerCommands\DroneClientCommandBuilder.cs" initialLine="17" containingFunctionPresentation="constructor 'DroneClientCommandBuilder'">
             <startOffsets>
-              <option value="583" />
+              <option value="572" />
             </startOffsets>
             <endOffsets>
-              <option value="584" />
+              <option value="573" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="21" containingFunctionPresentation="method 'OnHandshake'">
-            <startOffsets>
-              <option value="805" />
-            </startOffsets>
-            <endOffsets>
-              <option value="858" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
-          <line>7</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="7" containingFunctionPresentation="constructor 'UnRegisteredClient'">
-            <startOffsets>
-              <option value="216" />
-            </startOffsets>
-            <endOffsets>
-              <option value="217" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
-          <line>9</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="9" containingFunctionPresentation="constructor 'UnRegisteredClient'">
-            <startOffsets>
-              <option value="259" />
-            </startOffsets>
-            <endOffsets>
-              <option value="335" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GenericEventMapper/EventMapper.cs</url>
-          <line>73</line>
-          <properties documentPath="C:\Users\Hailey\RiderProjects\DroneManagerSystem\GenericEventMapper\EventMapper.cs" initialLine="73" containingFunctionPresentation="method 'UnregisterAction'">
-            <startOffsets>
-              <option value="2462" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2463" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

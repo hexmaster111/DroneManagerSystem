@@ -1,17 +1,26 @@
-﻿using DroneManager.Interface.RemoteConnection;
+﻿using DroneManager.Interface.GenericTypes;
+using DroneManager.Interface.RemoteConnection;
 using IConsoleLog;
 
 namespace ServerBackend;
 
-public class RemoteClientManager
+public interface IRemoteClientManager
+{
+    /// <summary>
+    /// Action thrown when a new client provides a handshake and is accepted
+    /// </summary>
+    public Action<DroneClient> OnConnectedClient { get; set; }
+}
+
+public class RemoteClientManager : IRemoteClientManager
 {
     private IClientProvider _clientProvider;
 
-    private List<DroneCommunicationLayerAbstraction> _clients = new();
+    private List<DroneClient> _clients = new();
     private List<UnRegisteredClient> _unregisteredClients = new();
 
     //Event handler for when a client sends its first hadshake
-    private Action<DroneCommunicationLayerAbstraction, object> _onClientRegistered;
+    private Action<DroneClient, object> _onClientRegistered;
 
     private IConsoleLog.IConsoleLog _consoleLog;
 
@@ -23,7 +32,7 @@ public class RemoteClientManager
         _onClientRegistered += OnClientRegistered;
     }
 
-    private void OnClientRegistered(DroneCommunicationLayerAbstraction obj, object sender)
+    private void OnClientRegistered(DroneClient obj, object sender)
     {
         // Rmeove the unregistered client from the list
         _unregisteredClients.Remove((UnRegisteredClient)sender);
@@ -38,11 +47,13 @@ public class RemoteClientManager
             foreach (var client in clientsWithSameId)
             {
                 _clients.Remove(client);
+                _consoleLog.WriteLog($"{client.Id} was already registered, updated to new client");
             }
         }
 
         _consoleLog.WriteLog($"{obj.Id} connected", LogLevel.Notice);
         obj.OnConnect();
+        OnConnectedClient?.Invoke(obj);
         // Add the client to the list
         _clients.Add(obj);
     }
@@ -54,4 +65,7 @@ public class RemoteClientManager
         var client = new UnRegisteredClient(obj, _onClientRegistered);
         _unregisteredClients.Add(client);
     }
+
+    
+    public Action<DroneClient> OnConnectedClient { get; set; }
 }

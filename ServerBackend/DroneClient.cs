@@ -4,7 +4,7 @@ using DroneManager.Interface.Remote;
 
 namespace ServerBackend;
 
-public class DroneCommunicationLayerAbstraction : IDrone
+public class DroneClient : IDrone
 {
     public IRemoteClient? RemoteClient { get; set; }
 

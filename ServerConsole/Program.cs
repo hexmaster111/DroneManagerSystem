@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using ConsoleCommandHandler;
 using ServerBackend;
+using ServerConsole.ServerCommands;
 
 namespace ServerConsole // Note: actual namespace depends on the project name.
 {
@@ -12,6 +13,7 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
         private static RemoteClientManager RemoteClientManager;
         private static ServerBackend.ServerBackend _serverBackend = ServerBackend.ServerBackend.Instance;
 
+        private static DroneClientCommandBuilder droneClientCommandBuilder;
 
         static void Main(string[] args)
         {
@@ -24,6 +26,8 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
             _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
             RemoteClientManager = new RemoteClientManager(_serverBackend, ConsoleLog);
+            droneClientCommandBuilder = new DroneClientCommandBuilder(RemoteClientManager, commandLineHandler);
+            
             
         }
     }
