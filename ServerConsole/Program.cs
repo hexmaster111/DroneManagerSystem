@@ -24,7 +24,7 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             commandLineHandler.StartReadThread();
             ConsoleLog.WriteLog(message: "Starting server...");
             ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
-            _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
+            _serverBackend.Start("192.168.1.19", 5000, commandLineHandler);
             RemoteClientManager = new RemoteClientManager(_serverBackend, ConsoleLog);
             droneClientCommandBuilder = new DroneClientCommandBuilder(RemoteClientManager, commandLineHandler);
             

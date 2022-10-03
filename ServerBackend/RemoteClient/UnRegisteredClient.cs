@@ -20,6 +20,9 @@ public class UnRegisteredClient
             .InitialConnectionHandShake));
 
 
+        RemoteClient.ReceivingContract.InitialConnectionHandShake.Action = null;
+        RemoteClient.ReceivingContract.RefreshReceivingContract();
+        
         //RemoteClient.ClientEndpoint.RefreshReceivingContract();
 
         var drone = new DroneClient(RemoteClient);
