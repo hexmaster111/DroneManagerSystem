@@ -14,15 +14,11 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/ControllableUpdateMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlBuilderTest/ControllableMessageTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="owo">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/IRemoteRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/IRemoteRegister.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommunicationCodeTests/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommunicationCodeTests/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/DroneCommunicationCodes/CommunicationCode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/DroneCommunicationCodes/CommunicationCode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuickCommunicationSorting/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuickCommunicationSorting/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +43,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CommunicationCodeTests/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/DroneManager.Interface/DroneCommunicationCodes/CommunicationCode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/QuickCommunicationSorting/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,7 +66,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.ServerConsole">
+  <component name="RunManager" selected=".NET Project.QuickCommunicationSorting">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -295,7 +294,7 @@
       <workItem from="1664635504967" duration="5021000" />
       <workItem from="1664724141953" duration="4736000" />
       <workItem from="1664755404529" duration="273000" />
-      <workItem from="1664755698690" duration="10718000" />
+      <workItem from="1664755698690" duration="12173000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -430,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664758589254</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="owo">
+      <created>1664846051016</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1664846051016</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +478,8 @@
     <MESSAGE value="Added location" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="Time to shower, fixed may things, works remote now too" />
-    <option name="LAST_COMMIT_MESSAGE" value="Time to shower, fixed may things, works remote now too" />
+    <MESSAGE value="owo" />
+    <option name="LAST_COMMIT_MESSAGE" value="owo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

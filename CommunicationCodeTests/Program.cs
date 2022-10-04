@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using DroneManager.Interface.DroneCommunicationCodes;
 
-var Codes = CommunicationCode.GetCommunicationCodes();
+var Codes = CommunicationCode.CommunicationCodes;
 
 Console.WriteLine("Hello, World!");
 

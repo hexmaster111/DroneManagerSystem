@@ -1,7 +1,7 @@
 ﻿using DroneManager.Interface.DroneCommunicationCodes;
 
 bool running = true;
-var communicationCodes = CommunicationCode.GetCommunicationCodes();
+var communicationCodes = CommunicationCode.CommunicationCodes;
 string command = "";
 List<CommunicationCode> DisplayedCodes = new();
 
