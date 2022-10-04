@@ -1,33 +1,11 @@
 using System.Net;
 using System.Net.Sockets;
 using Contracts;
-using Contracts.ContractDTOs;
-using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
-using DroneManager.Interface.RemoteConnection;
 using GenericEventMapper;
 using GenericMessaging;
-using IConsoleLog;
 
-namespace ServerBackend;
-
-public interface IRemoteClient
-{
-    public ServerEndpointContract ReceivingContract { get; }
-    public ClientEndpointContract SendingContract { get; }
-    public bool IsConnected { get; }
-    public Action<ConnectionStatus> OnConnectionStatusChanged { get; set; }
-    public IRemoteClientNetworkInfo NetworkInformation { get; }
-}
-
-public interface IRemoteClientNetworkInfo
-{
-    public ConnectionStatus ConnectionStatus { get; }
-    public bool IsConnected { get; }
-    public IPAddress ClientProviderAddress { get; }
-    public int ClientProviderPort { get; }
-    public DateTime LastMessage { get; }
-}
+namespace ServerBackend.RemoteClient;
 
 public class RemoteClient : IRemoteClient, IRemoteClientNetworkInfo
 {

@@ -1,17 +1,9 @@
 ﻿using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.RemoteConnection;
 using IConsoleLog;
+using ServerBackend.RemoteClient;
 
 namespace ServerBackend;
-
-public interface IRemoteClientManager
-{
-    /// <summary>
-    /// Action thrown when a new client provides a handshake and is accepted
-    /// </summary>
-    public Action<DroneClient> OnConnectedClient { get; set; }
-    public Action<DroneClient> OnDisconnectedClient { get; set; }
-}
 
 public class RemoteClientManager : IRemoteClientManager
 {
@@ -72,7 +64,7 @@ public class RemoteClientManager : IRemoteClientManager
     }
 
 
-    private void OnClientConnected(RemoteClient obj)
+    private void OnClientConnected(RemoteClient.RemoteClient obj)
     {
         //Add the client to a list of clients who have not yet given the handshakeInfo
         var client = new UnRegisteredClient(obj, _onClientRegistered);

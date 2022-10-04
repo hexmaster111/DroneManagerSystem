@@ -4,15 +4,9 @@ using ConsoleCommandHandler;
 using ConsoleCommandHandler.Commands;
 using Contracts;
 using IConsoleLog;
+using ServerBackend.RemoteClient;
 
 namespace ServerBackend;
-
-public interface IClientProvider
-{
-    // public IRemoteClient[] RemoteClients { get; }
-    public Action<RemoteClient> OnClientConnected { get; set; }
-}
-
 
 /// <summary>
 ///     Singleton
@@ -36,7 +30,7 @@ public class ServerBackend : IClientProvider
 
     public int ConnectedClients => _clients.Count;
     
-    public RemoteClient[] Clients => _clients.ToArray();
+    public RemoteClient.RemoteClient[] Clients => _clients.ToArray();
 
     public static int MaxClients = 10;
 
@@ -92,7 +86,7 @@ public class ServerBackend : IClientProvider
         }
     }
 
-    private List<RemoteClient> _clients = new();
+    private List<RemoteClient.RemoteClient> _clients = new();
     
 
     private void HandleClient(TcpClient client)
@@ -101,18 +95,18 @@ public class ServerBackend : IClientProvider
         ConsoleLog.WriteLog(message: $"Client connected!", logLevel: LogLevel.Info);
         ConsoleLog.WriteLog(message: $"Client IP: {client.Client.RemoteEndPoint}", logLevel: LogLevel.Info);
 
-        var remoteClient = new RemoteClient(client, ConsoleLog);
+        var remoteClient = new RemoteClient.RemoteClient(client, ConsoleLog);
         
         OnClientConnected?.Invoke(remoteClient);
 
         _clients.Add(remoteClient);
     }
     
-    public void RemoveClient(RemoteClient client)
+    public void RemoveClient(RemoteClient.RemoteClient client)
     {
         _clients.Remove(client);
     }
 
     public IRemoteClient[] RemoteClients => Clients;
-    public Action<RemoteClient> OnClientConnected { get; set; }
+    public Action<RemoteClient.RemoteClient> OnClientConnected { get; set; }
 }

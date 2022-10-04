@@ -4,9 +4,8 @@ using DroneManager.Interface.RemoteHardware;
 
 namespace DroneManager.Interface.Remote;
 
-public interface IControl
+public abstract class DroneControl
 {
-    public Queue<ITask> Tasks { get; }
-    public ControlMode Mode { get; set; }
-    public IControllableHardware?[]? ControllableHardware { get; }
+    public abstract ITask Task { get; }
+    public abstract DroneControllableHardware[]? ControllableHardware { get; }
 }

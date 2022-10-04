@@ -8,12 +8,12 @@ namespace ServerBackend;
 
 public class DroneClient : IDrone
 {
-    public DroneClient(RemoteClient? remoteClient)
+    public DroneClient(RemoteClient.RemoteClient? remoteClient)
     {
         RemoteClient = remoteClient;
     }
 
-    public RemoteClient? RemoteClient { get; set; }
+    public RemoteClient.RemoteClient? RemoteClient { get; set; }
     public Action<DroneClient> OnDisconnect { get; set; }
 
 
@@ -39,7 +39,7 @@ public class DroneClient : IDrone
 
     #region IDrone Members
 
-    public IControl Control { get; }
+    public DroneControl Control { get; }
 
     #region DroneId Implementation
 

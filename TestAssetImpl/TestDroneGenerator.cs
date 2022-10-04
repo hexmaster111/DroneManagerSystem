@@ -19,14 +19,14 @@ public static class TestDroneGenerator
     {
         public Location CurrentLocation { get; }
         public IVital Vitals => new VitalImpl();
-        public IControl Control => new ControlImpl();
+        public DroneControl Control => new ControlImpl();
         public DroneId Id => new DroneId(DroneType.Experimental, 1234);
     }
 
 
-    private class ControlImpl : IControl
+    private class ControlImpl : DroneControl
     {
-        public Queue<ITask> Tasks
+        public  Queue<ITask> Tasks
         {
             get
             {
@@ -42,35 +42,32 @@ public static class TestDroneGenerator
 
         public ControlMode Mode { get; set; } = ControlMode.Auto;
 
-        public IControllableHardware?[]? ControllableHardware => new IControllableHardware?[]
+        public override ITask Task { get; }
+
+        public override DroneControllableHardware?[]? ControllableHardware => new DroneControllableHardware?[]
             { new ControllableHardwareImpl() };
 
 
-        private class ControllableHardwareImpl : IControllableHardware
+        private class ControllableHardwareImpl : DroneControllableHardware
         {
-            public ControllableHardwareMetaData GetHardwareMetaData()
+            public override ControllableHardwareMetaData GetHardwareMetaData()
             {
                 return new ControllableHardwareMetaData()
                 {
-                    HardwareVersion = "1.0",
                     Name = "Test Hardware",
                     Description = "Testing hardware",
-                    Manufacturer = "Test Inc.",
-                    Model = "Test Model",
-                    SerialNumber = Guid.Empty,
                     Documentation = null,
-                    FirmwareVersion = "1.0",
-                    SoftwareVersion = "1.0",
+
                 };
             }
 
-            public IRemoteRegister[] Registers => new IRemoteRegister[]
+            public DroneRemoteRegister[] Registers => new DroneRemoteRegister[]
             {
                 new RemoteRegisterImpl(0),
                 new RemoteRegisterImpl(1)
             };
 
-            private class RemoteRegisterImpl : IRemoteRegister
+            private class RemoteRegisterImpl : DroneRemoteRegister
             {
                 public RemoteRegisterImpl(int i)
                 {
@@ -80,10 +77,10 @@ public static class TestDroneGenerator
                     Value = i;
                 }
 
-                public string Name { get; }
+                public override string Name { get; }
                 public string? RegisterDescription { get; }
-                public DataType DataType { get; }
-                public object Value { get; set; }
+                public override DataType DataType { get; }
+                public override object Value { get; set; }
             }
         }
     }

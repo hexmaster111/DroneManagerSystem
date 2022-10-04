@@ -1,6 +1,6 @@
 using Contracts.ContractDTOs;
 
-namespace ServerBackend;
+namespace ServerBackend.RemoteClient;
 
 public class UnRegisteredClient
 {

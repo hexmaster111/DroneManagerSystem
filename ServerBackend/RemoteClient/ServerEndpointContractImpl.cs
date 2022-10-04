@@ -1,16 +1,7 @@
-using Contracts;
+﻿using Contracts;
 using GenericEventMapper;
 
-namespace ServerBackend;
-
-public class ClientEndpointContractImpl : ClientEndpointContract
-{
-
-    public override void RefreshReceivingContract()
-    {
-        throw new NotImplementedException();
-    }
-}
+namespace ServerBackend.RemoteClient;
 
 public class ServerEndpointContractImpl : ServerEndpointContract
 {

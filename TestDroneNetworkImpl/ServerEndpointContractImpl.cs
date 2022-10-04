@@ -14,11 +14,3 @@ public class ServerEndpointContractImpl : ServerEndpointContract
     {
     }
 }
-
-public class ClientEndpointContractImpl : ClientEndpointContract
-{
-    public override void RefreshReceivingContract()
-    {
-        throw new NotImplementedException();
-    }
-}
