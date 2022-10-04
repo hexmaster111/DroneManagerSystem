@@ -2,8 +2,7 @@
 
 public interface IRemoteRegister
 {
-    public string RegisterName { get; }
-    public string? RegisterDescription { get; }
-    public Type RegisterDataType { get; } //int, float, double, string, bool, byte, byte[], enum
-    public object RegisterValue { get; set; }
+    public string Name { get; }
+    public DataType DataType { get; } //int, float, double, string, bool, byte, byte[], enum
+    public object Value { get; set; }
 }

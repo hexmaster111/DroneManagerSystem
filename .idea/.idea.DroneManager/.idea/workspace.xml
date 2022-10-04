@@ -4,8 +4,10 @@
     <projectFile>ActionMapperTests/ActionMapperTests.csproj</projectFile>
     <projectFile>AssetImplTests/AssetImplTests.csproj</projectFile>
     <projectFile>CommunicationCodeTests/CommunicationCodeTests.csproj</projectFile>
+    <projectFile>ControlBuilderTest/ControlBuilderTest.csproj</projectFile>
     <projectFile>DroneManager.UI/DroneManager.UI.csproj</projectFile>
     <projectFile>DroneTypeEqualityTest/DroneTypeEqualityTest.csproj</projectFile>
+    <projectFile>NotifyIconTest/NotifyIconTest.csproj</projectFile>
     <projectFile>ObjectSerlisationTest/ObjectSerlisationTest.csproj</projectFile>
     <projectFile>QuickCommunicationSorting/QuickCommunicationSorting.csproj</projectFile>
     <projectFile>ServerConsole/ServerConsole.csproj</projectFile>
@@ -13,10 +15,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/ControllableUpdateMessage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlBuilderTest/ControllableMessageTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/DroneManager.Interface.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/IRemoteRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/IRemoteRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/202247a1358a9d4f5a23ccb6789d89117d74f82b686684b5d7c7d266a07aeb6d/JsonTextReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20ad61cb8bcb65ccc6744fd437e09524a0b51dc4928e5edd3c4da6d1402ea17f/IPEndPoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21a3b398f3380ce39bf79f68955f778c2919dbf1300c224c77e1b93625554/RuntimeHandles.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a6e1e920a0407c4e6951d2466895a5482533676824faaf19b24a62923de5/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81ed92f37980bf22415131b7e1966d7f2a67267bdedb3fd7d350f6a7fd1933/Delegate.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
@@ -115,6 +122,24 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="ControlBuilderTest" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/ControlBuilderTest/ControlBuilderTest.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="DroneManager.UI" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -142,6 +167,24 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/DroneTypeEqualityTest/DroneTypeEqualityTest.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="NotifyIconTest" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/NotifyIconTest/NotifyIconTest.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -224,6 +267,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue=".NET Project.ControlBuilderTest" />
+      <item itemvalue=".NET Project.NotifyIconTest" />
       <item itemvalue=".NET Project.ActionMapperTests" />
       <item itemvalue=".NET Project.AssetImplTests" />
       <item itemvalue=".NET Project.CommunicationCodeTests" />
@@ -250,7 +295,7 @@
       <workItem from="1664635504967" duration="5021000" />
       <workItem from="1664724141953" duration="4736000" />
       <workItem from="1664755404529" duration="273000" />
-      <workItem from="1664755698690" duration="2104000" />
+      <workItem from="1664755698690" duration="10718000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -378,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664754643270</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Time to shower, fixed may things, works remote now too">
+      <created>1664758589254</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1664758589254</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,39 +471,8 @@
     <MESSAGE value="Added a DM Command" />
     <MESSAGE value="Added location" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
-          <line>18</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="18" containingFunctionPresentation="method 'OnHandshake'">
-            <startOffsets>
-              <option value="552" />
-            </startOffsets>
-            <endOffsets>
-              <option value="692" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs</url>
-          <line>27</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\ServerBackend\RemoteClient\UnRegisteredClient.cs" initialLine="24" containingFunctionPresentation="method 'OnHandshake'">
-            <startOffsets>
-              <option value="927" />
-            </startOffsets>
-            <endOffsets>
-              <option value="969" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Time to shower, fixed may things, works remote now too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Time to shower, fixed may things, works remote now too" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -74,16 +74,16 @@ public static class TestDroneGenerator
             {
                 public RemoteRegisterImpl(int i)
                 {
-                    RegisterName = $"Register {i}";
+                    Name = $"Register {i}";
                     RegisterDescription = $"This is register {i}";
-                    RegisterDataType = typeof(int);
-                    RegisterValue = i;
+                    DataType = DataType.I64;
+                    Value = i;
                 }
 
-                public string RegisterName { get; }
+                public string Name { get; }
                 public string? RegisterDescription { get; }
-                public Type RegisterDataType { get; }
-                public object RegisterValue { get; set; }
+                public DataType DataType { get; }
+                public object Value { get; set; }
             }
         }
     }
