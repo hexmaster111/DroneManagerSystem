@@ -6,6 +6,5 @@ namespace DroneManager.Interface.Remote;
 
 public abstract class DroneControl
 {
-    public abstract ITask Task { get; }
     public abstract DroneControllableHardware[]? ControllableHardware { get; }
 }

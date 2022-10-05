@@ -42,7 +42,7 @@ public static class TestDroneGenerator
 
         public ControlMode Mode { get; set; } = ControlMode.Auto;
 
-        public override ITask Task { get; }
+        public  ITask Task { get; }
 
         public override DroneControllableHardware?[]? ControllableHardware => new DroneControllableHardware?[]
             { new ControllableHardwareImpl() };
