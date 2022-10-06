@@ -14,39 +14,9 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Made a register simulator to work with the test client, it just holds values for now">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/ControllableHardwareMetaData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/ControllableHardwareMetaData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneControllableHardware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneControllableHardware.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/App.axaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/App.axaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Assets/avalonia-logo.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/DroneManager.UI.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewLocator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewModels/MainWindowViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewModels/ViewModelBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Views/MainWindow.axaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Views/MainWindow.axaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/TestDroneNetworkImpl.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/TestDroneNetworkImpl.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +292,7 @@
       <workItem from="1664724141953" duration="4736000" />
       <workItem from="1664755404529" duration="273000" />
       <workItem from="1664755698690" duration="15939000" />
-      <workItem from="1665010558650" duration="12830000" />
+      <workItem from="1665010558650" duration="14797000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -485,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664929498967</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Made a register simulator to work with the test client, it just holds values for now">
+      <created>1665027131690</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665027131691</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +507,8 @@
     <MESSAGE value="Removed getter and change it out for a static readonly scrub scrub" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="trimming fat" />
-    <option name="LAST_COMMIT_MESSAGE" value="trimming fat" />
+    <MESSAGE value="Made a register simulator to work with the test client, it just holds values for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a register simulator to work with the test client, it just holds values for now" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

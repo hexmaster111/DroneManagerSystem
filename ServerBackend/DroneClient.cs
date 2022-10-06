@@ -75,11 +75,11 @@ public class DroneClient : IDrone
 
                 private RemoteClient.RemoteClient _remoteClient;
                 
-                public RegisterImpl(string name, DataType dataType, object value, RemoteClient.RemoteClient remoteClient)
+                public RegisterImpl(string name, DataType dataType, object valueStorage, RemoteClient.RemoteClient remoteClient)
                 {
                     _name = name;
                     _dataType = dataType;
-                    _value = value;
+                    ValueStorage = valueStorage;
                     _remoteClient = remoteClient;
                 }
 
@@ -88,15 +88,15 @@ public class DroneClient : IDrone
 
                 public override object Value
                 {
-                    get => _value;
+                    get => ValueStorage;
                     set
                     {
                         _remoteClient.SendingContract.SetRegister.Send(new SetRegisterMessage(_name, value));
-                        _value = value;
+                        ValueStorage = value;
                     }
                 }
 
-                public object _value;
+                public object ValueStorage;
             }
 
             public void UpdateRegisterValues(HardwareInfoUpdateMessage updateMessage)
@@ -108,7 +108,7 @@ public class DroneClient : IDrone
                     {
                         //Update the value
                         //setting _value directly to avoid sending a message to the drone
-                        _registers[register.Name]._value = register.Value;
+                        _registers[register.Name].ValueStorage = register.Value;
                     }
                     else
                     {
@@ -149,8 +149,7 @@ public class DroneClient : IDrone
     }
 
     #endregion
-
-
+    
     #region DroneId Implementation
 
     /// <summary>
