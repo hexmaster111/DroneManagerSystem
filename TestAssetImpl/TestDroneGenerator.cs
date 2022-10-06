@@ -44,8 +44,7 @@ public static class TestDroneGenerator
 
         public  ITask Task { get; }
 
-        public override DroneControllableHardware?[]? ControllableHardware => new DroneControllableHardware?[]
-            { new ControllableHardwareImpl() };
+        public override DroneControllableHardware ControllableHardware => new ControllableHardwareImpl();
 
 
         private class ControllableHardwareImpl : DroneControllableHardware
@@ -61,11 +60,16 @@ public static class TestDroneGenerator
                 };
             }
 
-            public DroneRemoteRegister[] Registers => new DroneRemoteRegister[]
+            public override DroneRemoteRegister[] Registers
             {
-                new RemoteRegisterImpl(0),
-                new RemoteRegisterImpl(1)
-            };
+                get =>
+                    new DroneRemoteRegister[]
+                    {
+                        new RemoteRegisterImpl(0),
+                        new RemoteRegisterImpl(1)
+                    };
+                init => throw new NotImplementedException();
+            }
 
             private class RemoteRegisterImpl : DroneRemoteRegister
             {
@@ -73,7 +77,7 @@ public static class TestDroneGenerator
                 {
                     Name = $"Register {i}";
                     RegisterDescription = $"This is register {i}";
-                    DataType = DataType.I64;
+                    DataType = DataType.Int;
                     Value = i;
                 }
 

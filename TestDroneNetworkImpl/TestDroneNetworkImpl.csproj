@@ -14,6 +14,7 @@
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
       <ProjectReference Include="..\GenericEventMapper\GenericEventMapper.csproj" />
       <ProjectReference Include="..\GenericMessaging\GenericMessaging.csproj" />
+      <ProjectReference Include="..\RegisterSimulator\RegisterSimulator.csproj" />
     </ItemGroup>
 
     <ItemGroup>

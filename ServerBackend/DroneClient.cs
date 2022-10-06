@@ -3,6 +3,7 @@ using Contracts.ContractDTOs;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
+using DroneManager.Interface.RemoteHardware;
 
 namespace ServerBackend;
 
@@ -20,8 +21,10 @@ public class DroneClient : IDrone
     public void OnConnect()
     {
         Vitals = new VitalImpl(RemoteClient.ReceivingContract);
+        _control = new DroneControlImpl(RemoteClient);
 
         RemoteClient.ReceivingContract.LocationUpdate.Action += LocationUpdate;
+        RemoteClient.ReceivingContract.HardwareInfoUpdate.Action += HardwareInfoUpdate;
 
 
         //Disconnect handler
@@ -39,7 +42,114 @@ public class DroneClient : IDrone
 
     #region IDrone Members
 
-    public DroneControl Control { get; }
+    #region Drone Control Implementation
+
+    public DroneControl Control => _control ?? throw new Exception("Drone is not connected");
+    private DroneControlImpl _control;
+
+    private class DroneControlImpl : DroneControl
+    {
+        
+        public DroneControlImpl(RemoteClient.RemoteClient remoteClient)
+        {
+            _controllableHardware = new ControllableHardwareImpl(remoteClient);
+        }
+        
+        
+        private class ControllableHardwareImpl : DroneControllableHardware
+        {
+            public ControllableHardwareImpl(RemoteClient.RemoteClient remoteClient)
+            {
+                _remoteClient = remoteClient;
+            }
+            
+            private RemoteClient.RemoteClient _remoteClient;
+            
+            private Dictionary<string, RegisterImpl> _registers = new();
+
+
+            public class RegisterImpl : DroneRemoteRegister
+            {
+                private string _name;
+                private DataType _dataType;
+
+                private RemoteClient.RemoteClient _remoteClient;
+                
+                public RegisterImpl(string name, DataType dataType, object value, RemoteClient.RemoteClient remoteClient)
+                {
+                    _name = name;
+                    _dataType = dataType;
+                    _value = value;
+                    _remoteClient = remoteClient;
+                }
+
+                public override string Name => _name;
+                public override DataType DataType => _dataType;
+
+                public override object Value
+                {
+                    get => _value;
+                    set
+                    {
+                        _remoteClient.SendingContract.SetRegister.Send(new SetRegisterMessage(_name, value));
+                        _value = value;
+                    }
+                }
+
+                public object _value;
+            }
+
+            public void UpdateRegisterValues(HardwareInfoUpdateMessage updateMessage)
+            {
+                foreach (var register in updateMessage.Data)
+                {
+                    //Check if the key is in the dict
+                    if (_registers.ContainsKey(register.Name))
+                    {
+                        //Update the value
+                        //setting _value directly to avoid sending a message to the drone
+                        _registers[register.Name]._value = register.Value;
+                    }
+                    else
+                    {
+                        //Add the register to the dict
+                        _registers.Add(register.Name,
+                            new RegisterImpl(register.Name, register.DataType, register.Value, _remoteClient));
+                    }
+                }
+            }
+
+            public override ControllableHardwareMetaData GetHardwareMetaData()
+            {
+                throw new NotImplementedException();
+            }
+
+            public override DroneRemoteRegister[] Registers
+            {
+                get => _registers.Select(register => register.Value)
+                    .Cast<DroneRemoteRegister>()
+                    .ToArray();
+                init => throw new NotImplementedException();
+            }
+        }
+
+        public override DroneControllableHardware ControllableHardware => _controllableHardware;
+
+        private readonly DroneControllableHardware _controllableHardware;
+
+        public void OnHardwareInfoUpdate(HardwareInfoUpdateMessage message)
+        {
+            (_controllableHardware as ControllableHardwareImpl)?.UpdateRegisterValues(message);
+        }
+    }
+
+    private void HardwareInfoUpdate(HardwareInfoUpdateMessage obj)
+    {
+        _control?.OnHardwareInfoUpdate(obj);
+    }
+
+    #endregion
+
 
     #region DroneId Implementation
 

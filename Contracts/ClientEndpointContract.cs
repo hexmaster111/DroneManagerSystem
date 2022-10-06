@@ -7,4 +7,6 @@ public abstract class ClientEndpointContract : ContractBase //Things the client 
 {
     public ContractItem<HandShakeMessage> HandShake { get; } = new TcpContractItem<HandShakeMessage>();
     public ContractItem<ChatMessage> BroadcastChatMessage { get; } = new TcpContractItem<ChatMessage>();
+    public ContractItem<BlankRequest> HardwareUpdateRequest { get; } = new TcpContractItem<BlankRequest>();
+    public ContractItem<SetRegisterMessage> SetRegister { get; } = new TcpContractItem<SetRegisterMessage>();
 }

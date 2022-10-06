@@ -79,7 +79,7 @@ public class ConsoleLog : IConsoleLog.IConsoleLog
 
     public void WriteLog(string message = "", LogLevel logLevel = LogLevel.Info, [CallerMemberName] string caller = "")
     {
-        var finalMessage = $"[{DateTime.Now:HH:mm}][{logLevel}][{NameOfCallingClass()}.{caller}] {message}";
+        var finalMessage = $"[{DateTime.Now:hh:mm:ss.fff}][{logLevel}][{NameOfCallingClass()}.{caller}] {message}";
         if (_logWriterStarted)
         {
             _logQueue.Enqueue(new LogMessage { Message = finalMessage, LogLevel = logLevel });

@@ -3,5 +3,5 @@
 public abstract class DroneControllableHardware
 {
     public abstract ControllableHardwareMetaData GetHardwareMetaData();
-    public DroneRemoteRegister[] Registers { get; }
+    public abstract DroneRemoteRegister[] Registers { get; init; }
 }

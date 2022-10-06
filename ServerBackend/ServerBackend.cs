@@ -77,7 +77,7 @@ public class ServerBackend : IClientProvider
         }
         catch (SocketException e)
         {
-            ConsoleLog.WriteLog(message: $"Server Exception: {e}", logLevel: LogLevel.Fatal);
+            ConsoleLog.WriteLog(message: $"Exception: {e}", logLevel: LogLevel.Fatal);
         }
         finally
         {

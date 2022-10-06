@@ -6,5 +6,5 @@ public class ControllableHardwareMetaData
 {
     public string Name { get; set; }
     public string Description { get; set; }
-    public Document Documentation { get; set; }
+    public Document? Documentation { get; set; }
 }

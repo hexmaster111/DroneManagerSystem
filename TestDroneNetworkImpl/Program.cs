@@ -7,6 +7,8 @@ using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using GenericEventMapper;
 using GenericMessaging;
+using IConsoleLog;
+using RegisterSimulator;
 
 namespace TestDroneNetworkImpl // Note: actual namespace depends on the project name.
 {
@@ -16,6 +18,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
         private static IPAddress ServerIp;
         private static DroneId DroneId;
+        private static RegSimulator _regSimulator;
 
         private static void Main(string[] args)
         {
@@ -56,7 +59,39 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         {
             clientEndpointContract.HandShake.Action += OnHandshake;
             clientEndpointContract.BroadcastChatMessage.Action += OnBroadcastChatMessage;
+            clientEndpointContract.HardwareUpdateRequest.Action += OnHardwareUpdateRequest;
+            clientEndpointContract.SetRegister.Action += OnSetRegister;
             ReceivingContractRegister.RegisterContracts(eventMapper, clientEndpointContract, log);
+        }
+
+        private static void OnSetRegister(SetRegisterMessage obj)
+        {
+            log.WriteLog(message: "Received SetRegisterMessage");
+            log.WriteLog(message: "Register: " + obj.RegisterName);
+            log.WriteLog(message: "Value: " + obj.Value);
+            try
+            {
+                _regSimulator.SetRegisterValue(obj.RegisterName, obj.Value);
+            }
+            catch (Exception e)
+            {
+                log.WriteLog(message: "Error: " + e.Message, LogLevel.Error);
+            }
+        }
+
+        private static void OnHardwareUpdateRequest(BlankRequest a)
+        {
+            log.WriteLog(message: "Received HardwareUpdateRequest");
+
+            var data = new List<HardwareInfoUpdateMessage.RemoteRegisterData>();
+
+            foreach (var register in _regSimulator.Registers)
+            {
+                data.Add(new HardwareInfoUpdateMessage.RemoteRegisterData(register.Name, register.DataType,
+                    register.Value));
+            }
+
+            serverEndpointContract.HardwareInfoUpdate.Send(new HardwareInfoUpdateMessage(data.ToArray()));
         }
 
         private static void OnBroadcastChatMessage(ChatMessage obj)
@@ -87,6 +122,8 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
 
             serverEndpointContract = new ServerEndpointContractImpl(eventMapper);
             clientEndpointContract = new ClientEndpointContractImpl();
+
+            _regSimulator = new RegSimulator(16);
 
             reader.OnMessageReceived += eventMapper.HandleEvent;
             _AssignTargets();

@@ -54,11 +54,55 @@ public class DroneClientCommandBuilder
         var commands = new List<ICommand>();
         commands.Add(new CDroneStatus(client));
         commands.Add(new CMessageDrone(client));
+        commands.Add(new CRequestHardwareInfo(client));
+        commands.Add(new CSetRegister(client));
 
         return commands;
     }
 
     #region Drone Client Commands
+
+    private class CRequestHardwareInfo : ICommand
+    {
+        private DroneClient _client;
+
+        public CRequestHardwareInfo(DroneClient client)
+        {
+            _client = client;
+        }
+
+        public string Name => "RequestHardwareInfo";
+        public string[]? Aliases => new[] { "rhi", "hwinfo" };
+        public string Description => "Request hardware info from drone";
+
+        public string RuntimeAssignedNamespace
+        {
+            get => $"Drones.{_client.Id}";
+            set => throw new NotImplementedException("This property is read only");
+        }
+
+        public Argument[]? Arguments => null;
+        public ICommandManager CommandManager { get; set; }
+
+        public void Execute(string?[] args, out string? output, out string? errorString, out string? changeToNamespace)
+        {
+            output = null;
+            errorString = null;
+            changeToNamespace = null;
+
+            try
+            {
+                _client.RemoteClient.SendingContract.HardwareUpdateRequest.Send(new BlankRequest());
+            }
+            catch (Exception e)
+            {
+                errorString = e.Message;
+                return;
+            }
+
+            output = $"[{DateTime.Now:hh:mm:ss:fff}] Sent request";
+        }
+    }
 
     private class CDroneStatus : ICommand
     {
@@ -148,6 +192,17 @@ public class DroneClientCommandBuilder
                 sb.AppendLine($"{tab}{tab}Last Updated: {_client.CurrentLocation.TimeStamp}");
             }
 
+            if (_client.Control.ControllableHardware != null)
+            {
+                sb.AppendLine($"{tab}Control: ");
+                sb.AppendLine($"{tab}{tab}Hardware Register Info: ");
+                foreach (var hardware in _client.Control.ControllableHardware.Registers)
+                {
+                    sb.AppendLine(
+                        $"{tab}{tab}{tab}{hardware.Name}: {hardware.Value}");
+                }
+            }
+
             output = sb.ToString();
         }
     }
@@ -202,5 +257,56 @@ public class DroneClientCommandBuilder
         }
     }
 
+    private class CSetRegister : ICommand
+    {
+        DroneClient _client;
+        public CSetRegister(DroneClient client)
+        {
+            _client = client;
+        }
+        public string Name => "Set Register";
+        public string[]? Aliases => new[] { "set" };
+        public string Description => "Sets a register on the drone";
+
+        public string RuntimeAssignedNamespace
+        {
+            get => $"Drones.{_client.Id}";
+            set => throw new NotImplementedException("This property is read only");
+        }
+
+        public Argument[]? Arguments => new[]
+        {
+            new Argument("Register", "The name of the register to set", Argument.CompleteHelperType.None),
+            new Argument("Value", "The value to set the register to", Argument.CompleteHelperType.None)
+        };
+        
+        public ICommandManager CommandManager { get; set; }
+        public void Execute(string?[] args, out string? output, out string? errorString, out string? changeToNamespace)
+        {
+            
+            output = null;
+            changeToNamespace = null;
+            errorString = null;
+            //Find the register with the same name as arg[1]
+            var register = _client.Control.ControllableHardware.Registers.FirstOrDefault(x => x.Name == args[1]);
+            
+            if (register == null)
+            {
+                errorString = $"No register with the name {args[1]} was found";
+                return;
+            }
+            
+            //Try to parse the value
+            if (!int.TryParse(args[2], out var value))
+            {
+                errorString = $"The value {args[2]} could not be parsed as an integer";
+                return;
+            }
+            
+            //Set the value
+            register.Value = value;
+        }
+    }
+    
     #endregion
 }

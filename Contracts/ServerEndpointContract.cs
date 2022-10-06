@@ -15,7 +15,7 @@ public abstract class ServerEndpointContract : ContractBase //Things the server 
     public ContractItem<VitalsUpdateMessage> VitalsUpdate { get; } = new TcpContractItem<VitalsUpdateMessage>();
     public ContractItem<LocationMessage> LocationUpdate { get; } = new TcpContractItem<LocationMessage>();
     
-    
+    public ContractItem<HardwareInfoUpdateMessage> HardwareInfoUpdate { get; } = new TcpContractItem<HardwareInfoUpdateMessage>();
 
     public EventMapper EventMapper { get; }
 

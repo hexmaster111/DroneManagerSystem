@@ -17,7 +17,7 @@ public class SendableTarget : ISendable
     public SendableTarget(string target, JObject jObj)
     {
         TargetInfo = target;
-        ContainedClass = Encoding.Unicode.GetBytes(jObj.ToString());
+        ContainedClass = Encoding.Unicode.GetBytes(jObj.ToString(Formatting.None));
     }
     
     [JsonConstructor]

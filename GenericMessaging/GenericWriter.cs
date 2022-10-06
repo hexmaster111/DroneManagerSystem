@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Newtonsoft.Json;
 
 namespace GenericMessaging;
 
@@ -19,7 +20,7 @@ public class GenericWriter
 
         var send = target.ToJson();
 
-        var buffer = Encoding.ASCII.GetBytes(send.ToString());
+        var buffer = Encoding.ASCII.GetBytes(send.ToString(Formatting.None));
 
         try
         {

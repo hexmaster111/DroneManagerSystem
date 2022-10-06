@@ -14,11 +14,39 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="cleanup">
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ClientEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneRemoteRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneRemoteRegister.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/ControllableHardwareMetaData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/ControllableHardwareMetaData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DataType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneControllableHardware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/RemoteHardware/DroneControllableHardware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/App.axaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/App.axaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Assets/avalonia-logo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/DroneManager.UI.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewLocator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewModels/MainWindowViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/ViewModels/ViewModelBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Views/MainWindow.axaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.UI/Views/MainWindow.axaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/TestDroneNetworkImpl.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/TestDroneNetworkImpl.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +62,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a6e1e920a0407c4e6951d2466895a5482533676824faaf19b24a62923de5/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/70cf76d3c6a32feb770c98d515414e3b19b5dea285675de211b50b59438f55b/TCPListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81ed92f37980bf22415131b7e1966d7f2a67267bdedb3fd7d350f6a7fd1933/Delegate.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e3a8ffdcd86e30276b61d16979c6967c974581cbca0107a2780ad211bddda/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ff6e15065aca4366778dbe1a1b71b9164dea3534b71e1795c33fd6f159f52/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,9 +72,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/CommunicationCodeTests/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/DroneManager.Interface/DroneCommunicationCodes/CommunicationCode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/QuickCommunicationSorting/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,12 +87,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.32235703",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.QuickCommunicationSorting">
+  <component name="RunManager" selected=".NET Project.ServerConsole">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -294,7 +321,8 @@
       <workItem from="1664635504967" duration="5021000" />
       <workItem from="1664724141953" duration="4736000" />
       <workItem from="1664755404529" duration="273000" />
-      <workItem from="1664755698690" duration="14438000" />
+      <workItem from="1664755698690" duration="15939000" />
+      <workItem from="1665010558650" duration="12830000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -450,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664925837964</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="trimming fat">
+      <created>1664929498967</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1664929498967</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +529,8 @@
     <MESSAGE value="owo" />
     <MESSAGE value="Removed getter and change it out for a static readonly scrub scrub" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="trimming fat" />
+    <option name="LAST_COMMIT_MESSAGE" value="trimming fat" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
