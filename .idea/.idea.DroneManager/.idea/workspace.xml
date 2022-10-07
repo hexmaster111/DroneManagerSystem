@@ -15,36 +15,11 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Name cleanup">
-      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HeartBeatSuperMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DashboardTester/CustomeDashThing.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DashboardTester/CustomeDashThing.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenericMessaging/SenableDtoBase.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="ope">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/ChatMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/ChatMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/LocationMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/LocationMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataFraimworkTests/GenericEventMapperTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataFraimworkTests/GenericEventMapperTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/ISendable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HaileysHelpers/TapSynchronized.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HaileysHelpers/TapSynchronized.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +49,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6efa7ae051a63c2cda401b41173f59e54c5b2e502840814f106a22d5c6f1cd/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/Contracts/ContractDTOs/BlankRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashboardTester/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/Dashboard.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
@@ -352,7 +330,7 @@
       <workItem from="1664755404529" duration="273000" />
       <workItem from="1664755698690" duration="15939000" />
       <workItem from="1665010558650" duration="15150000" />
-      <workItem from="1665104367621" duration="11267000" />
+      <workItem from="1665104367621" duration="12666000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -529,7 +507,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665031905362</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="who">
+      <created>1665116395314</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1665116395314</updated>
+    </task>
+    <task id="LOCAL-00027" summary="ope">
+      <created>1665116406073</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1665116406073</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,8 +542,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Contracts" />
-    <MESSAGE value="I am a goddess of c#" />
     <MESSAGE value="Cleaned up the project" />
     <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
     <MESSAGE value="licenser is now static" />
@@ -575,7 +565,9 @@
     <MESSAGE value="trimming fat" />
     <MESSAGE value="Made a register simulator to work with the test client, it just holds values for now" />
     <MESSAGE value="Name cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Name cleanup" />
+    <MESSAGE value="who" />
+    <MESSAGE value="ope" />
+    <option name="LAST_COMMIT_MESSAGE" value="ope" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

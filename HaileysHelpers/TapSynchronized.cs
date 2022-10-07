@@ -12,7 +12,7 @@ public class TapSynchronized<T>
     /// The callback to execute with your data
     /// </summary>
     /// <typeparam name="TResult">A pass-through return of whatever you return in the inner function</typeparam>
-    public delegate TResult? WithValueDelegate<TResult>(ref T ctx);
+    public delegate TResult? WithValueDelegate<out TResult>(ref T ctx);
     
     /// <summary>
     /// Create a Synchronized value
@@ -23,6 +23,17 @@ public class TapSynchronized<T>
     {
         _inner = value;
     }
+    
+    /// <summary>
+    /// Create a Synchronized value
+    /// </summary>
+    /// <param name="value">Your value or handle</param>
+    /// <remarks>You should not use the value after providing it here. Only access your value via this wrapper.</remarks>
+    public TapSynchronized(T value)
+    {
+        _inner = value;
+    }
+
 
     /// <summary>
     /// Execute arbitrary code with a handle to the wrapped value.
