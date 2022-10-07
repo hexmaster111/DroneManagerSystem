@@ -4,10 +4,10 @@ using Newtonsoft.Json.Linq;
 
 namespace GenericMessaging;
 
-public class SendableTarget : ISendable
+public class SendableTarget : SenableDtoBase
 {
     
-    public SendableTarget(ISendable sendable, string target)
+    public SendableTarget(SenableDtoBase sendable, string target)
     {
         TargetInfo = target;
         ContainedClass = Encoding.Unicode.GetBytes(sendable.ToJson().ToString());

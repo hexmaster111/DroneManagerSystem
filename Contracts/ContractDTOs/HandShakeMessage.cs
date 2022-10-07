@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class HandShakeMessage : ISendable
+public class HandShakeMessage : SenableDtoBase
 {
     public HandShakeMessage(DroneId id)
     {
@@ -26,8 +26,5 @@ public class HandShakeMessage : ISendable
     public DateTime TimeStamp { get; set; }
 
 
-    public JObject ToJson()
-    {
-        return JObject.FromObject(this);
-    }
+
 };

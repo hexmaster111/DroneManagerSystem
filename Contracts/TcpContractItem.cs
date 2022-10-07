@@ -5,7 +5,7 @@ namespace Contracts;
 
 public class TcpContractItem<T> : ContractItem<T>
 {
-    public override void Send(ISendable value)
+    public override void Send(SenableDtoBase value)
     {
         if (Writer == null || Name == null)
             throw new Exception("This contract item was not registered with the SendingContractRegister, " +

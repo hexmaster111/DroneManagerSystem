@@ -5,6 +5,7 @@
     <projectFile>AssetImplTests/AssetImplTests.csproj</projectFile>
     <projectFile>CommunicationCodeTests/CommunicationCodeTests.csproj</projectFile>
     <projectFile>ControlBuilderTest/ControlBuilderTest.csproj</projectFile>
+    <projectFile>DashboardTester/DashboardTester.csproj</projectFile>
     <projectFile>DroneManager.UI/DroneManager.UI.csproj</projectFile>
     <projectFile>DroneTypeEqualityTest/DroneTypeEqualityTest.csproj</projectFile>
     <projectFile>NotifyIconTest/NotifyIconTest.csproj</projectFile>
@@ -14,9 +15,36 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Made a register simulator to work with the test client, it just holds values for now">
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Name cleanup">
+      <change afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HeartBeatSuperMessage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashboardTester/CustomeDashThing.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DashboardTester/CustomeDashThing.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericMessaging/SenableDtoBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/BlankRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/ChatMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/ChatMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HandShakeMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/HardwareInfoUpdateMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/LocationMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/LocationMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/SetRegisterMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ContractDTOs/VitalsUpdateMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/ServerEndpointContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/TcpContractItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataFraimworkTests/GenericEventMapperTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataFraimworkTests/GenericEventMapperTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericEventMapper/ContractItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/ISendable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/SendableTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestDroneNetworkImpl/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +58,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20ad61cb8bcb65ccc6744fd437e09524a0b51dc4928e5edd3c4da6d1402ea17f/IPEndPoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21a3b398f3380ce39bf79f68955f778c2919dbf1300c224c77e1b93625554/RuntimeHandles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a6e1e920a0407c4e6951d2466895a5482533676824faaf19b24a62923de5/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4579dd2a69e7766cd98fa74fcc4d2abb404d52151598dd677f36d794ab2b490/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/70cf76d3c6a32feb770c98d515414e3b19b5dea285675de211b50b59438f55b/TCPListener.cs" root0="SKIP_HIGHLIGHTING" />
@@ -37,11 +66,22 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/84e3a8ffdcd86e30276b61d16979c6967c974581cbca0107a2780ad211bddda/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ff6e15065aca4366778dbe1a1b71b9164dea3534b71e1795c33fd6f159f52/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad2a4b807aefd7738e919aa358fa13721e9a4848eb142d8849c2546109d81e1/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad3f3bedb76a7b149d8e108df9723fcfd253c92c6f9c4523d669b3eb18e11c9/WaitHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b74ad2ff33b368f2a1532fa02c4202ca94f52bf8c60ebf8c630f4763fca55/ItemsControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6efa7ae051a63c2cda401b41173f59e54c5b2e502840814f106a22d5c6f1cd/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashItemWrapper.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,17 +92,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.32235703",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32235703&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.statistic.project.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.ServerConsole">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -127,6 +167,24 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/ControlBuilderTest/ControlBuilderTest.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="DashboardTester" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/DashboardTester/DashboardTester.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -263,6 +321,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue=".NET Project.DashboardTester" />
       <item itemvalue=".NET Project.ControlBuilderTest" />
       <item itemvalue=".NET Project.NotifyIconTest" />
       <item itemvalue=".NET Project.ActionMapperTests" />
@@ -292,7 +351,8 @@
       <workItem from="1664724141953" duration="4736000" />
       <workItem from="1664755404529" duration="273000" />
       <workItem from="1664755698690" duration="15939000" />
-      <workItem from="1665010558650" duration="14797000" />
+      <workItem from="1665010558650" duration="15150000" />
+      <workItem from="1665104367621" duration="11267000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -462,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665027131691</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Name cleanup">
+      <created>1665031905362</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665031905362</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +550,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Things ~!" />
     <MESSAGE value="Added Contracts" />
     <MESSAGE value="I am a goddess of c#" />
     <MESSAGE value="Cleaned up the project" />
@@ -508,7 +574,8 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="trimming fat" />
     <MESSAGE value="Made a register simulator to work with the test client, it just holds values for now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made a register simulator to work with the test client, it just holds values for now" />
+    <MESSAGE value="Name cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Name cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

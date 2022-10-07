@@ -25,6 +25,7 @@ public class DroneClient : IDrone
 
         RemoteClient.ReceivingContract.LocationUpdate.Action += LocationUpdate;
         RemoteClient.ReceivingContract.HardwareInfoUpdate.Action += HardwareInfoUpdate;
+        RemoteClient.ReceivingContract.HeartBeat.Action += HeartBeat;
 
 
         //Disconnect handler
@@ -37,6 +38,13 @@ public class DroneClient : IDrone
         };
 
         RemoteClient.ReceivingContract.RefreshReceivingContract();
+    }
+
+    private void HeartBeat(HeartBeatSuperMessage obj)
+    {
+        (Vitals as VitalImpl)?.VitalsUpdate_Action(obj.Vitals);
+        CurrentLocation = obj.Location.Location;
+        _control.OnHardwareInfoUpdate(obj.HardwareInfo);
     }
 
 
@@ -177,7 +185,7 @@ public class DroneClient : IDrone
             serverEndpointContract.RefreshReceivingContract();
         }
 
-        private void VitalsUpdate_Action(VitalsUpdateMessage obj)
+        public void VitalsUpdate_Action(VitalsUpdateMessage obj)
         {
             Temperature = obj.Temperature;
             HeartRate = obj.HeartRate;

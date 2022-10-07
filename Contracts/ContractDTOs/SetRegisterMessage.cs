@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class SetRegisterMessage : ISendable
+public class SetRegisterMessage : SenableDtoBase
 {
     public SetRegisterMessage(string registerName, object value)
     {
@@ -14,8 +14,5 @@ public class SetRegisterMessage : ISendable
     public string RegisterName { get; set; }
     public object Value { get; set; }
     
-    public JObject ToJson()
-    {
-        return JObject.FromObject(this);
-    }
+
 }

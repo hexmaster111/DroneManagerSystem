@@ -25,8 +25,12 @@ public class RemoteClientManager : IRemoteClientManager
         _onClientRegistered += OnClientRegistered;
     }
 
+    private static Mutex _RegistrationMutex = new Mutex();
+
     private void OnClientRegistered(DroneClient obj, object sender)
     {
+        _RegistrationMutex.WaitOne();
+
         // Rmeove the unregistered client from the list
         _unregisteredClients.Remove((UnRegisteredClient)sender);
         // Check if the client is already in the list
@@ -50,16 +54,16 @@ public class RemoteClientManager : IRemoteClientManager
         OnConnectedClient?.Invoke(obj);
         // Add the client to the list
         _clients.Add(obj);
+        _RegistrationMutex.ReleaseMutex();
     }
-    
+
     private void OnClientDisconnected(DroneClient obj)
     {
         OnDisconnectedClient?.Invoke(obj);
         _clients.Remove(obj);
         _consoleLog.WriteLog($"{obj.Id} disconnected", LogLevel.Notice);
 
-        
-        
+
         ServerBackend.Instance.RemoveClient(obj.RemoteClient);
     }
 
@@ -71,7 +75,7 @@ public class RemoteClientManager : IRemoteClientManager
         _unregisteredClients.Add(client);
     }
 
-    
+
     public Action<DroneClient> OnConnectedClient { get; set; }
     public Action<DroneClient> OnDisconnectedClient { get; set; }
 }

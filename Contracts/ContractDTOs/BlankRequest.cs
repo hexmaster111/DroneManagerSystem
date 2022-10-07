@@ -3,9 +3,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class BlankRequest : ISendable
+public class BlankRequest : SenableDtoBase
 {
-    public JObject ToJson()
+    public new JObject ToJson()
     {
         return new JObject();
     }

@@ -79,10 +79,8 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
             }
         }
 
-        private static void OnHardwareUpdateRequest(BlankRequest a)
+        private static HardwareInfoUpdateMessage _buildHardwareInfoUpdateMessage()
         {
-            log.WriteLog(message: "Received HardwareUpdateRequest");
-
             var data = new List<HardwareInfoUpdateMessage.RemoteRegisterData>();
 
             foreach (var register in _regSimulator.Registers)
@@ -91,7 +89,13 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                     register.Value));
             }
 
-            serverEndpointContract.HardwareInfoUpdate.Send(new HardwareInfoUpdateMessage(data.ToArray()));
+            return new HardwareInfoUpdateMessage(data.ToArray());
+        }
+
+        private static void OnHardwareUpdateRequest(BlankRequest a)
+        {
+            log.WriteLog(message: "Received HardwareUpdateRequest");
+            serverEndpointContract.HardwareInfoUpdate.Send(_buildHardwareInfoUpdateMessage());
         }
 
         private static void OnBroadcastChatMessage(ChatMessage obj)
@@ -152,6 +156,27 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
                     case "exit":
                         running = false;
                         break;
+
+                    case "hb":
+
+
+                        var loc = new Location()
+                        {
+                            Latitude = 69,
+                            Longitude = 420,
+                            Speed = 42,
+                            LocationAddress = "Hello address",
+                            LocationName = "Hello name",
+                            LocationProvider = "Epic provider",
+                            TimeStamp = DateTime.Now
+                        };
+
+                        var hb = new HeartBeatSuperMessage(new LocationMessage(loc), _buildHardwareInfoUpdateMessage(),
+                            new VitalsUpdateMessage(69, 420, 42));
+
+                        serverEndpointContract.HeartBeat.Send(hb);
+                        break;
+
                     case "test":
                         serverEndpointContract.InitialConnectionHandShake.Send(
                             new HandShakeMessage(DroneId));

@@ -12,7 +12,7 @@ public class GenericEventMapperTests
     private EventMapper mapper;
     private Action<SendableTarget> action;
 
-    private class UnitTestMessage : ISendable
+    private class UnitTestMessage : SenableDtoBase
     {
         public UnitTestMessage(string message, int number, byte byt, bool b, float f, double d, long l, short s, char c,
             decimal @decimal, DateTime dateTime, TimeSpan timeSpan, Guid guid, Complex complexObject)
@@ -108,7 +108,7 @@ public class GenericEventMapperTests
         Assert.Fail();
     }
 
-    private class SimpleTestClass : ISendable
+    private class SimpleTestClass : SenableDtoBase
     {
         public int A;
         public int B;

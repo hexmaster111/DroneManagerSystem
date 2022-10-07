@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class LocationMessage : ISendable
+public class LocationMessage : SenableDtoBase
 {
     public LocationMessage(Location location)
     {
@@ -13,8 +13,5 @@ public class LocationMessage : ISendable
 
     public Location Location { get; set; }
 
-    public JObject ToJson()
-    {
-        return JObject.FromObject(this);
-    }
+
 }

@@ -1,10 +1,9 @@
 ﻿using DroneManager.Interface.RemoteHardware;
 using GenericMessaging;
-using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class HardwareInfoUpdateMessage : ISendable
+public class HardwareInfoUpdateMessage : SenableDtoBase
 {
     #region Single Device
 
@@ -32,8 +31,5 @@ public class HardwareInfoUpdateMessage : ISendable
     public DroneRemoteRegister[] Data { get; set; }
 
 
-    public JObject ToJson()
-    {
-        return JObject.FromObject(this);
-    }
+
 }

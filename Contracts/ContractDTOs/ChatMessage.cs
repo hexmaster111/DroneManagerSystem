@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Contracts.ContractDTOs;
 
-public class ChatMessage : ISendable
+public class ChatMessage : SenableDtoBase
 {
     public ChatMessage(string sender, string message)
     {
@@ -13,9 +13,5 @@ public class ChatMessage : ISendable
 
     public string Message { get; set; }
     public string Sender { get; set; }
-
-    public JObject ToJson()
-    {
-        return JObject.FromObject(this);
-    }
+    
 }
