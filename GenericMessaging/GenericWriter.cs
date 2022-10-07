@@ -5,13 +5,13 @@ namespace GenericMessaging;
 
 public class GenericWriter
 {
-    private readonly Stream _stream;
+    private readonly TapSynchronized<Stream> _synchronizedStream;
 
     public Action StreamClosed;
 
     public GenericWriter(Stream stream)
     {
-        _stream = stream;
+        _synchronizedStream = new TapSynchronized<Stream>(stream);
     }
 
     public void SendData(SendableTarget data)
@@ -24,7 +24,11 @@ public class GenericWriter
 
         try
         {
-            _stream.Write(buffer, 0, buffer.Length);
+            _synchronizedStream.WithValue<object>((ref Stream stream) =>
+            {
+                stream.Write(buffer, 0, buffer.Length);
+                return null;
+            });
         }
         catch (Exception e)
         {

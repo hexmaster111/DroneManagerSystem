@@ -15,11 +15,8 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="ope">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HaileysHelpers/TapSynchronized.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HaileysHelpers/TapSynchronized.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.csproj" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="updates people, updates">
+      <change beforePath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +57,8 @@
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/HaileysHelpers/TapSynchronized.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ServerBackend/RemoteClientManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -330,7 +329,7 @@
       <workItem from="1664755404529" duration="273000" />
       <workItem from="1664755698690" duration="15939000" />
       <workItem from="1665010558650" duration="15150000" />
-      <workItem from="1665104367621" duration="12666000" />
+      <workItem from="1665104367621" duration="13211000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -521,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665116406073</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="updates people, updates">
+      <created>1665118062997</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1665118062997</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Cleaned up the project" />
     <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
     <MESSAGE value="licenser is now static" />
     <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
@@ -567,7 +572,8 @@
     <MESSAGE value="Name cleanup" />
     <MESSAGE value="who" />
     <MESSAGE value="ope" />
-    <option name="LAST_COMMIT_MESSAGE" value="ope" />
+    <MESSAGE value="updates people, updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates people, updates" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
