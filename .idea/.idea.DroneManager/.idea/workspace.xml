@@ -17,35 +17,11 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/ServerBackendAbstraction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/View Tests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HaileysHelpers/WpfConsoleHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBackend/IRemoteClientManagerFacade.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="Getting things working">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/IDrone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/Drone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/IAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/IAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/IVital.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/VitalDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/IRemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/Abstraction/IRemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/ServerBackendAbstraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/ServerBackendAbstraction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +51,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b74ad2ff33b368f2a1532fa02c4202ca94f52bf8c60ebf8c630f4763fca55/ItemsControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b76b5f645d8fb42b848f84ed209ba97235bf67904a953a4bce1d86c41a95/ObservableCollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c8158a49f02fd07d15ad9c8d12dc6a1d9ea982c27d020ae27b699723f3d4b64/Dispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6efa7ae051a63c2cda401b41173f59e54c5b2e502840814f106a22d5c6f1cd/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
@@ -424,7 +401,7 @@
       <workItem from="1664755698690" duration="15939000" />
       <workItem from="1665010558650" duration="15150000" />
       <workItem from="1665104367621" duration="14786000" />
-      <workItem from="1665185307290" duration="17714000" />
+      <workItem from="1665185307290" duration="18791000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -629,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665119504627</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Getting things working">
+      <created>1665204912808</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665204912808</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="licenser is now static" />
     <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
     <MESSAGE value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
     <MESSAGE value="Made the SendableEvents Generic" />
@@ -675,7 +658,8 @@
     <MESSAGE value="ope" />
     <MESSAGE value="updates people, updates" />
     <MESSAGE value="Made some stuff threadsafe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some stuff threadsafe" />
+    <MESSAGE value="Getting things working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting things working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

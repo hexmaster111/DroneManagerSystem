@@ -14,8 +14,14 @@ public static class ServerBackendAbstraction
     private static RemoteClientManager RemoteClientManager;
     private static ServerBackend.ServerBackend _serverBackend = ServerBackend.ServerBackend.Instance;
     private static DroneClientCommandBuilder droneClientCommandBuilder;
-    
+
     public static IRemoteClientManagerFacade RemoteClientManagerFacade => RemoteClientManager;
+
+    public static void StopServer()
+    {
+        //TODO: Graceful shutdown
+        Environment.Exit(0);
+    }
 
     public static void StartServer()
     {
