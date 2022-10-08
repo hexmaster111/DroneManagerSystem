@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:GraphicalConsole.BaseUcs"
              xmlns:genericTypes="clr-namespace:DroneManager.Interface.GenericTypes;assembly=DroneManager.Interface"
+             xmlns:graphicalConsole="clr-namespace:GraphicalConsole"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Border BorderThickness="5" BorderBrush="LightGray">
@@ -18,7 +19,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Text="Drone"/>
-            <TextBlock Grid.Column="1" Text="{Binding IdString}"/>
+            <TextBlock Grid.Column="1" Text="{Binding IdString }"/>
         </Grid>
     </Border>
 </UserControl>

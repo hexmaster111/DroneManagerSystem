@@ -44,7 +44,7 @@ public static class TestDroneGenerator
 
         public  ITask Task { get; }
 
-        public override DroneControllableHardware ControllableHardware => new ControllableHardwareImpl();
+        public override DroneControllableHardware? ControllableHardware => new ControllableHardwareImpl();
 
 
         private class ControllableHardwareImpl : DroneControllableHardware

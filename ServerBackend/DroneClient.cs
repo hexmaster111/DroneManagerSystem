@@ -9,7 +9,7 @@ namespace ServerBackend;
 
 public class DroneClient : Drone
 {
-    public DroneClient(RemoteClient.RemoteClient? remoteClient)
+    public DroneClient(RemoteClient.RemoteClient? remoteClient) : base()
     {
         RemoteClient = remoteClient;
     }
@@ -141,9 +141,9 @@ public class DroneClient : Drone
             }
         }
 
-        public override DroneControllableHardware ControllableHardware => _controllableHardware;
+        public override DroneControllableHardware? ControllableHardware => _controllableHardware;
 
-        private readonly DroneControllableHardware _controllableHardware;
+        private readonly DroneControllableHardware? _controllableHardware;
 
         public void OnHardwareInfoUpdate(HardwareInfoUpdateMessage message)
         {

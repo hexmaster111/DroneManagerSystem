@@ -4,10 +4,10 @@ using DroneManager.Interface.RemoteConnection;
 
 namespace DroneManager.Interface.GenericTypes;
 
-public abstract class Drone
+public class Drone
 {
     public Location CurrentLocation { get; }
     public VitalDto Vitals { get; }
-    public DroneControl Control { get; }
-    public DroneId Id { get; }
+    public DroneControl? Control { get; }
+    public DroneId Id { get; init; }
 }

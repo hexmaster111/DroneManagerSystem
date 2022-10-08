@@ -21,17 +21,14 @@
                 <MenuItem Header="Connected Drones" ItemsSource="{Binding ConnectedDrones}">
                     <MenuItem.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Id }" />
+                            <TextBlock Text="{Binding Drone.Id }" />
                         </DataTemplate>
                     </MenuItem.ItemTemplate>
                 </MenuItem>
             </Menu>
         </DockPanel>
-        
-        
-        
-        
-        
+
+
         <ContentControl Grid.Row="1" Name="CcTest" />
     </Grid>
 </Window>

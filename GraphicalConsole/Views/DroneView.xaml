@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:GraphicalConsole.Views"
              xmlns:genericTypes="clr-namespace:DroneManager.Interface.GenericTypes;assembly=DroneManager.Interface"
              xmlns:baseUcs="clr-namespace:GraphicalConsole.BaseUcs"
+             xmlns:graphicalConsole="clr-namespace:GraphicalConsole"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
-        <Grid.DataContext>
-            <genericTypes:Drone />
-        </Grid.DataContext>
+        <!-- <Grid.DataContext> -->
+        <!--     <local:DroneView /> -->
+        <!-- </Grid.DataContext> -->
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -26,19 +27,19 @@
 
 
         <Border Grid.Row="0" Grid.Column="0" BorderThickness="5" BorderBrush="DarkGray">
-            <baseUcs:DroneIdView DroneId="{Binding Id}" />
+            <baseUcs:DroneIdView DroneId="{Binding ElementName=DroneIdProperty }" />
         </Border>
 
         <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" BorderThickness="5" BorderBrush="DarkGray">
-            <baseUcs:VitalView Vital="{Binding Vitals}" />
+            <baseUcs:VitalView x:Name="VitalViewControl" />
         </Border>
 
-        <Border Grid.Column="1" Grid.Row="3" BorderThickness="5" BorderBrush="DarkGray">
-            <baseUcs:LocationView Location="{Binding CurrentLocation}"/>
+        <Border Grid.Column="1" Grid.Row="2" BorderThickness="5" BorderBrush="DarkGray">
+            <baseUcs:LocationView x:Name="LocationViewControl" />
         </Border>
 
         <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BorderThickness="5" BorderBrush="DarkGray">
-            <baseUcs:DroneRegisterView ControllableHardware="{Binding Control}" />
+            <baseUcs:DroneRegisterView x:Name="DroneRegisterViewControl" />
         </Border>
 
 
