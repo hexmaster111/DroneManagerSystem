@@ -6,7 +6,7 @@ namespace DroneManager.Interface;
 
 public interface IAsset
 {
-    public IDrone Drone { get; }
+    public Drone Drone { get; }
     public TaskHistory[] TaskHistory { get; }
     public Metadata Metadata { get; }
 }

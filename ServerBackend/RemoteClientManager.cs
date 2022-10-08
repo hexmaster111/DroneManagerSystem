@@ -1,15 +1,16 @@
 ﻿using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.RemoteConnection;
+using GraphicalConsole;
 using IConsoleLog;
 using ServerBackend.RemoteClient;
 
 namespace ServerBackend;
 
-public class RemoteClientManager : IRemoteClientManager
+public class RemoteClientManager : IRemoteClientManager, IRemoteClientManagerFacade
 {
     private IClientProvider _clientProvider;
 
-    private TapSynchronized<List<DroneClient>> _clientsTap = new(new());
+    private TapSynchronized<List<DroneClient>> _droneClients = new(new());
     //private List<UnRegisteredClient> _unregisteredClients = new();
 
     //Event handler for when a client sends its first hadshake
@@ -37,7 +38,7 @@ public class RemoteClientManager : IRemoteClientManager
             return null;
         });
 
-        _clientsTap.WithValue<object>((ref List<DroneClient> _clients) =>
+        _droneClients.WithValue<object>((ref List<DroneClient> _clients) =>
         {
             // Add the client to the list of registered clients
             _clients.Add(obj);
@@ -65,12 +66,15 @@ public class RemoteClientManager : IRemoteClientManager
             _clients.Add(obj);
             return null;
         });
+        // Call every who cares about the new client being 100% ready to go
+        // Outside of the locked value to prevent deadlocks (Who knows what they will do to our presses clients)
+        OnDroneConnected?.Invoke(obj.Id);
     }
 
     private void OnClientDisconnected(DroneClient obj)
     {
         OnDisconnectedClient?.Invoke(obj);
-        _clientsTap.WithValue<object>((ref List<DroneClient> _clients) =>
+        _droneClients.WithValue<object>((ref List<DroneClient> _clients) =>
         {
             _clients.Remove(obj);
             return null;
@@ -96,4 +100,28 @@ public class RemoteClientManager : IRemoteClientManager
 
     public Action<DroneClient> OnConnectedClient { get; set; }
     public Action<DroneClient> OnDisconnectedClient { get; set; }
+
+
+    #region IRemoteClientManagerFacade
+
+    public Drone[] GetDrones()
+    {
+        return _droneClients.WithValue<Drone[]>((ref List<DroneClient> ctx) => ctx.ToArray()) ?? throw new
+            InvalidOperationException();
+    }
+
+    public bool GetDrone(DroneId droneId, out Drone? drone)
+    {
+        drone = _droneClients.WithValue<Drone>((ref List<DroneClient> ctx) =>
+        {
+            var found = ctx.FirstOrDefault(x => Equals(x.Id, droneId));
+            return found;
+        });
+        return drone != null;
+    }
+
+
+    public Action<DroneId> OnDroneConnected { get; set; }
+
+    #endregion
 }

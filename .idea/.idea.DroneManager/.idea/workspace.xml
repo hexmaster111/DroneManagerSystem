@@ -8,6 +8,8 @@
     <projectFile>DashboardTester/DashboardTester.csproj</projectFile>
     <projectFile>DroneManager.UI/DroneManager.UI.csproj</projectFile>
     <projectFile>DroneTypeEqualityTest/DroneTypeEqualityTest.csproj</projectFile>
+    <projectFile>GraphicalConsole/GraphicalConsole.csproj</projectFile>
+    <projectFile>GraphicalServerConsole/GraphicalServerConsole.csproj</projectFile>
     <projectFile>NotifyIconTest/NotifyIconTest.csproj</projectFile>
     <projectFile>ObjectSerlisationTest/ObjectSerlisationTest.csproj</projectFile>
     <projectFile>QuickCommunicationSorting/QuickCommunicationSorting.csproj</projectFile>
@@ -15,8 +17,35 @@
     <projectFile>TestDroneNetworkImpl/TestDroneNetworkImpl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="updates people, updates">
-      <change beforePath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GenericMessaging/GenericWriter.cs" afterDir="false" />
+    <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/ServerBackendAbstraction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/View Tests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HaileysHelpers/WpfConsoleHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ServerBackend/IRemoteClientManagerFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleLog/ConsoleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/DroneId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/IDrone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/Drone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/IAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/IAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/IVital.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/VitalDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/IRemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/Abstraction/IRemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestAssetImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +53,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/52cd844476ec4091838909409447be01a23688/f8/37fee510/IObserver`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6bdb842a60da476fa91e56d24be57ac0f87890/a0/856abbdf/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0b5567882521e02aa3d40a7bce81b7235ccac4db588866e3498e614c3bc/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/202247a1358a9d4f5a23ccb6789d89117d74f82b686684b5d7c7d266a07aeb6d/JsonTextReader.cs" root0="SKIP_HIGHLIGHTING" />
@@ -31,6 +62,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21a3b398f3380ce39bf79f68955f778c2919dbf1300c224c77e1b93625554/RuntimeHandles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a6e1e920a0407c4e6951d2466895a5482533676824faaf19b24a62923de5/JsonSerializerInternalReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4579dd2a69e7766cd98fa74fcc4d2abb404d52151598dd677f36d794ab2b490/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/52cd844476ec4091838909409447be01a23688/_50ff7/IObserver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b8da17bbdf5f8e4ace29ff2f6458c90ae519cd4d7147a61fabd6568e02f/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/70cf76d3c6a32feb770c98d515414e3b19b5dea285675de211b50b59438f55b/TCPListener.cs" root0="SKIP_HIGHLIGHTING" />
@@ -42,11 +74,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34cda9bf13421d0d691446062e86e73ba22b7a724d9d34a2425bb1cc627e1/SR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b74ad2ff33b368f2a1532fa02c4202ca94f52bf8c60ebf8c630f4763fca55/ItemsControl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b76b5f645d8fb42b848f84ed209ba97235bf67904a953a4bce1d86c41a95/ObservableCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cde0291933299f1e732d9436b8558e21577bcdf64c6d8ac7c6a0abeac6c6d/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6efa7ae051a63c2cda401b41173f59e54c5b2e502840814f106a22d5c6f1cd/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecc6ffbefd1397ca04257f4e39aeff0c632e0a79ee9cebd572390a93f9f7ca/TargetException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/Contracts/ContractDTOs/BlankRequest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6d717f752e72749db493075d963f742958bbf437efae8153cc80e779aca7c1/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashboardTester/MainWindow.axaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DashboardTester/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -57,8 +90,9 @@
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardManagerUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GenericDashboard/DashboardUc.axaml.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/HaileysHelpers/TapSynchronized.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hailey/Desktop/LA104/DroneManagerSystem/ServerBackend/RemoteClientManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GraphicalConsole/ServerBackendAbstraction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ServerBackend/Abstraction/IRemoteClientManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ServerBackend/RemoteClientManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,7 +114,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.ServerConsole">
+  <component name="RunManager" selected=".NET Project.GraphicalConsole">
     <configuration name="ActionMapperTests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -207,6 +241,42 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="GraphicalConsole" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/GraphicalConsole/GraphicalConsole.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="GraphicalServerConsole" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/GraphicalServerConsole/GraphicalServerConsole.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="NotifyIconTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -297,7 +367,25 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="HaileysHelpers.WpfConsoleHelper.ShowConsole" type="DotNetStaticMethod" factoryName=".NET Static Method" temporary="true">
+      <option name="EXE_PATH" value="C:\Users\Hailey\AppData\Local\JetBrains\Installations\Rider222_000\lib\ReSharperHost\JetLauncherILc.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/HaileysHelpers/HaileysHelpers.csproj" />
+      <option name="PROJECT_TFM" value="net6.0" />
+      <option name="CLASS_NAME" value="HaileysHelpers.WpfConsoleHelper" />
+      <option name="METHOD_NAME" value="ShowConsole" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue=".NET Project.GraphicalConsole" />
+      <item itemvalue=".NET Project.GraphicalServerConsole" />
       <item itemvalue=".NET Project.DashboardTester" />
       <item itemvalue=".NET Project.ControlBuilderTest" />
       <item itemvalue=".NET Project.NotifyIconTest" />
@@ -310,7 +398,13 @@
       <item itemvalue=".NET Project.QuickCommunicationSorting" />
       <item itemvalue=".NET Project.ServerConsole" />
       <item itemvalue=".NET Project.TestDroneNetworkImpl" />
+      <item itemvalue=".NET Static Method.HaileysHelpers.WpfConsoleHelper.ShowConsole" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue=".NET Static Method.HaileysHelpers.WpfConsoleHelper.ShowConsole" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -329,7 +423,8 @@
       <workItem from="1664755404529" duration="273000" />
       <workItem from="1664755698690" duration="15939000" />
       <workItem from="1665010558650" duration="15150000" />
-      <workItem from="1665104367621" duration="13211000" />
+      <workItem from="1665104367621" duration="14786000" />
+      <workItem from="1665185307290" duration="17714000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -527,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665118062997</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Made some stuff threadsafe">
+      <created>1665119504627</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1665119504627</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Generial Cleanup.&#10;&#10;Them: Generial Cleanup, sir" />
     <MESSAGE value="licenser is now static" />
     <MESSAGE value="changed throws to log messages for incorrect types in the ContractRegister.cs" />
     <MESSAGE value="Implimented a Sending contract system, so that users can do .Send on the contract item to send it to the server" />
@@ -573,7 +674,8 @@
     <MESSAGE value="who" />
     <MESSAGE value="ope" />
     <MESSAGE value="updates people, updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates people, updates" />
+    <MESSAGE value="Made some stuff threadsafe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made some stuff threadsafe" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -126,22 +126,22 @@ public class DroneClientCommandBuilder
         public Argument[]? Arguments => null;
         public ICommandManager CommandManager { get; set; }
 
-        private bool _checkIfVitalsOutsideOfOkRange(IVital vital)
+        private bool _checkIfVitalsOutsideOfOkRange(VitalDto vitalDto)
         {
-            if (double.IsNaN(vital.Temperature) || double.IsNaN(vital.BreathingRate) || double.IsNaN(vital.HeartRate))
+            if (double.IsNaN(vitalDto.Temperature) || double.IsNaN(vitalDto.BreathingRate) || double.IsNaN(vitalDto.HeartRate))
                 return true;
 
-            if (vital.Temperature > vital.MaxTemperature || vital.Temperature < vital.MinTemperature)
+            if (vitalDto.Temperature > vitalDto.MaxTemperature || vitalDto.Temperature < vitalDto.MinTemperature)
             {
                 return true;
             }
 
-            if (vital.BreathingRate > vital.MaxBreathingRate || vital.BreathingRate < vital.MinBreathingRate)
+            if (vitalDto.BreathingRate > vitalDto.MaxBreathingRate || vitalDto.BreathingRate < vitalDto.MinBreathingRate)
             {
                 return true;
             }
 
-            if (vital.HeartRate > vital.MaxHeartRate || vital.HeartRate < vital.MinHeartRate)
+            if (vitalDto.HeartRate > vitalDto.MaxHeartRate || vitalDto.HeartRate < vitalDto.MinHeartRate)
             {
                 return true;
             }
@@ -167,16 +167,16 @@ public class DroneClientCommandBuilder
 
             sb.AppendLine($"{tab}Drone Info: ");
             sb.AppendLine($"{tab}{tab}Health Status: " + "todo _client.Vitals.HealthStatus.ToString()");
-            if (_checkIfVitalsOutsideOfOkRange(_client.Vitals))
+            if (_checkIfVitalsOutsideOfOkRange(_client.VitalsDto))
             {
                 sb.AppendLine($"{tab}{tab}{tab}Vitals are outside of OK range");
                 //print out vitals
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Temperature: {_client.Vitals.Temperature} °C  (Min: {_client.Vitals.MinTemperature} °C, Max: {_client.Vitals.MaxTemperature} °C)");
+                    $"{tab}{tab}{tab}{tab}Temperature: {_client.VitalsDto.Temperature} °C  (Min: {_client.VitalsDto.MinTemperature} °C, Max: {_client.VitalsDto.MaxTemperature} °C)");
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Breathing Rate: {_client.Vitals.BreathingRate} bpm  (Min: {_client.Vitals.MinBreathingRate} bpm, Max: {_client.Vitals.MaxBreathingRate} bpm)");
+                    $"{tab}{tab}{tab}{tab}Breathing Rate: {_client.VitalsDto.BreathingRate} bpm  (Min: {_client.VitalsDto.MinBreathingRate} bpm, Max: {_client.VitalsDto.MaxBreathingRate} bpm)");
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Heart Rate: {_client.Vitals.HeartRate} bpm  (Min: {_client.Vitals.MinHeartRate} bpm, Max: {_client.Vitals.MaxHeartRate} bpm)");
+                    $"{tab}{tab}{tab}{tab}Heart Rate: {_client.VitalsDto.HeartRate} bpm  (Min: {_client.VitalsDto.MinHeartRate} bpm, Max: {_client.VitalsDto.MaxHeartRate} bpm)");
             }
 
             if (_client.CurrentLocation != null)

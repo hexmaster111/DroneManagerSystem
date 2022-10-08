@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ConsoleCommandHandler\ConsoleCommandHandler.csproj" />
+      <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
+      <ProjectReference Include="..\ServerBackend\ServerBackend.csproj" />
+      <ProjectReference Include="..\ServerConsole\ServerConsole.csproj" />
+    </ItemGroup>
+
+</Project>

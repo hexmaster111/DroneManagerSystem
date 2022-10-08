@@ -5,18 +5,17 @@ using ServerConsole.ServerCommands;
 
 namespace ServerConsole // Note: actual namespace depends on the project name.
 {
-    internal class Program
+    public static class Program
     {
         public static ConsoleLog.ConsoleLog ConsoleLog { get; } = new();
         private static CommandLineHandler commandLineHandler;
-
         private static RemoteClientManager RemoteClientManager;
         private static ServerBackend.ServerBackend _serverBackend = ServerBackend.ServerBackend.Instance;
-
         private static DroneClientCommandBuilder droneClientCommandBuilder;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+
             Console.Title = "Drone management console";
             ConsoleLog.StartLogWriter();
             commandLineHandler = new CommandLineHandler(ConsoleLog, "ConsoleCommandHandler.Commands.RootNamespace",
@@ -28,8 +27,6 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
             RemoteClientManager = new RemoteClientManager(_serverBackend, ConsoleLog);
             droneClientCommandBuilder = new DroneClientCommandBuilder(RemoteClientManager, commandLineHandler);
-            
-            
         }
     }
 }

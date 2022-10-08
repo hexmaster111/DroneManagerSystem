@@ -52,6 +52,8 @@ public class DroneId
         Id = id;
     }
 
+    public string IdString => this.ToString();
+
     public override string ToString()
     {
         return $"{_prefix}{_separator}{Id}{_separator}{_TypeToString(Type)}";

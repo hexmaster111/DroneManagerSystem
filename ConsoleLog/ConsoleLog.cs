@@ -43,7 +43,7 @@ public class ConsoleLog : IConsoleLog.IConsoleLog
     {
         while (true)
         {
-            Thread.Sleep(50);
+            Thread.Sleep(1);
             if (_logQueue.Count <= 0) continue;
             if (!_logQueue.TryDequeue(out var log)) continue;
             Console.ForegroundColor = _logToColor(log.LogLevel);

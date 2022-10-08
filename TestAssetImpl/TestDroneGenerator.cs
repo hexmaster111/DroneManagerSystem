@@ -10,15 +10,15 @@ namespace TestAssetImpl;
 public static class TestDroneGenerator
 {
 
-    public static IDrone Generate()
+    public static Drone Generate()
     {
         return new DroneImpl();
     }
     
-    private class DroneImpl : IDrone
+    private class DroneImpl : Drone
     {
         public Location CurrentLocation { get; }
-        public IVital Vitals => new VitalImpl();
+        public VitalDto VitalsDto => new VitalDtoImpl();
         public DroneControl Control => new ControlImpl();
         public DroneId Id => new DroneId(DroneType.Experimental, 1234);
     }
@@ -89,7 +89,7 @@ public static class TestDroneGenerator
         }
     }
 
-    private class VitalImpl : IVital
+    private class VitalDtoImpl : VitalDto
     {
         public double Temperature => 98.6;
         public double HeartRate => 60;

@@ -7,7 +7,7 @@ using DroneManager.Interface.RemoteHardware;
 
 namespace ServerBackend;
 
-public class DroneClient : IDrone
+public class DroneClient : Drone
 {
     public DroneClient(RemoteClient.RemoteClient? remoteClient)
     {
@@ -20,7 +20,7 @@ public class DroneClient : IDrone
 
     public void OnConnect()
     {
-        Vitals = new VitalImpl(RemoteClient.ReceivingContract);
+        VitalsDto = new VitalDtoImpl(RemoteClient.ReceivingContract);
         _control = new DroneControlImpl(RemoteClient);
 
         RemoteClient.ReceivingContract.LocationUpdate.Action += LocationUpdate;
@@ -42,7 +42,7 @@ public class DroneClient : IDrone
 
     private void HeartBeat(HeartBeatSuperMessage obj)
     {
-        (Vitals as VitalImpl)?.VitalsUpdate_Action(obj.Vitals);
+        (VitalsDto as VitalDtoImpl)?.VitalsUpdate_Action(obj.Vitals);
         CurrentLocation = obj.Location.Location;
         _control.OnHardwareInfoUpdate(obj.HardwareInfo);
     }
@@ -175,11 +175,11 @@ public class DroneClient : IDrone
 
     #region Vitals Implementation
 
-    public IVital Vitals { get; private set; }
+    public VitalDto VitalsDto { get; private set; }
 
-    private class VitalImpl : IVital
+    private class VitalDtoImpl : VitalDto
     {
-        public VitalImpl(ServerEndpointContract serverEndpointContract)
+        public VitalDtoImpl(ServerEndpointContract serverEndpointContract)
         {
             serverEndpointContract.VitalsUpdate.Action += VitalsUpdate_Action;
             serverEndpointContract.RefreshReceivingContract();
