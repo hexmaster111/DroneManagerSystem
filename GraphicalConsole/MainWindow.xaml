@@ -4,31 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphicalConsole"
+        xmlns:views="clr-namespace:GraphicalConsole.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <!-- <Grid.DataContext> -->
+        <!--     <local:MainWindowView /> -->
+        <!-- </Grid.DataContext> -->
 
-        <Grid.DataContext>
-            <local:MainWindowView />
-        </Grid.DataContext>
-
-        <DockPanel Grid.Row="0">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Connected Drones" ItemsSource="{Binding ConnectedDrones}">
-                    <MenuItem.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Drone.Id }" />
-                        </DataTemplate>
-                    </MenuItem.ItemTemplate>
-                </MenuItem>
-            </Menu>
-        </DockPanel>
+        <ContentControl Name="DroneDashView"/>
 
 
-        <ContentControl Grid.Row="1" Name="CcTest" />
     </Grid>
 </Window>

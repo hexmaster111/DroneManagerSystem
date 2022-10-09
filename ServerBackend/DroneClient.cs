@@ -9,6 +9,11 @@ namespace ServerBackend;
 
 public class DroneClient : Drone
 {
+    public override string ToString()
+    {
+        return "DroneClient " + this.Id;
+    }
+
     public DroneClient(RemoteClient.RemoteClient? remoteClient) : base()
     {
         RemoteClient = remoteClient;
@@ -52,27 +57,26 @@ public class DroneClient : Drone
 
     #region Drone Control Implementation
 
-    public DroneControl Control => _control ?? throw new Exception("Drone is not connected");
+    public IDroneControl Control => _control ?? throw new Exception("Drone is not connected");
     private DroneControlImpl _control;
 
-    private class DroneControlImpl : DroneControl
+    private class DroneControlImpl : Drone , IDroneControl
     {
-        
         public DroneControlImpl(RemoteClient.RemoteClient remoteClient)
         {
             _controllableHardware = new ControllableHardwareImpl(remoteClient);
         }
-        
-        
+
+
         private class ControllableHardwareImpl : DroneControllableHardware
         {
             public ControllableHardwareImpl(RemoteClient.RemoteClient remoteClient)
             {
                 _remoteClient = remoteClient;
             }
-            
+
             private RemoteClient.RemoteClient _remoteClient;
-            
+
             private Dictionary<string, RegisterImpl> _registers = new();
 
 
@@ -82,8 +86,9 @@ public class DroneClient : Drone
                 private DataType _dataType;
 
                 private RemoteClient.RemoteClient _remoteClient;
-                
-                public RegisterImpl(string name, DataType dataType, object valueStorage, RemoteClient.RemoteClient remoteClient)
+
+                public RegisterImpl(string name, DataType dataType, object valueStorage,
+                    RemoteClient.RemoteClient remoteClient)
                 {
                     _name = name;
                     _dataType = dataType;
@@ -141,7 +146,7 @@ public class DroneClient : Drone
             }
         }
 
-        public override DroneControllableHardware? ControllableHardware => _controllableHardware;
+        public DroneControllableHardware? ControllableHardware => _controllableHardware;
 
         private readonly DroneControllableHardware? _controllableHardware;
 
@@ -157,18 +162,12 @@ public class DroneClient : Drone
     }
 
     #endregion
-    
-    #region DroneId Implementation
 
-    /// <summary>
-    ///     The DroneID is a unique identifier for the drone. It is used to identify the drone in the network.
-    ///     This value is set when the drone is registered at the server.
-    /// </summary>
-    public DroneId Id { get; private set; }
+    #region DroneId Implementation
 
     public void SetDroneId(DroneId id)
     {
-        Id = id;
+        base.Id = id;
     }
 
     #endregion
@@ -207,12 +206,9 @@ public class DroneClient : Drone
 
     #region Location Implementation
 
-    public Location CurrentLocation { get; private set; }
-
-
     private void LocationUpdate(LocationMessage obj)
     {
-        CurrentLocation = obj.Location;
+        base.CurrentLocation = obj.Location;
     }
 
     #endregion

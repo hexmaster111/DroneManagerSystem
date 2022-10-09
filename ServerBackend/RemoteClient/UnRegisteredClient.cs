@@ -26,8 +26,8 @@ public class UnRegisteredClient
         //RemoteClient.ClientEndpoint.RefreshReceivingContract();
 
         var drone = new DroneClient(RemoteClient);
-        drone.RemoteClient = RemoteClient;
         drone.SetDroneId(obj.Id);
+        drone.RemoteClient = RemoteClient;
         OnRegister(drone, this);
     }
 

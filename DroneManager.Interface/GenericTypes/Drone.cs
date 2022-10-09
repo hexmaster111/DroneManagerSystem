@@ -6,8 +6,13 @@ namespace DroneManager.Interface.GenericTypes;
 
 public class Drone
 {
-    public Location CurrentLocation { get; }
+    public Location CurrentLocation { get; protected set; }
     public VitalDto Vitals { get; }
     public DroneControl? Control { get; }
-    public DroneId Id { get; init; }
+    public DroneId Id { get; protected set; }
+
+    public override string ToString()
+    {
+        return $"Drone {Id} SuperClass";
+    }
 }

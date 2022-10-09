@@ -1,8 +1,6 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using ConsoleCommandHandler;
-using ConsoleCommandHandler.Commands;
-using Contracts;
 using IConsoleLog;
 using ServerBackend.RemoteClient;
 

@@ -1,16 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using DroneManager.Interface.GenericTypes;
 using GraphicalConsole.Views;
 
 namespace GraphicalConsole;
 
-public class MainWindowView
+public class MainWindowView : DependencyObject
 {
-    public class ConnectedDroneView
-    {
-        public Drone ViewingDrone { get; set; }
-        public DroneView DroneView { get; set; }
-    }
-    
-    public List<ConnectedDroneView> ConnectedDrones { get; set; }
+    public List<DroneView> ConnectedDrones { get; set; } = new List<DroneView>();
 }

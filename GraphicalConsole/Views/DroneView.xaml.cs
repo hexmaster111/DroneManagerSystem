@@ -12,14 +12,14 @@ public partial class DroneView : UserControl
 {
     public Drone Drone
     {
-        set
-        {
-            DroneId = value.Id;
-            Vitals = value.Vitals;
-            Location = value.CurrentLocation;
-            DroneControl = value.Control?.ControllableHardware;
-        }
+        get { return (Drone)GetValue(DroneProperty); }
+
+        set => SetValue(DroneProperty, value);
     }
+
+
+    public static readonly DependencyProperty DroneProperty =
+        DependencyProperty.Register(nameof(Drone), typeof(Drone), typeof(DroneView), new PropertyMetadata(null));
 
     //Dependency Property builder
     public static readonly DependencyProperty DroneIdProperty = DependencyProperty.Register(
@@ -40,13 +40,13 @@ public partial class DroneView : UserControl
         set => SetValue(VitalsProperty, value);
     }
 
-    public static readonly DependencyProperty LocationProperty = DependencyProperty.Register(
-        nameof(Location), typeof(Location), typeof(DroneView), new PropertyMetadata(default(Location)));
+    public static readonly DependencyProperty CurrentLocationProperty = DependencyProperty.Register(
+        nameof(CurrentLocation), typeof(Location), typeof(DroneView), new PropertyMetadata(default(Location)));
 
-    public Location Location
+    public Location CurrentLocation
     {
-        get => (Location)GetValue(LocationProperty);
-        set => SetValue(LocationProperty, value);
+        get => (Location)GetValue(CurrentLocationProperty);
+        set => SetValue(CurrentLocationProperty, value);
     }
 
 
@@ -65,8 +65,18 @@ public partial class DroneView : UserControl
     {
         InitializeComponent();
     }
-    
+
     public DroneView()
     {
+    }
+
+    public DroneView(Drone drone)
+    {
+        Drone = drone;
+        DroneId = drone.Id;
+        Vitals = drone.Vitals;
+        CurrentLocation = drone.CurrentLocation;
+        // DroneControl = drone.Control;
+        Initialize();
     }
 }
