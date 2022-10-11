@@ -7,7 +7,7 @@ namespace DroneManager.Interface.Remote;
 
 public interface IDroneControl
 {
-    public abstract DroneControllableHardware? ControllableHardware { get; }
+    public  DroneControllableHardware? ControllableHardware { get; }
 }
 
 public abstract class DroneControl

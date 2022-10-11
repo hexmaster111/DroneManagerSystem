@@ -2,9 +2,9 @@
 
 public class VitalDto
 {
-    public double Temperature { get; init; }
-    public double HeartRate { get; init; }
-    public double BreathingRate { get; init; }
+    public double Temperature { get; set; } = 0;
+    public double HeartRate { get; set; } = 0;
+    public double BreathingRate { get; set; } = 0;
     
     public double MaxTemperature { get; } = Double.NaN;
     public double MaxHeartRate { get; } = Double.NaN;

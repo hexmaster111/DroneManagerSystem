@@ -26,6 +26,7 @@ public class RegSimulator : DroneControllableHardware
         };
     }
 
+
     public void SetRegisterValue(string register, object value)
     {
         //look for register

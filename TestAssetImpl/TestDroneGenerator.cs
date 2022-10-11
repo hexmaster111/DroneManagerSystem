@@ -60,6 +60,7 @@ public static class TestDroneGenerator
                 };
             }
 
+
             public override DroneRemoteRegister[] Registers
             {
                 get =>

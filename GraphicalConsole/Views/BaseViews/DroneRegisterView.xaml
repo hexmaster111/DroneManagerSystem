@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="GraphicalConsole.BaseUcs.DroneRegisterView"
+﻿<UserControl x:Class="GraphicalConsole.Views.BaseViews.DroneRegisterView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,7 +10,7 @@
         <!-- <Grid.DataContext> -->
         <!--     <remoteHardware:DroneControllableHardware /> -->
         <!-- </Grid.DataContext> -->
-        <ListView ItemsSource="{Binding Path=Registers}">
+        <ListView Name="LvRegisters">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" />

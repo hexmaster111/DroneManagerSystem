@@ -18,19 +18,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8a34f9-642d-46df-9376-34b68f2327b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/SwitchDroneViewCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneView.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DroneManager/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/Drone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/GenericTypes/Drone.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/DroneControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneManager.Interface/Remote/VitalDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneManager.Interface/Remote/VitalDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/GraphicalConsole.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/GraphicalConsole.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphicalConsole/MainWindowView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/MainWindowView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneIdView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneRegisterView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/LocationView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/DroneView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegisterSimulator/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RegisterSimulator/Class1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/DroneClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/RemoteClient/UnRegisteredClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerBackend/ServerBackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConsole/DroneClientCommandBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestAssetImpl/TestDroneGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +117,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.32235703&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.statistic.project.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -423,7 +433,11 @@
       <workItem from="1665104367621" duration="14786000" />
       <workItem from="1665185307290" duration="27510000" />
       <workItem from="1665263098057" duration="8094000" />
-      <workItem from="1665271759361" duration="3576000" />
+      <workItem from="1665271759361" duration="3891000" />
+      <workItem from="1665276462942" duration="3229000" />
+      <workItem from="1665441523459" duration="9856000" />
+      <workItem from="1665454648874" duration="163000" />
+      <workItem from="1665454837130" duration="2457000" />
     </task>
     <task id="LOCAL-00001" summary="Things ~!">
       <created>1664254053255</created>
@@ -649,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665213211462</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Its more working!">
+      <created>1665275489768</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1665275489768</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +691,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Made the SendableEvents Generic" />
     <MESSAGE value="Generial cleanup" />
     <MESSAGE value="We can now register contracts correctly and refresh there endpoint targets, we have a working way to connect to a remote drone" />
     <MESSAGE value="_cleanup song_" />
@@ -695,39 +715,45 @@
     <MESSAGE value="Getting things working" />
     <MESSAGE value="oh it works" />
     <MESSAGE value="it works, not sure why" />
-    <option name="LAST_COMMIT_MESSAGE" value="it works, not sure why" />
+    <MESSAGE value="Its more working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Its more working!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GraphicalConsole/Views/DroneDashView.xaml.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GraphicalConsole\Views\DroneDashView.xaml.cs" initialLine="39" containingFunctionPresentation="property 'SelectedDrone'">
+          <url>file://$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GraphicalConsole\Views\BaseViews\VitalView.xaml.cs" initialLine="17" containingFunctionPresentation="property 'Vital'">
             <startOffsets>
-              <option value="1160" />
+              <option value="390" />
             </startOffsets>
             <endOffsets>
-              <option value="1180" />
+              <option value="440" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GraphicalConsole/Views/DroneView.xaml.cs</url>
+          <url>file://$PROJECT_DIR$/GraphicalConsole/Views/BaseViews/VitalView.xaml.cs</url>
           <line>16</line>
-          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GraphicalConsole\Views\DroneView.xaml.cs" initialLine="16" containingFunctionPresentation="property 'Drone'">
+          <properties documentPath="C:\Users\Hailey\Desktop\LA104\DroneManagerSystem\GraphicalConsole\Views\BaseViews\VitalView.xaml.cs" initialLine="16" containingFunctionPresentation="property 'Vital'">
             <startOffsets>
-              <option value="439" />
+              <option value="370" />
             </startOffsets>
             <endOffsets>
-              <option value="477" />
+              <option value="377" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#DroneManager.Interface.GenericTypes.DroneId" memberName="IdString" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

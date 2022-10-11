@@ -7,9 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <!-- <Grid.DataContext> -->
-        <!--     <local:DroneDashView /> -->
-        <!-- </Grid.DataContext> -->
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -19,10 +17,9 @@
 
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Connected Drones" ItemsSource="{Binding Path=Drones }" Name="MiConnectedDrones">
+                <MenuItem Header="Connected Drones" Name="MiConnectedDrones">
                     <MenuItem.ItemTemplate>
                         <DataTemplate>
-                            <!-- Command="{Binding SwitchDroneViewCommand, RelativeSource={RelativeSource AncestorType={x:Type MenuItem}}}" -->
                             <RadioButton Content="{Binding Id  }"
                                          GroupName="GnConnectedDrones" Checked="OnDroneSet" />
                         </DataTemplate>
@@ -30,10 +27,8 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-
-        <!-- Bind to the MiConnectedDrones  -->
-        <!-- <local:DroneView Grid.Row="1" Name="DvSelectedDrone"/> -->
         
-        <ContentControl Grid.Row="1" Name="CcSelectedDrone"></ContentControl>
+        
+        <ContentControl Grid.Row="1" Name="CcSelectedDrone"/>
     </Grid>
 </UserControl>

@@ -5,6 +5,7 @@
         <TargetFramework>net6.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,6 +13,14 @@
       <ProjectReference Include="..\DroneManager.Interface\DroneManager.Interface.csproj" />
       <ProjectReference Include="..\ServerBackend\ServerBackend.csproj" />
       <ProjectReference Include="..\ServerConsole\ServerConsole.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Views\BaseViews\DroneView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
 </Project>

@@ -167,16 +167,16 @@ public class DroneClientCommandBuilder
 
             sb.AppendLine($"{tab}Drone Info: ");
             sb.AppendLine($"{tab}{tab}Health Status: " + "todo _client.Vitals.HealthStatus.ToString()");
-            if (_checkIfVitalsOutsideOfOkRange(_client.VitalsDto))
+            if (_checkIfVitalsOutsideOfOkRange(_client.Vitals))
             {
                 sb.AppendLine($"{tab}{tab}{tab}Vitals are outside of OK range");
                 //print out vitals
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Temperature: {_client.VitalsDto.Temperature} °C  (Min: {_client.VitalsDto.MinTemperature} °C, Max: {_client.VitalsDto.MaxTemperature} °C)");
+                    $"{tab}{tab}{tab}{tab}Temperature: {_client.Vitals.Temperature} °C  (Min: {_client.Vitals.MinTemperature} °C, Max: {_client.Vitals.MaxTemperature} °C)");
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Breathing Rate: {_client.VitalsDto.BreathingRate} bpm  (Min: {_client.VitalsDto.MinBreathingRate} bpm, Max: {_client.VitalsDto.MaxBreathingRate} bpm)");
+                    $"{tab}{tab}{tab}{tab}Breathing Rate: {_client.Vitals.BreathingRate} bpm  (Min: {_client.Vitals.MinBreathingRate} bpm, Max: {_client.Vitals.MaxBreathingRate} bpm)");
                 sb.AppendLine(
-                    $"{tab}{tab}{tab}{tab}Heart Rate: {_client.VitalsDto.HeartRate} bpm  (Min: {_client.VitalsDto.MinHeartRate} bpm, Max: {_client.VitalsDto.MaxHeartRate} bpm)");
+                    $"{tab}{tab}{tab}{tab}Heart Rate: {_client.Vitals.HeartRate} bpm  (Min: {_client.Vitals.MinHeartRate} bpm, Max: {_client.Vitals.MaxHeartRate} bpm)");
             }
 
             if (_client.CurrentLocation != null)

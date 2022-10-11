@@ -1,17 +1,21 @@
 ﻿using System.Windows.Controls;
 using DroneManager.Interface.RemoteHardware;
 
-namespace GraphicalConsole.BaseUcs;
+namespace GraphicalConsole.Views.BaseViews;
 
 public partial class DroneRegisterView : UserControl
 {
-    public DroneControllableHardware ControllableHardware
+    private DroneRemoteRegister[] _controllableHardware;
+
+    public DroneRemoteRegister[]  ControllableHardware
     {
-        set => this.DataContext = value;
+        get => _controllableHardware;
+        set => LvRegisters.ItemsSource = value;
     }
 
-    public DroneRegisterView()
+    public DroneRegisterView(DroneRemoteRegister[] controllableHardware)
     {
         InitializeComponent();
+        ControllableHardware = controllableHardware;
     }
 }

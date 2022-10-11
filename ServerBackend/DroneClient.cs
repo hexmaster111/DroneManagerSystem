@@ -25,12 +25,13 @@ public class DroneClient : Drone
 
     public void OnConnect()
     {
-        VitalsDto = new VitalDtoImpl(RemoteClient.ReceivingContract);
         _control = new DroneControlImpl(RemoteClient);
 
+        RemoteClient.ReceivingContract.VitalsUpdate.Action += OnVitalsUpdate;
         RemoteClient.ReceivingContract.LocationUpdate.Action += LocationUpdate;
         RemoteClient.ReceivingContract.HardwareInfoUpdate.Action += HardwareInfoUpdate;
         RemoteClient.ReceivingContract.HeartBeat.Action += HeartBeat;
+        
 
 
         //Disconnect handler
@@ -47,20 +48,21 @@ public class DroneClient : Drone
 
     private void HeartBeat(HeartBeatSuperMessage obj)
     {
-        (VitalsDto as VitalDtoImpl)?.VitalsUpdate_Action(obj.Vitals);
+        OnVitalsUpdate(obj.Vitals);
         CurrentLocation = obj.Location.Location;
-        _control.OnHardwareInfoUpdate(obj.HardwareInfo);
+       // _control.OnHardwareInfoUpdate(obj.HardwareInfo);
+       HardwareInfoUpdate(obj.HardwareInfo);
     }
 
 
     #region IDrone Members
 
     #region Drone Control Implementation
-
-    public IDroneControl Control => _control ?? throw new Exception("Drone is not connected");
+    
     private DroneControlImpl _control;
 
-    private class DroneControlImpl : Drone , IDroneControl
+
+    private class DroneControlImpl : IDroneControl
     {
         public DroneControlImpl(RemoteClient.RemoteClient remoteClient)
         {
@@ -137,6 +139,9 @@ public class DroneClient : Drone
                 throw new NotImplementedException();
             }
 
+            // public override event DroneRemoteRegister[] OnHardwareRegisterUpdate;
+
+
             public override DroneRemoteRegister[] Registers
             {
                 get => _registers.Select(register => register.Value)
@@ -159,6 +164,8 @@ public class DroneClient : Drone
     private void HardwareInfoUpdate(HardwareInfoUpdateMessage obj)
     {
         _control?.OnHardwareInfoUpdate(obj);
+        Control = _control;
+        base.OnRemoteRegisterChanged?.Invoke(obj.Data);
     }
 
     #endregion
@@ -168,38 +175,19 @@ public class DroneClient : Drone
     public void SetDroneId(DroneId id)
     {
         base.Id = id;
+        base.OnIdChanged?.Invoke(id);
     }
 
     #endregion
 
     #region Vitals Implementation
 
-    public VitalDto VitalsDto { get; private set; }
-
-    private class VitalDtoImpl : VitalDto
+    public void OnVitalsUpdate(VitalsUpdateMessage vitals)
     {
-        public VitalDtoImpl(ServerEndpointContract serverEndpointContract)
-        {
-            serverEndpointContract.VitalsUpdate.Action += VitalsUpdate_Action;
-            serverEndpointContract.RefreshReceivingContract();
-        }
-
-        public void VitalsUpdate_Action(VitalsUpdateMessage obj)
-        {
-            Temperature = obj.Temperature;
-            HeartRate = obj.HeartRate;
-            BreathingRate = obj.BreathingRate;
-        }
-
-        public double Temperature { get; private set; } = double.NaN;
-        public double HeartRate { get; private set; } = double.NaN;
-        public double BreathingRate { get; private set; } = double.NaN;
-        public double MaxTemperature => 40;
-        public double MaxHeartRate => 200;
-        public double MaxBreathingRate => 40;
-        public double MinTemperature => 20;
-        public double MinHeartRate => 40;
-        public double MinBreathingRate => 10;
+        Vitals.Temperature = vitals.Temperature;
+        Vitals.BreathingRate = vitals.BreathingRate;
+        Vitals.HeartRate = vitals.HeartRate;
+        base.OnVitalChanged?.Invoke(Vitals);
     }
 
     #endregion
@@ -209,6 +197,7 @@ public class DroneClient : Drone
     private void LocationUpdate(LocationMessage obj)
     {
         base.CurrentLocation = obj.Location;
+        base.OnLocationChanged?.Invoke(obj.Location);
     }
 
     #endregion

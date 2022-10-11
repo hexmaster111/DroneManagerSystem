@@ -1,28 +1,27 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using DroneManager.Interface.GenericTypes;
 
-namespace GraphicalConsole.BaseUcs;
+namespace GraphicalConsole.Views.BaseViews;
 
 public partial class DroneIdView : UserControl
 {
-    //DependencyProperty builder
-    public static readonly DependencyProperty DroneIdProperty = DependencyProperty.Register(
-        nameof(DroneId), typeof(DroneId), typeof(DroneIdView), new PropertyMetadata(default(DroneId)));
+
+    private DroneId _droneId = new DroneId(DroneType.Experimental, 0);
 
     public DroneId DroneId
     {
-        get => (DroneId)GetValue(DroneIdProperty);
-        set => SetValue(DroneIdProperty, value);
+        get => _droneId;
+        set
+        {
+            _droneId = value;
+            TbDroneId.Text = _droneId.ToString();
+        }
     }
+    
 
-    public void Initialize()
+    public DroneIdView(DroneId droneId)
     {
         InitializeComponent();
-    }
-
-
-    public DroneIdView()
-    {
+        DroneId = droneId;
     }
 }
