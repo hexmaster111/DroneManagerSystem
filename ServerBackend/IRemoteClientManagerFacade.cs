@@ -1,7 +1,7 @@
-﻿using System;
+﻿using DroneManager.Interface;
 using DroneManager.Interface.GenericTypes;
 
-namespace GraphicalConsole;
+namespace ServerBackend;
 
 public interface IRemoteClientManagerFacade
 {

@@ -38,11 +38,13 @@ public class EventMapper
     private static JObject DeserializeContainedClass(SendableTarget targetReceived)
     {
         var containedString = Encoding.Unicode.GetString(targetReceived.ContainedClass);
+        //TODO: This should be a try catch
         var jObject = JObject.Parse(containedString);
         //Turn the Jobject into the its sendable target
         var target = jObject.ToObject<SendableTarget>();
         //Turn the contained class into a JObject
-        return JObject.Parse(Encoding.Unicode.GetString(target?.ContainedClass ?? throw new InvalidOperationException()));
+        return JObject.Parse(
+            Encoding.Unicode.GetString(target?.ContainedClass ?? throw new InvalidOperationException()));
     }
 
     //DO NOT RENAME FROM MapGenericAction - it is used for reflection
@@ -54,7 +56,7 @@ public class EventMapper
         //Throw if null
         if (action == null)
             throw new Exception("Action is null");
-        
+
         MapAction<T>(name, action);
     }
 
@@ -62,11 +64,11 @@ public class EventMapper
     public void MapAction<T>(string eventName, Action<T> action)
     {
         var handler = new EventHandler<T>(action);
-        
+
         //check if the event is already mapped, if so, remove it from the dictionary and add the new one
         if (handlers.ContainsKey(eventName))
             handlers.Remove(eventName);
-        
+
         handlers.Add(eventName, handler);
     }
 

@@ -15,7 +15,6 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
 
         public static void Main(string[] args)
         {
-
             Console.Title = "Drone management console";
             ConsoleLog.StartLogWriter();
             commandLineHandler = new CommandLineHandler(ConsoleLog, "ConsoleCommandHandler.Commands.RootNamespace",
@@ -23,8 +22,8 @@ namespace ServerConsole // Note: actual namespace depends on the project name.
             commandLineHandler.StartReadThread();
             ConsoleLog.WriteLog(message: "Starting server...");
             ServerBackend.ServerBackend.ConsoleLog = ConsoleLog;
-            // _serverBackend.Start("192.168.1.19", 5000, commandLineHandler);
-            _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
+            _serverBackend.Start("192.168.1.19", 5000, commandLineHandler);
+            // _serverBackend.Start("127.0.0.1", 5000, commandLineHandler);
             RemoteClientManager = new RemoteClientManager(_serverBackend, ConsoleLog);
             droneClientCommandBuilder = new DroneClientCommandBuilder(RemoteClientManager, commandLineHandler);
         }

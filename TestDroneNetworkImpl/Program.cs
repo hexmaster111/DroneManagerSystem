@@ -118,7 +118,7 @@ namespace TestDroneNetworkImpl // Note: actual namespace depends on the project 
         private static void Connect()
         {
             var client = new TcpClient();
-            client.Connect(ServerIp, 5000);
+            client.Connect("192.168.1.19", 5000);
             var stream = client.GetStream();
             reader = new GenericReader(stream);
             writer = new GenericWriter(stream);

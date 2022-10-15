@@ -47,9 +47,6 @@ public static class ReceivingContractRegister
 
             if (actionProperty == null)
             {
-                log.WriteLog($"{contractItemMemberName} does not have an Action property", LogLevel.Error);
-                continue;
-                //Left in code for debugging
                 throw new Exception(
                     $"{contractItemMemberName} does not have a property named Action, which is required for ContractItem<T>");
             }
@@ -58,14 +55,8 @@ public static class ReceivingContractRegister
             var action = actionProperty.GetValue(contractItem.GetValue(contract));
 
             if (action == null)
-            {
-                log.WriteLog(
-                    $"{contractItemMemberName} was not registered to, Add your method to the contract before registering",
-                    LogLevel.Warning);
                 continue;
-                throw new Exception(
-                    $"{contractItemMemberName} was not registered to, Add your method to the contract before registering");
-            }
+
 
             //Get the Action<T> type
             var actionType = actionProperty.PropertyType;

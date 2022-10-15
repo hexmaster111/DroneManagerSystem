@@ -2,6 +2,7 @@
 using System.Windows;
 using DroneManager.Interface.GenericTypes;
 using GraphicalConsole.Views;
+using GraphicalConsole.Views.BaseViews;
 
 namespace GraphicalConsole;
 

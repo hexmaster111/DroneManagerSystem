@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Controls;
+using DroneManager.Interface;
 using DroneManager.Interface.GenericTypes;
 using DroneManager.Interface.GenericTypes.BaseTypes;
 using DroneManager.Interface.Remote;
 using DroneManager.Interface.RemoteHardware;
-using GraphicalConsole.Views.BaseViews;
 
-namespace GraphicalConsole.Views;
+namespace GraphicalConsole.Views.BaseViews;
 
 public partial class DroneView : UserControl, IDisposable
 {

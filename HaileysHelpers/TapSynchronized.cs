@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿namespace HaileysHelpers;
+
+/// <summary>
 /// Wrap a value in a thread-synchronized context
 /// </summary>
 /// <typeparam name="T">The type of the value you wish to synchronize</typeparam>

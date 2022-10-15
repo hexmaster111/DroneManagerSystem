@@ -1,4 +1,4 @@
-﻿namespace ServerBackend;
+﻿namespace ServerBackend.Abstraction;
 
 public interface IRemoteClientManager
 {

@@ -5,7 +5,9 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using DroneManager.Interface;
 using DroneManager.Interface.GenericTypes;
+using GraphicalConsole.Views.BaseViews;
 
 namespace GraphicalConsole.Views;
 
@@ -28,14 +30,13 @@ public partial class DroneDashView : UserControl
 
     private void OnDroneSet(object sender, RoutedEventArgs e)
     {
-        //Get the cached version of the drone
 
         var droneToChangeTo = (Drone)((RadioButton)sender).DataContext;
 
+        //Get the cached version of the drone
         if (ServerBackendAbstraction.RemoteClientManagerFacade.GetDrone(droneToChangeTo.Id, out var cashedDrone))
         {
             CcSelectedDrone.Content = new DroneView(cashedDrone);
-            // CcSelectedDrone.Content = new DroneView((Drone)((RadioButton)sender).DataContext);
         }
     }
 }
