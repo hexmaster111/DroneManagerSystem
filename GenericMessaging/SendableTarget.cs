@@ -10,14 +10,14 @@ public class SendableTarget : SenableDtoBase
     public SendableTarget(SenableDtoBase sendable, string target)
     {
         TargetInfo = target;
-        ContainedClass = Encoding.Unicode.GetBytes(sendable.ToJson().ToString());
+        ContainedClass = Encoding.UTF8.GetBytes(sendable.ToJson().ToString());
     }
     
     
     public SendableTarget(string target, JObject jObj)
     {
         TargetInfo = target;
-        ContainedClass = Encoding.Unicode.GetBytes(jObj.ToString(Formatting.None));
+        ContainedClass = Encoding.UTF8.GetBytes(jObj.ToString(Formatting.None));
     }
     
     [JsonConstructor]

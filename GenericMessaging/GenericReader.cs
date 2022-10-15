@@ -21,7 +21,7 @@ public class GenericReader
     {
         var buffer = new byte[100_000];
         var read = _stream.Read(buffer, 0, buffer.Length);
-        var data = Encoding.ASCII.GetString(buffer, 0, read);
+        var data = Encoding.UTF8.GetString(buffer, 0, read);
         var message = JObject.Parse(data);
         var target = message.ToObject<SendableTarget>();
         if (target?.TargetInfo == null) throw new("Target Null Exception");

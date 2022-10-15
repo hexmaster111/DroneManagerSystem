@@ -12,19 +12,14 @@ public class HandShakeMessage : SenableDtoBase
         Id = id;
         TimeStamp = DateTime.Now;
     }
-
-
+    
     [JsonConstructor]
     HandShakeMessage(DroneId id, DateTime time)
     {
         Id = id;
         TimeStamp = time;
     }
-
-
+    
     public DroneId Id { get; set; }
     public DateTime TimeStamp { get; set; }
-
-
-
 };

@@ -37,14 +37,16 @@ public class EventMapper
 
     private static JObject DeserializeContainedClass(SendableTarget targetReceived)
     {
-        var containedString = Encoding.Unicode.GetString(targetReceived.ContainedClass);
+        var containedString = Encoding.UTF8.GetString(targetReceived.ContainedClass);
         //TODO: This should be a try catch
+        return JObject.Parse(containedString);
+
         var jObject = JObject.Parse(containedString);
         //Turn the Jobject into the its sendable target
         var target = jObject.ToObject<SendableTarget>();
         //Turn the contained class into a JObject
         return JObject.Parse(
-            Encoding.Unicode.GetString(target?.ContainedClass ?? throw new InvalidOperationException()));
+            Encoding.UTF8.GetString(target?.ContainedClass ?? throw new InvalidOperationException()));
     }
 
     //DO NOT RENAME FROM MapGenericAction - it is used for reflection
@@ -102,7 +104,16 @@ public class EventMapper
 
         public void HandleEvent(SendableTarget obj)
         {
-            SendEvent(DeserializeContainedClass(obj));
+            try
+            {
+                var jObject = DeserializeContainedClass(obj);
+                SendEvent(jObject);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("EVENT MAPPER DESERIALIZATION EXCEPTION" + e);
+                throw;
+            }
         }
     }
 

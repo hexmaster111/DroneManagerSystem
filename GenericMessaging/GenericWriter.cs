@@ -17,11 +17,11 @@ public class GenericWriter
 
     public void SendData(SendableTarget data)
     {
-        var target = new SendableTarget(data.TargetInfo, data.ToJson());
+        var target = new SendableTarget(data.TargetInfo, data.ContainedClass);
 
         var send = target.ToJson();
 
-        var buffer = Encoding.ASCII.GetBytes(send.ToString(Formatting.None));
+        var buffer = Encoding.UTF8.GetBytes(send.ToString(Formatting.None));
 
         try
         {
